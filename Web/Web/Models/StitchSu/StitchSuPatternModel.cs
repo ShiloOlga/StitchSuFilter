@@ -2,6 +2,7 @@
 using AngleSharp.Dom.Html;
 using System;
 using System.Text;
+using Web.Models.StitchSu;
 
 namespace ConsoleApp1
 {
@@ -10,7 +11,7 @@ namespace ConsoleApp1
     {
         public static StitchSuPatternModel Default = new StitchSuPatternModel();
 
-        public string PatternId { get; private set; }
+        public PatternId PatternId { get; private set; }
         public PatternAuthor Author { get; private set; }
         public PatternImage Image { get; private set; }
         public PatternInfo Info { get; private set; }
@@ -22,9 +23,9 @@ namespace ConsoleApp1
         public static StitchSuPatternModel Parse(IElement root, Uri uri)
         {
             var model = new StitchSuPatternModel();
-            string id = GetId(root);
+            var id = GetId(root, uri);
             PatternImage image = GetImageInfo(root, uri);
-            PatternAuthor author = GetAuthorInfo(root, id);
+            PatternAuthor author = GetAuthorInfo(root, id.Id);
             PatternInfo patternInfo = GetPatternDescriptionInfo(root);
             PatternPrice patternPrice = GetPriceInfo(root);
             PatternDistributionStatus status = GetStatus(root, patternPrice);
@@ -38,12 +39,19 @@ namespace ConsoleApp1
             return model;
         }
 
-        private static string GetId(IElement root)
+        private static PatternId GetId(IElement root, Uri uri)
         {
             // Id
-            return !string.IsNullOrEmpty(root.Id)
+            var id = new PatternId();
+            id.Id = !string.IsNullOrEmpty(root.Id)
                 ? root.Id.Replace("set_", string.Empty)
                 : string.Empty;
+            var linkContainer = root.QuerySelector("a.set__link");
+            if (linkContainer != null)
+            {
+                id.PatternLink = HtmlProcessingUtility.BuildAbsoluteUri(uri, linkContainer.GetAttribute("href"));
+            }
+            return id;
         }
 
         private static PatternImage GetImageInfo(IElement root, Uri uri)
