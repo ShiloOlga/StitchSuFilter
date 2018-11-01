@@ -1,4 +1,4 @@
-﻿namespace Web.Models.StitchSu
+﻿namespace Web.Models.CrossStitch
 {
     public class PatternId
     {

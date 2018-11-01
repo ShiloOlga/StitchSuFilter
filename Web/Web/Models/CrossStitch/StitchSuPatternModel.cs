@@ -2,9 +2,9 @@
 using AngleSharp.Dom.Html;
 using System;
 using System.Text;
-using Web.Models.StitchSu;
+using Web.Utils;
 
-namespace ConsoleApp1
+namespace Web.Models.CrossStitch
 {
 
     public class StitchSuPatternModel
@@ -37,6 +37,41 @@ namespace ConsoleApp1
             model.PriceInfo = patternPrice;
             model.Status = status;
             return model;
+        }
+
+        public string GetColor()
+        {
+            switch (Status)
+            {
+                case PatternDistributionStatus.AvailableToBuy:
+                    return "#FAFFE3";
+                case PatternDistributionStatus.OnSale:
+                    return "#FFDEC3";
+                case PatternDistributionStatus.FreeToDownload:
+                    return "#F1E6FF";
+                case PatternDistributionStatus.AuthorRequestOnly:
+                    return "#C3EEF2";
+                case PatternDistributionStatus.Undefined:
+                default:
+                    return "#FFFFFF";
+            }
+        }
+
+        public string Comment()
+        {
+
+            switch (Status)
+            {
+                case PatternDistributionStatus.OnSale:
+                    return PriceInfo.DiscountPercent;
+                case PatternDistributionStatus.FreeToDownload:
+                    return "Free";
+                case PatternDistributionStatus.AuthorRequestOnly:
+                case PatternDistributionStatus.AvailableToBuy:
+                case PatternDistributionStatus.Undefined:
+                default:
+                    return "    ";
+            }
         }
 
         private static PatternId GetId(IElement root, Uri uri)

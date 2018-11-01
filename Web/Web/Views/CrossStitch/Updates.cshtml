@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ConsoleApp1.StitchSuPatternModel>
+﻿@model IEnumerable<Web.Models.CrossStitch.StitchSuPatternModel>
 @{
     ViewData["Title"] = "Updates";
 }
@@ -15,12 +15,11 @@
         <th>Title</th>
         <th>Description</th>
         <th>Price</th>
-        <th>HasDiscount</th>
         <th>Status</th>
     </tr>
     @foreach (var d in Model)
     {
-        <tr>
+        <tr style="background-color:@d.GetColor()">
             <td>
                 <a href="@d.Image.FullImageUrl">
                     <img alt="@d.Image.Description" src="@d.Image.PreviewImageUrl" />
@@ -30,8 +29,7 @@
             <td><a href="@d.PatternId.PatternLink" target="_blank">@FormatTitle(d.PatternId.ToString(), d.Info.Title)</a></td>
             <td>@d.Info.Description</td>
             <td>@Html.Raw(d.PriceInfo.AsHtmlString())</td>
-            <td>@d.PriceInfo.DiscountPercent</td>
-            <td>@d.Status</td>
+            <td>@d.Comment()</td>
         </tr>
     }
 </table>

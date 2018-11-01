@@ -1,5 +1,4 @@
 ﻿using AngleSharp.Parser.Html;
-using ConsoleApp1;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -7,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Web.Models.CrossStitch;
 
 namespace Web.Controllers
 {

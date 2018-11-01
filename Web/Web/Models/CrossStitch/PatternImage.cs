@@ -1,4 +1,4 @@
-﻿namespace ConsoleApp1
+﻿namespace Web.Models.CrossStitch
 {
     public class PatternImage
     {
