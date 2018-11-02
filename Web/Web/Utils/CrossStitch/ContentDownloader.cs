@@ -7,7 +7,7 @@ namespace Web.Utils.CrossStitch
 {
     public abstract class ContentDownloader
     {
-        public async Task<string> Download(Uri uri)
+        protected async Task<string> Download(Uri uri)
         {
             using (var client = new HttpClient())
             {

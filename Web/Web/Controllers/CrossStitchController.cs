@@ -1,12 +1,7 @@
-﻿using AngleSharp.Parser.Html;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
-using Web.Models.CrossStitch;
+using Web.Utils.CrossStitch;
 
 namespace Web.Controllers
 {
@@ -19,22 +14,15 @@ namespace Web.Controllers
 
         public async Task<IActionResult> Updates()
         {
-            var uri = new Uri("https://www.stitch.su/patterns?favch=4&page=3&lim=50");
-            var models = new List<StitchSuPatternModel>();
-            using (var client = new HttpClient())
+            var updatesDownloader = new UpdatesDownloader();
+            var models = (await updatesDownloader.Parse()).ToArray();
+            if (models.Length > 0)
             {
-                var response = await client.GetAsync(uri.AbsoluteUri);
-                if (response != null && response.StatusCode == HttpStatusCode.OK)
+                if (HttpContext.Request.Cookies.ContainsKey("PatternId"))
                 {
-                    var content = await response.Content.ReadAsStringAsync();
-                    var domParser = new HtmlParser();
-                    using (var document = await domParser.ParseAsync(content))
-                    {
 
-                        var divNodes = document.All.Where(item => item.LocalName == "div").Where(item => item.ClassName != null && item.ClassName == "set");
-                        models.AddRange(divNodes.Select(item => StitchSuPatternModel.Parse(item, uri)));
-                    }
                 }
+                HttpContext.Response.Cookies.Append("PatternId", models.OrderByDescending(m => m.PatternId.Id).First().PatternId.ToString());
             }
             return View(models);
         }
