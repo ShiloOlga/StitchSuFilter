@@ -28,7 +28,7 @@ namespace Web.Controllers
             return View(models);
         }
 
-        public string Personal()
+        public string Wishlist()
         {
             return "Personal";
         }
