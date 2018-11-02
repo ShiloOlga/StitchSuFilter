@@ -15,7 +15,8 @@ namespace Web.Controllers
         public async Task<IActionResult> Updates()
         {
             var updatesDownloader = new UpdatesDownloader();
-            var models = (await updatesDownloader.Parse()).ToArray();
+            var pageContent = await updatesDownloader.Parse();
+            var models = pageContent.Patterns.ToArray();
             if (models.Length > 0)
             {
                 if (HttpContext.Request.Cookies.ContainsKey("PatternId"))
