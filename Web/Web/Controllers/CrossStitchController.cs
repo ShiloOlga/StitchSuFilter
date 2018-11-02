@@ -7,6 +7,8 @@ namespace Web.Controllers
 {
     public class CrossStitchController : Controller
     {
+        private const string CookieKey = "PatternId";
+
         public IActionResult Index()
         {
             return View();
@@ -14,16 +16,14 @@ namespace Web.Controllers
 
         public async Task<IActionResult> Updates()
         {
+            HttpContext.Request.Cookies.TryGetValue(CookieKey, out var lastSavedId);
             var updatesDownloader = new UpdatesDownloader();
-            var pageContent = await updatesDownloader.Parse();
+            var pageContent = await updatesDownloader.Parse(lastSavedId);
             var models = pageContent.Patterns.ToArray();
             if (models.Length > 0)
             {
-                if (HttpContext.Request.Cookies.ContainsKey("PatternId"))
-                {
 
-                }
-                HttpContext.Response.Cookies.Append("PatternId", models.OrderByDescending(m => m.PatternId.Id).First().PatternId.ToString());
+                //HttpContext.Response.Cookies.Append(CookieKey, models.OrderByDescending(m => m.PatternId.Id).First().PatternId.ToString());
             }
             return View(models);
         }

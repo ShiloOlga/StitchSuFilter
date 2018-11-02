@@ -10,21 +10,45 @@ namespace Web.Utils.CrossStitch
     public class UpdatesDownloader : ContentDownloader
     {
         private const int ItemsPerPage = 50;
+        private HtmlParser _domParser;
 
-        public async Task<CrossStitchPageContent> Parse()
+        public UpdatesDownloader()
         {
-            var uri = new Uri($"https://www.stitch.su/patterns?favch=4&page=3&lim={ItemsPerPage}");
-            var content = await Download(uri);
-            var domParser = new HtmlParser();
-            using (var document = await domParser.ParseAsync(content))
+            _domParser = new HtmlParser();
+        }
+
+        public async Task<CrossStitchPageContent> Parse(string lastSavedId)
+        {
+            var hasSavedId = int.TryParse(lastSavedId, out var lastId);
+            var models = new List<StitchSuPatternModel>();
+            var currentPageNum = 1;
+            var hasMorePages = hasSavedId;
+            do
             {
-                var models = ParsePatterns(uri, document).ToList();
-                var pageContent = new CrossStitchPageContent()
+                var uri = new Uri($"https://www.stitch.su/patterns?favch=4&lim={ItemsPerPage}&page={currentPageNum}");
+                var pageModels = await DownloadPatters(uri);
+                if (hasSavedId)
                 {
-                    Patterns = models,
-                    PageCount = ParsePageNavigator(document).TotalCount
-                };
-                return pageContent;
+                    var minIdOnPage = pageModels.Min(m => m.PatternId.Id);
+                    hasMorePages = minIdOnPage > lastId;
+                    currentPageNum++;
+                }
+                models.AddRange(pageModels);
+            }
+            while (hasMorePages);
+            var pageContent = new CrossStitchPageContent()
+            {
+                Patterns = models
+            };
+            return pageContent;
+        }
+
+        private async Task<IEnumerable<StitchSuPatternModel>> DownloadPatters(Uri uri)
+        {
+            var content = await Download(uri);
+            using (var document = await _domParser.ParseAsync(content))
+            {
+                return ParsePatterns(uri, document).ToList();
             }
         }
 
