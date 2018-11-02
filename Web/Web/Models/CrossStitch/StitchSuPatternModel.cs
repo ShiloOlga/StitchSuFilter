@@ -25,7 +25,7 @@ namespace Web.Models.CrossStitch
             var model = new StitchSuPatternModel();
             var id = GetId(root, uri);
             PatternImage image = GetImageInfo(root, uri);
-            PatternAuthor author = GetAuthorInfo(root, id.Id);
+            PatternAuthor author = GetAuthorInfo(root, id.ToString());
             PatternInfo patternInfo = GetPatternDescriptionInfo(root);
             PatternPrice patternPrice = GetPriceInfo(root);
             PatternDistributionStatus status = GetStatus(root, patternPrice);
@@ -78,9 +78,10 @@ namespace Web.Models.CrossStitch
         {
             // Id
             var id = new PatternId();
-            id.Id = !string.IsNullOrEmpty(root.Id)
-                ? root.Id.Replace("set_", string.Empty)
-                : string.Empty;
+            if (!string.IsNullOrEmpty(root.Id))
+            {
+                id.Id = int.Parse(root.Id.Replace("set_", string.Empty));
+            }
             var linkContainer = root.QuerySelector("a.set__link");
             if (linkContainer != null)
             {

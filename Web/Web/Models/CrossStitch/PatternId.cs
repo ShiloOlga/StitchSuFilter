@@ -2,12 +2,12 @@
 {
     public class PatternId
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string PatternLink { get; set; }
 
         public override string ToString()
         {
-            return Id;
+            return Id.ToString();
         }
     }
 }
