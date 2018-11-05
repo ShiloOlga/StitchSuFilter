@@ -28,9 +28,9 @@ namespace Web.Controllers
             return View(models);
         }
 
-        public string Wishlist()
+        public async Task<IActionResult> Wishlist()
         {
-            return "Personal";
+            return View();
         }
     }
 }
