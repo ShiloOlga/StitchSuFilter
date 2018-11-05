@@ -30,7 +30,10 @@ namespace Web.Controllers
 
         public async Task<IActionResult> Wishlist()
         {
-            return View();
+            var wishlistDownloader = new WishlistDownloader();
+            var pageContent = await wishlistDownloader.Parse();
+            var models = pageContent.Patterns.ToArray();
+            return View(models);
         }
     }
 }
