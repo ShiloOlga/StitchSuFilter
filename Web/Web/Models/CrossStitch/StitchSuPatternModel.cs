@@ -1,6 +1,7 @@
 ﻿using AngleSharp.Dom;
 using AngleSharp.Dom.Html;
 using System;
+using System.Linq;
 using System.Text;
 using Web.Utils;
 
@@ -80,7 +81,8 @@ namespace Web.Models.CrossStitch
             var id = new PatternId();
             if (!string.IsNullOrEmpty(root.Id))
             {
-                id.Id = int.Parse(root.Id.Replace("set_", string.Empty));
+                var endingNumber = string.Concat(root.Id.ToCharArray().Reverse().TakeWhile(char.IsNumber).Reverse());
+                id.Id = int.Parse(endingNumber);
             }
             var linkContainer = root.QuerySelector("a.set__link");
             if (linkContainer != null)
