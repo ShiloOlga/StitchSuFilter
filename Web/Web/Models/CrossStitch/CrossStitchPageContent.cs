@@ -7,7 +7,7 @@ namespace Web.Models.CrossStitch
 {
     public class CrossStitchPageContent
     {
-        public IEnumerable<StitchSuPatternModel> Patterns { get; set; }
+        public IEnumerable<CrossStitchPatternModel> Patterns { get; set; }
         public int PageCount { get; set; }
     }
 }

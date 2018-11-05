@@ -7,9 +7,9 @@ using Web.Utils;
 namespace Web.Models.CrossStitch
 {
 
-    public class StitchSuPatternModel
+    public class CrossStitchPatternModel
     {
-        public static StitchSuPatternModel Default = new StitchSuPatternModel();
+        public static CrossStitchPatternModel Default = new CrossStitchPatternModel();
 
         public PatternId PatternId { get; private set; }
         public PatternAuthor Author { get; private set; }
@@ -18,11 +18,11 @@ namespace Web.Models.CrossStitch
         public PatternPrice PriceInfo { get; private set; }
         public PatternDistributionStatus Status { get; private set; }
 
-        private StitchSuPatternModel() { }
+        private CrossStitchPatternModel() { }
 
-        public static StitchSuPatternModel Parse(IElement root, Uri uri)
+        public static CrossStitchPatternModel Parse(IElement root, Uri uri)
         {
-            var model = new StitchSuPatternModel();
+            var model = new CrossStitchPatternModel();
             var id = GetId(root, uri);
             PatternImage image = GetImageInfo(root, uri);
             PatternAuthor author = GetAuthorInfo(root, id.ToString());

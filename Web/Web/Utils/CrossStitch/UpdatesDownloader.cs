@@ -20,7 +20,7 @@ namespace Web.Utils.CrossStitch
         public async Task<CrossStitchPageContent> Parse(string lastSavedId)
         {
             var hasSavedId = int.TryParse(lastSavedId, out var lastId);
-            var models = new List<StitchSuPatternModel>();
+            var models = new List<CrossStitchPatternModel>();
             var currentPageNum = 1;
             var hasMorePages = hasSavedId;
             do
@@ -43,7 +43,7 @@ namespace Web.Utils.CrossStitch
             return pageContent;
         }
 
-        private async Task<IEnumerable<StitchSuPatternModel>> DownloadPatters(Uri uri)
+        private async Task<IEnumerable<CrossStitchPatternModel>> DownloadPatters(Uri uri)
         {
             var content = await Download(uri);
             using (var document = await _domParser.ParseAsync(content))
@@ -52,10 +52,10 @@ namespace Web.Utils.CrossStitch
             }
         }
 
-        private static IEnumerable<StitchSuPatternModel> ParsePatterns(Uri uri, AngleSharp.Dom.Html.IHtmlDocument document)
+        private static IEnumerable<CrossStitchPatternModel> ParsePatterns(Uri uri, AngleSharp.Dom.Html.IHtmlDocument document)
         {
             var divNodes = document.All.Where(item => item.LocalName == "div").Where(item => item.ClassName != null && item.ClassName == "set");
-            return divNodes.Select(item => StitchSuPatternModel.Parse(item, uri));
+            return divNodes.Select(item => CrossStitchPatternModel.Parse(item, uri));
         }
 
         private static PagesInfo ParsePageNavigator(AngleSharp.Dom.Html.IHtmlDocument document)
