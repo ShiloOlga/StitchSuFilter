@@ -23,16 +23,13 @@ namespace Web.Controllers
 
         public async Task<IActionResult> Updates()
         {
-            //HttpContext.Request.Cookies.TryGetValue(CookieKey, out var lastSavedId);
-            //var updatesDownloader = new UpdatesDownloader();
-            //var pageContent = await updatesDownloader.Parse(lastSavedId);
-            //var models = pageContent.Patterns.ToArray();
+            HttpContext.Request.Cookies.TryGetValue(CookieKey, out var lastSavedId);
             //if (models.Length > 0)
             //{
 
             //    //HttpContext.Response.Cookies.Append(CookieKey, models.OrderByDescending(m => m.PatternId.Id).First().PatternId.ToString());
             //}
-            var models = await _crossStitchRepository.GetUpdates();
+            var models = await _crossStitchRepository.GetUpdates(lastSavedId);
             return View(models);
         }
 

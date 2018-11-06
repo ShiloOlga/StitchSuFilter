@@ -9,7 +9,7 @@ namespace Web.Data
     public interface ICrossStitchRepository
     {
         Task<IEnumerable<CrossStitchPatternModel>> GetWishlist();
-        Task<IEnumerable<CrossStitchPatternModel>> GetUpdates();
+        Task<IEnumerable<CrossStitchPatternModel>> GetUpdates(string lastSavedId);
     }
 
     public class CrossStitchRepository : ICrossStitchRepository
@@ -17,7 +17,7 @@ namespace Web.Data
         private Task<CrossStitchPageContent> _wishListTask;
         private Task<CrossStitchPageContent> _lastUpdatesTask;
         private IEnumerable<CrossStitchPatternModel> _wishlistItems;
-        private IEnumerable<CrossStitchPatternModel> _updateItems;
+        private List<CrossStitchPatternModel> _updateItems;
 
         public CrossStitchRepository()
         {
@@ -38,7 +38,7 @@ namespace Web.Data
             var updatesDownloader = new UpdatesDownloader();
             _lastUpdatesTask = updatesDownloader.Parse(null);
             await _lastUpdatesTask;
-            _updateItems = _lastUpdatesTask.Result.Patterns.ToArray();
+            _updateItems = _lastUpdatesTask.Result.Patterns.ToList();
         }
 
         public async Task<IEnumerable<CrossStitchPatternModel>> GetWishlist()
@@ -47,9 +47,17 @@ namespace Web.Data
             return _wishlistItems;
         }
 
-        public async Task<IEnumerable<CrossStitchPatternModel>> GetUpdates()
+        public async Task<IEnumerable<CrossStitchPatternModel>> GetUpdates(string lastSavedId)
         {
             await _lastUpdatesTask;
+            var hasSavedId = int.TryParse(lastSavedId, out var lastId);
+            var pageId = 1;
+            while (hasSavedId && !_updateItems.Any(i => i.PatternId.Id == lastId))
+            {
+                var updatesDownloader = new UpdatesDownloader();
+                var pageContent = await updatesDownloader.Parse(++pageId);
+                _updateItems.AddRange(pageContent.Patterns);
+            }
             return _updateItems;
         }
     }
