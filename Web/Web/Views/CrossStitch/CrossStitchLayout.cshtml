@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Web.Models.CrossStitch.CrossStitchPatternModel>
+﻿@model Web.Models.CrossStitch.CrossStitchViewModel
 @{
     Func<string, string, string> FormatTitle = (id, title) => $"{id} - {title}";
 }
@@ -7,17 +7,17 @@
 <br />
 <br />
 
-@using (Html.BeginForm("Wishlist", "CrossStitch", FormMethod.Post))
+@using (Html.BeginForm(Model.MethodName, "CrossStitch", FormMethod.Post))
 {
     <p>
         <table>
             <tr>
                 <td>
                     <!--<input type="text" name="Author" />-->
-                    @Html.DropDownList("Author", ViewBag.Authors as SelectList)
+                    @Html.DropDownList("Author", Model.Authors as SelectList)
                 </td>
                 <td style="">
-                    @Html.DropDownList("Status", ViewBag.Statuses as SelectList)
+                    @Html.DropDownList("Status", Model.Statuses as SelectList)
                 </td>
             </tr>
         </table>
@@ -35,7 +35,7 @@
         <th>Price</th>
         <th>Status</th>
     </tr>
-    @foreach (var d in Model)
+    @foreach (var d in Model.Items)
     {
         <tr style="background-color:@d.GetColor()">
             <td>

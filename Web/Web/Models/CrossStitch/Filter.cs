@@ -7,8 +7,9 @@ namespace Web.Models.CrossStitch
 {
     public class Filter
     {
+        public const string All = "All";
         public string Author { get; set; }
-        public PatternDistributionStatus Status { get; set; }
+        public string Status { get; set; }
 
         public bool IsEmpty
         {

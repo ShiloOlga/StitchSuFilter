@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Web.Data;
 using Web.Models.CrossStitch;
-using Web.Utils.CrossStitch;
 
 namespace Web.Controllers
 {
@@ -24,7 +24,7 @@ namespace Web.Controllers
             return View();
         }
 
-        public async Task<IActionResult> Updates()
+        public async Task<IActionResult> Updates([FromForm] Filter filter = null)
         {
             HttpContext.Request.Cookies.TryGetValue(CookieKey, out var lastSavedId);
             //if (models.Length > 0)
@@ -32,20 +32,45 @@ namespace Web.Controllers
 
             //    //HttpContext.Response.Cookies.Append(CookieKey, models.OrderByDescending(m => m.PatternId.Id).First().PatternId.ToString());
             //}
-            var models = await _crossStitchRepository.GetUpdates(lastSavedId);
-            return View(models);
+            var items = await _crossStitchRepository.GetUpdates(lastSavedId);
+            var model = BuildViewModel(items, "Updates",  filter);
+            return View(model);
         }
 
         public async Task<IActionResult> Wishlist([FromForm] Filter filter = null)
         {
-            var models = await _crossStitchRepository.GetWishlist();
-            ViewBag.Authors = new SelectList(models.Select(m => m.Author.Name).Distinct().OrderBy(m => m));
-            ViewBag.Statuses = new SelectList(models.Select(m => m.Status).Distinct());
+            var items = await _crossStitchRepository.GetWishlist();
+            var model = BuildViewModel(items, "Wishlist", filter);
+            return View(model);
+        }
+
+        private CrossStitchViewModel BuildViewModel(IEnumerable<CrossStitchPatternModel> sourceItems, string methodName, Filter filter = null)
+        {
+            var items = sourceItems;
+            var authors = items.Select(m => m.Author.Name).Distinct().OrderBy(m => m).ToList();
+            authors.Insert(0, Filter.All);
+            var statuses = items.Select(m => m.Status.ToString()).Distinct().ToList();
+            statuses.Insert(0, Filter.All);
+            var model = new CrossStitchViewModel
+            {
+                Authors = new SelectList(authors),
+                Statuses = new SelectList(statuses),
+                MethodName = methodName
+            };
             if (filter != null && !filter.IsEmpty)
             {
-                models = models.Where(i => i.Author.Name == filter.Author && i.Status == filter.Status);
+                if (filter.Author != Filter.All)
+                {
+                    items = items.Where(i => i.Author.Name == filter.Author);
+                }
+                if (Enum.TryParse(typeof(PatternDistributionStatus), filter.Status, out var statusObject))
+                {
+                    var status = (PatternDistributionStatus)statusObject;
+                    items = items.Where(i => i.Status == status);
+                }
             }
-            return View(models);
+            model.Items = items.ToArray();
+            return model;
         }
     }
 }
