@@ -4,7 +4,28 @@
 }
 
 <h2>Updates</h2>
-<div><b>Table Format Data Displaying in ForEach</b><br /></div>
+<br />
+<br />
+
+@using (Html.BeginForm("Wishlist", "CrossStitch", FormMethod.Post))
+{
+    <p>
+        <table>
+            <tr>
+                <td>
+                    <!--<input type="text" name="Author" />-->
+                    @Html.DropDownList("Author", ViewBag.Authors as SelectList)
+                </td>
+                <td style="">
+                    @Html.DropDownList("Status", ViewBag.Statuses as SelectList)
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="Search" />
+    </p>
+}
+<br />
+<br />
 <table class="table table-bordered table-responsive">
     <tr>
         <th>Image</th>
