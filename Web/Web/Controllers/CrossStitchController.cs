@@ -33,7 +33,7 @@ namespace Web.Controllers
             //    //HttpContext.Response.Cookies.Append(CookieKey, models.OrderByDescending(m => m.PatternId.Id).First().PatternId.ToString());
             //}
             var items = await _crossStitchRepository.GetUpdates(lastSavedId);
-            var model = BuildViewModel(items, "Updates",  filter);
+            var model = BuildViewModel(items, "Updates", filter);
             return View(model);
         }
 
@@ -46,31 +46,59 @@ namespace Web.Controllers
 
         private CrossStitchViewModel BuildViewModel(IEnumerable<CrossStitchPatternModel> sourceItems, string methodName, Filter filter = null)
         {
-            var items = sourceItems;
-            var authors = items.Select(m => m.Author.Name).Distinct().OrderBy(m => m).ToList();
-            authors.Insert(0, Filter.All);
-            var statuses = items.Select(m => m.Status.ToString()).Distinct().ToList();
-            statuses.Insert(0, Filter.All);
-            var model = new CrossStitchViewModel
-            {
-                Authors = new SelectList(authors),
-                Statuses = new SelectList(statuses),
-                MethodName = methodName
-            };
+            var items = sourceItems.ToArray();
+            var authors = CollectAuthors(items);
+            var statuses = CollectStatuses(items);
             if (filter != null && !filter.IsEmpty)
             {
-                if (filter.Author != Filter.All)
+                var filterByAuthor = filter.Author != Filter.All;
+                var filterByStatus = Enum.TryParse(typeof(PatternDistributionStatus), filter.Status, out var statusObject);
+                if (filterByAuthor)
                 {
-                    items = items.Where(i => i.Author.Name == filter.Author);
+                    items = items.Where(i => i.Author.Name == filter.Author).ToArray();
+                    //change status list by author
+                    statuses = CollectStatuses(items);
+                    if (filterByStatus)
+                    {
+                        // filter by status if it exists for selected author
+                        var status = (PatternDistributionStatus)statusObject;
+                        if (items.Any(i => i.Status == status))
+                        {
+                            items = items.Where(i => i.Status == status).ToArray();
+                        }
+                    }
                 }
-                if (Enum.TryParse(typeof(PatternDistributionStatus), filter.Status, out var statusObject))
+                if (filterByStatus && !filterByAuthor)
                 {
                     var status = (PatternDistributionStatus)statusObject;
-                    items = items.Where(i => i.Status == status);
+                    items = items.Where(i => i.Status == status).ToArray();
+                    //change authors list by status
+                    authors = CollectAuthors(items);
                 }
             }
-            model.Items = items.ToArray();
+
+            var model = new CrossStitchViewModel
+            {
+                MethodName = methodName,
+                Items = items,
+                Authors = new SelectList(authors),
+                Statuses = new SelectList(statuses)
+            };
             return model;
+        }
+
+        private IEnumerable<string> CollectAuthors(IEnumerable<CrossStitchPatternModel> items)
+        {
+            var authors = items.Select(m => m.Author.Name).Distinct().OrderBy(m => m).ToList();
+            authors.Insert(0, Filter.All);
+            return authors;
+        }
+
+        private IEnumerable<string> CollectStatuses(IEnumerable<CrossStitchPatternModel> items)
+        {
+            var statuses = items.Select(m => m.Status.ToString()).Distinct().ToList();
+            statuses.Insert(0, Filter.All);
+            return statuses;
         }
     }
 }
