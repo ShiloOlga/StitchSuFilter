@@ -1,3 +1,68 @@
-﻿@{
+﻿@model IEnumerable<Kit>
+@{
     ViewData["Title"] = "Home Page";
 }
+<style>
+    .kit-bg {
+        box-sizing: border-box;
+        display: inline-block;
+        margin: 10px;
+        padding: 10px;
+        width: 300px;
+        border: 1px solid;
+        border-color: rgb(221, 221, 221);
+    }
+
+    .kit-wrap {
+        text-align: center;
+        margin: 0 auto;
+        background: beige;
+    }
+
+    .kit-image {
+        position: relative;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+        .kit-image a {
+            display: block;
+        }
+
+        .kit-image img {
+            display: block;
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+        }
+
+            .kit-image img.center {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+    .kit-info {
+        padding-bottom: 10px;
+        font-family: 'Noto Sans', sans-serif;
+    }
+
+    .kit-title {
+        margin: 0 0 10px 0;
+        font-family: 'Noto Sans', sans-serif;
+        font-weight: bold;
+        font-size: 14px;
+        color: #808080;
+    }
+
+    .price {
+        font-weight: bold;
+        font-size: 18px;
+        color: black;
+    }
+</style>
+<div style="column-count: 3">
+    @foreach (var kit in Model)
+    {
+        @Html.PartialAsync("KitSummary", kit)
+    }
+</div>
