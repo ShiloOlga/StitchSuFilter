@@ -21,11 +21,28 @@ namespace Web.Controllers
         [Route("api/[controller]/Create")]
         public async Task<IActionResult> Create()
         {
-            var sets = (await _kitsRepository.All()) ?? Enumerable.Empty<Kit>();
-            var result = JsonConvert.SerializeObject(sets);
+            var kits = (await _kitsRepository.All()) ?? Enumerable.Empty<Kit>();
+            var result = JsonConvert.SerializeObject(kits);
             System.IO.File.WriteAllText("backup.json", result);
-            //var copy = JsonConvert.DeserializeObject<IEnumerable<Kit>>(result);
             TempData["Message"] = "Backup finished successfully.";
+            return RedirectToAction("Index", "Home");
+        }
+
+        [Route("api/[controller]/Restore")]
+        public async Task<IActionResult> Restore()
+        {
+            var result = System.IO.File.ReadAllText("backup.json");
+            var kits = JsonConvert.DeserializeObject<IEnumerable<Kit>>(result);
+            await _kitsRepository.AddRange(kits);
+            TempData["Message"] = "Restore finished successfully.";
+            return RedirectToAction("Index", "Home");
+        }
+
+        [Route("api/[controller]/Clear")]
+        public async Task<IActionResult> Clear()
+        {
+            await _kitsRepository.Clear();
+            TempData["Message"] = "Cleanup finished successfully.";
             return RedirectToAction("Index", "Home");
         }
     }

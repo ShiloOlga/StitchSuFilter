@@ -21,13 +21,24 @@ namespace Web.Data
             return  await _dbContext.Sets.Find(FilterDefinition<Kit>.Empty).ToListAsync();
         }
 
+        public Task Clear()
+        {
+            return _dbContext.Sets.DeleteManyAsync(FilterDefinition<Kit>.Empty);
+        }
+
         public Task<Kit> GetById(string id)
         {
             return _dbContext.Sets.Find(kit => kit.Id == id).FirstOrDefaultAsync();
         }
+
         public Task Add(Kit kit)
         {
             return _dbContext.Sets.InsertOneAsync(kit);
+        }
+
+        public Task AddRange(IEnumerable<Kit> kits)
+        {
+            return _dbContext.Sets.InsertManyAsync(kits);
         }
     }
 }
