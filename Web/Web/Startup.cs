@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Web.Data;
+using Web.Models;
 
 namespace Web
 {
@@ -33,6 +35,8 @@ namespace Web
             });
 
             services.AddSingleton<ICrossStitchRepository>(new CrossStitchRepository());
+            services.AddScoped<ICrossStitchKitsRepository, CrossStitchKitsRepository>();
+            services.AddTransient(s => new CrossStitchSetsDbContext(Configuration.GetConnectionString("CrossStitchMongoDB")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
