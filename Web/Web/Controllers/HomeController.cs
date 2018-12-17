@@ -24,11 +24,30 @@ namespace Web.Controllers
             return View(sets);
         }
 
-        public IActionResult About()
+        public IActionResult Create()
         {
-            ViewData["Message"] = "Your application description page.";
+            return View(nameof(Edit), new KitViewModel());
+        }
 
-            return View();
+        [HttpPost]
+        public async Task<IActionResult> Edit(KitViewModel kit)
+        {
+            if (ModelState.IsValid)
+            {
+                var dto = new Kit
+                {
+                    Id = kit.Id,
+                    Title = kit.Title,
+                    ImageUrl = kit.ImageUrl,
+                    Manufacturer = kit.Manufacturer,
+                    KitType = kit.KitType,
+                    Size = kit.Size,
+                    Item = kit.Item,
+                };
+                await _kitsRepository.Add(dto);
+                return RedirectToAction(nameof(Index));
+            }
+            return View(kit);
         }
 
         public IActionResult Contact()
