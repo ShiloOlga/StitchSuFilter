@@ -1,5 +1,6 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using Newtonsoft.Json;
 
 namespace Web.Models
 {
@@ -11,6 +12,7 @@ namespace Web.Models
 
     public class Kit
     {
+        [JsonIgnore]
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }

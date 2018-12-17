@@ -25,21 +25,21 @@
         padding-bottom: 10px;
     }
 
-    .kit-image a {
-        display: block;
-    }
+        .kit-image a {
+            display: block;
+        }
 
-    .kit-image img {
-        display: block;
-        width: 100%;
-        max-width: 250px;
-        height: auto;
-    }
+        .kit-image img {
+            display: block;
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+        }
 
-    .kit-image img.center {
-        margin-left: auto;
-        margin-right: auto;
-    }
+            .kit-image img.center {
+                margin-left: auto;
+                margin-right: auto;
+            }
 
     .kit-info {
         padding-bottom: 10px;
@@ -60,6 +60,10 @@
         color: black;
     }
 </style>
+@if (TempData["Message"] != null)
+{
+    <p>@TempData["Message"]</p>
+}
 <div align="right" style="margin: 10px;">
     <div class="btn-group">
         <a asp-action="Create" class="btn btn-primary">Add</a>
