@@ -12,6 +12,7 @@ namespace Web.Controllers
     public class HomeController : Controller
     {
         private readonly ICrossStitchKitsRepository _kitsRepository;
+        private Random _random = new Random();
 
         public HomeController(ICrossStitchKitsRepository kitsRepository)
         {
@@ -20,7 +21,7 @@ namespace Web.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var sets = (await _kitsRepository.All()) ?? Enumerable.Empty<Kit>();
+            var sets = (await _kitsRepository.All())?.OrderBy(x => _random.Next()) ?? Enumerable.Empty<Kit>();
             return View(sets);
         }
 

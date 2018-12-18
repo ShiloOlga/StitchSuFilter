@@ -12,6 +12,7 @@ namespace Web.Controllers
     public class BackupController : Controller
     {
         private readonly ICrossStitchKitsRepository _kitsRepository;
+        private const string FileName = "backup.json";
 
         public BackupController(ICrossStitchKitsRepository kitsRepository)
         {
@@ -23,18 +24,25 @@ namespace Web.Controllers
         {
             var kits = (await _kitsRepository.All()) ?? Enumerable.Empty<Kit>();
             var result = JsonConvert.SerializeObject(kits);
-            System.IO.File.WriteAllText("backup.json", result);
-            TempData["Message"] = "Backup finished successfully.";
+            System.IO.File.WriteAllText(FileName, result);
+            TempData[Constants.Message] = "Backup finished successfully.";
             return RedirectToAction("Index", "Home");
         }
 
         [Route("api/[controller]/Restore")]
         public async Task<IActionResult> Restore()
         {
-            var result = System.IO.File.ReadAllText("backup.json");
-            var kits = JsonConvert.DeserializeObject<IEnumerable<Kit>>(result);
-            await _kitsRepository.AddRange(kits);
-            TempData["Message"] = "Restore finished successfully.";
+            if (System.IO.File.Exists(FileName))
+            {
+                var result = System.IO.File.ReadAllText(FileName);
+                var kits = JsonConvert.DeserializeObject<IEnumerable<Kit>>(result);
+                await _kitsRepository.AddRange(kits);
+                TempData[Constants.Message] = "Restore finished successfully.";
+            }
+            else
+            {
+                TempData[Constants.Message] = "Restore file not found.";
+            }
             return RedirectToAction("Index", "Home");
         }
 
@@ -42,7 +50,7 @@ namespace Web.Controllers
         public async Task<IActionResult> Clear()
         {
             await _kitsRepository.Clear();
-            TempData["Message"] = "Cleanup finished successfully.";
+            TempData[Constants.Message] = "Cleanup finished successfully.";
             return RedirectToAction("Index", "Home");
         }
     }
