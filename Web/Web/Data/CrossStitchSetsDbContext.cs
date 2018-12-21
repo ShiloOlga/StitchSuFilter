@@ -1,4 +1,5 @@
 ﻿using MongoDB.Driver;
+using Web.Domain;
 using Web.Models;
 
 namespace Web.Data
@@ -14,5 +15,8 @@ namespace Web.Data
             _database = dbClient.GetDatabase(connection.DatabaseName);
         }
         public IMongoCollection<Kit> Sets => _database.GetCollection<Kit>("CrossStitchKits");
+        public IMongoCollection<Fabric> Fabrics => _database.GetCollection<Fabric>("Fabrics");
+        public IMongoCollection<Palette> Palettes => _database.GetCollection<Palette>("Palettes");
+        public IMongoCollection<Floss> Flosses => _database.GetCollection<Floss>("Flosses");
     }
 }
