@@ -5,8 +5,29 @@
             <a><img src="@Model.ImageUrl" class="center"></a>
         </div>
         <div class="kit-info">
-            <h3 class="kit-title"><a href="">@Model.Manufacturer</a></h3>
+            <h3 class="kit-title"><a data-toggle="modal"  data-target="#myModal">@Model.Manufacturer</a></h3>
+            <p>@($"#{Model.Item}")</p>
             <span class="price">@Model.Title</span>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">@Model.Title</h4>
+            </div>
+            <div class="modal-body">
+                @Model.Item
+                @Model.Manufacturer
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
         </div>
     </div>
 </div>
