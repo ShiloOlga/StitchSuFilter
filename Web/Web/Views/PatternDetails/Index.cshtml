@@ -1,0 +1,38 @@
+﻿@model PatternDetailsViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<input type="hidden" asp-for="Id" />
+<div class="form-group">
+    <label asp-for="Title"></label>
+    <p class="text-info">@Model.Title</p>
+</div>
+<div class="form-group">
+    <label asp-for="Manufacturer"></label>
+    <div><span asp-validation-for="Manufacturer" class="text-danger"></span></div>
+    <input asp-for="Manufacturer" class="form-control" />
+</div>
+<div class="form-group">
+    <label asp-for="Item"></label>
+    <div><span asp-validation-for="Item" class="text-danger"></span></div>
+    <input asp-for="Item" class="form-control" />
+</div>
+<div class="form-group">
+    <label asp-for="Size"></label>
+    <div><span asp-validation-for="Size" class="text-danger"></span></div>
+    <input asp-for="Size" class="form-control" />
+</div>
+<div class="form-group">
+    <label asp-for="ImageUrl"></label>
+    <div><span asp-validation-for="ImageUrl" class="text-danger"></span></div>
+    <input asp-for="ImageUrl" class="form-control" />
+</div>
+<div class="form-group">
+    <label asp-for="KitType"></label>
+    <select asp-for="KitType" class="form-control" asp-items="@(Html.GetEnumSelectList<KitType>())"></select>
+</div>
+<div class="text-center">
+    <a asp-action="Index" asp-controller="Home" class="btn btn-default">Cancel</a>
+</div>
+

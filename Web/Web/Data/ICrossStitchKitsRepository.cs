@@ -8,7 +8,7 @@ namespace Web.Data
     {
         Task<IEnumerable<Kit>> All();
         Task Clear();
-        Task<Kit> GetById(string id);
+        Task<Kit> GetByItem(string item);
         Task Add(Kit kit);
         Task AddRange(IEnumerable<Kit> kits);
         bool IsEmpty { get; }

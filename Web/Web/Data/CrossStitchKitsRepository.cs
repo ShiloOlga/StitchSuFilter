@@ -26,9 +26,9 @@ namespace Web.Data
             return _dbContext.Sets.DeleteManyAsync(FilterDefinition<Kit>.Empty);
         }
 
-        public Task<Kit> GetById(string id)
+        public Task<Kit> GetByItem(string item)
         {
-            return _dbContext.Sets.Find(kit => kit.Id == id).FirstOrDefaultAsync();
+            return _dbContext.Sets.Find(kit => kit.Item == item).FirstOrDefaultAsync();
         }
 
         public Task Add(Kit kit)

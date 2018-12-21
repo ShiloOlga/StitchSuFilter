@@ -59,6 +59,8 @@ namespace Web
 
             app.UseMvc(routes =>
             {
+                routes.MapRoute(name: null, template: "PatternDetails/{item}",
+                    defaults: new { controller = "PatternDetails",  action = "Index" });
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
