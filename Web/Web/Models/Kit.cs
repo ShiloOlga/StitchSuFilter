@@ -1,6 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using Newtonsoft.Json;
+using Web.Domain;
 
 namespace Web.Models
 {
@@ -19,7 +20,7 @@ namespace Web.Models
         public string Title { get; set; }
         public string Manufacturer { get; set; }
         public string Item { get; set; }
-        public string Size { get; set; }
+        public Size Size { get; set; }
         public string ImageUrl { get; set; }
         public KitType KitType { get; set; }
     }

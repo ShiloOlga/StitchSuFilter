@@ -10,7 +10,7 @@
     {
       "provider": "cdnjs",
       "destination": "wwwroot/lib/bootstrap",
-      "library": "twitter-bootstrap@4.2.1"
+      "library": "twitter-bootstrap@4.1.3"
     }
   ]
 }

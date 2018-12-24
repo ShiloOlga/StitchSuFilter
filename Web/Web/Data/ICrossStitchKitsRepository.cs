@@ -12,5 +12,6 @@ namespace Web.Data
         Task Add(Kit kit);
         Task AddRange(IEnumerable<Kit> kits);
         bool IsEmpty { get; }
+        Task Execute();
     }
 }

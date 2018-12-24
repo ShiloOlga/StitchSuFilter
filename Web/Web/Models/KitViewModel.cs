@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Web.Domain;
 
 namespace Web.Models
 {
@@ -12,7 +13,7 @@ namespace Web.Models
         [Required(ErrorMessage = "Please enter item")]
         public string Item { get; set; }
         [Required(ErrorMessage = "Please enter size")]
-        public string Size { get; set; }
+        public Size Size { get; set; }
         [Required(ErrorMessage = "Please define ImageUrl")]
         public string ImageUrl { get; set; }
         [Required(ErrorMessage = "Please pick kit type")]

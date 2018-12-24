@@ -58,28 +58,11 @@ namespace Web.Controllers
             return View();
         }
 
-        [Route("api/Setup")]
-        public async Task<IActionResult> Setup()
+        [Route("api/Execute")]
+        public async Task<IActionResult> Execute()
         {
-            if (_kitsRepository.IsEmpty)
-            {
-                await _kitsRepository.Add(new Kit
-                {
-                    Item = "1140", KitType = KitType.ManufacturerKit, Manufacturer = "Riolis",
-                    Title = "Русская усадьба. Чай под яблоней", Size = "30х40",
-                    ImageUrl = "http://www.riolis.ru/zoom/photos/2177.jpg"
-                });
-                await _kitsRepository.Add(new Kit
-                {
-                    Item = "807",
-                    KitType = KitType.ManufacturerKit,
-                    Manufacturer = "Riolis",
-                    Title = "Одуванчики",
-                    Size = "30х21",
-                    ImageUrl = "http://www.riolis.ru/zoom/photos/1038.jpg"
-                });
-            }
-            return RedirectToAction(nameof(Index));
+            await _kitsRepository.Execute();
+            return StatusCode(200);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
