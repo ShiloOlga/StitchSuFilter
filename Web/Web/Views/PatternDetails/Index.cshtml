@@ -2,37 +2,32 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-<input type="hidden" asp-for="Id" />
-<div class="form-group">
-    <label asp-for="Title"></label>
-    <p class="text-info">@Model.Title</p>
-</div>
-<div class="form-group">
-    <label asp-for="Manufacturer"></label>
-    <div><span asp-validation-for="Manufacturer" class="text-danger"></span></div>
-    <input asp-for="Manufacturer" class="form-control" />
-</div>
-<div class="form-group">
-    <label asp-for="Item"></label>
-    <div><span asp-validation-for="Item" class="text-danger"></span></div>
-    <input asp-for="Item" class="form-control" />
-</div>
-<div class="form-group">
-    <label asp-for="Size"></label>
-    <div><span asp-validation-for="Size" class="text-danger"></span></div>
-    <input asp-for="Size" class="form-control" />
-</div>
-<div class="form-group">
-    <label asp-for="ImageUrl"></label>
-    <div><span asp-validation-for="ImageUrl" class="text-danger"></span></div>
-    <input asp-for="ImageUrl" class="form-control" />
-</div>
-<div class="form-group">
-    <label asp-for="KitType"></label>
-    <select asp-for="KitType" class="form-control" asp-items="@(Html.GetEnumSelectList<KitType>())"></select>
-</div>
-<div class="text-center">
-    <a asp-action="Index" asp-controller="Home" class="btn btn-default">Cancel</a>
+<link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.min.css" />
+<div style="margin: 20px">
+    <input type="hidden" asp-for="Id" />
+    <img src="@Model.ImageUrl" class="img-thumbnail" alt="@Model.Title" style="max-width: 40%" />
+    <dl class="dl-horizontal">
+        <dt>@nameof(Model.Title)</dt>
+        <dd>@Model.Title</dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>@nameof(Model.Item)</dt>
+        <dd>@Model.Item</dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>@nameof(Model.Manufacturer)</dt>
+        <dd>@Model.Manufacturer</dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>@nameof(Model.Size)</dt>
+        <dd>
+            <p style="display: inline">@Model.Size</p>
+            <i class="fa fa-pencil" style="margin-left: 10px"></i>
+        </dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>@nameof(Model.KitType)</dt>
+        <dd>@Model.KitType</dd>
+    </dl>
 </div>
 
