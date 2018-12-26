@@ -5,6 +5,11 @@ namespace Web.Models
 {
     public class KitViewModel
     {
+        public KitViewModel()
+        {
+            Size = new Size();
+        }
+
         public string Id { get; set; }
         [Required(ErrorMessage = "Please enter a title")]
         public string Title { get; set; }
