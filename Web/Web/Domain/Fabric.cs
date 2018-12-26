@@ -1,40 +1,23 @@
-﻿using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Web.Domain
 {
-    public class Fabric
+    public partial class Fabric
     {
-
-        public FabricType Type { get; }
-        public int Count { get; }
-        public string Name { get; }
-        public int Priority { get; }
-        public string Content { get; }
-
-        public Fabric(string name, int count, FabricType type, int priority, string content)
+        public Fabric()
         {
-            Type = type;
-            Count = count;
-            Name = name;
-            Priority = priority;
-            Content = content;
+            FabricItems = new HashSet<FabricItem>();
         }
 
-        public override string ToString()
-        {
-            return Name;
-        }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public sbyte Count { get; set; }
+        public int FabricTypeId { get; set; }
+        public int ContentTypeId { get; set; }
+        public sbyte Priority { get; set; }
 
-        public string ToDescriptionString()
-        {
-            var sb = new StringBuilder();
-            sb.Append($"{Name}, {Type.ToString().ToLowerInvariant()} count {Count}");
-            if (!string.IsNullOrEmpty(Content))
-            {
-                sb.Append($", {Content}");
-            }
-
-            return sb.ToString();
-        }
+        public ContentType ContentType { get; set; }
+        public FabricType FabricType { get; set; }
+        public ICollection<FabricItem> FabricItems { get; set; }
     }
 }

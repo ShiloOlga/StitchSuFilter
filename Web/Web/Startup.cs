@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Web.Data;
+using Web.Domain;
 using Web.Models;
 
 namespace Web
@@ -36,7 +37,8 @@ namespace Web
 
             services.AddSingleton<ICrossStitchRepository>(new CrossStitchRepository());
             services.AddScoped<ICrossStitchKitsRepository, CrossStitchKitsRepository>();
-            services.AddTransient(s => new CrossStitchSetsDbContext(Configuration.GetConnectionString("CrossStitchMongoDB")));
+            //services.AddTransient(s => new CrossStitchSetsDbContext(Configuration.GetConnectionString("CrossStitchMongoDB")));
+            services.AddDbContext<MariaDbContext>(options => options.UseMySql(Configuration.GetConnectionString("CrossStitchMariaDB")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

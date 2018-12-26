@@ -2,9 +2,9 @@
 
 namespace Web.Domain
 {
-    public partial class FabricType
+    public partial class ContentType
     {
-        public FabricType()
+        public ContentType()
         {
             Fabrics = new HashSet<Fabric>();
         }

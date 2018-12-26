@@ -3,14 +3,17 @@ using System.Linq;
 using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using Newtonsoft.Json;
 using Web.Domain;
 using Web.Models;
+using Kit = Web.Models.Kit;
 
 namespace Web.Data
 {
     public class CrossStitchKitsRepository : ICrossStitchKitsRepository
     {
         private readonly MariaDbContext _dbContext;
+        private const string FileName = "backup.json";
 
         public CrossStitchKitsRepository(MariaDbContext dbContext)
         {
@@ -45,6 +48,19 @@ namespace Web.Data
         public bool IsEmpty { get; }
         public Task Execute()
         {
+            if (System.IO.File.Exists(FileName))
+            {
+                var result = System.IO.File.ReadAllText(FileName);
+                var kits = JsonConvert.DeserializeObject<IEnumerable<Kit>>(result);
+                var manufacturers = kits
+                    .Where(k => k.KitType == KitType.ManufacturerKit)
+                    .Select(k => k.Manufacturer)
+                    .Distinct()
+                    .Select(a => new KitManufacturer { Name = a})
+                    .ToArray();
+                _dbContext.KitManufacturers.AddRange(manufacturers);
+                _dbContext.SaveChanges();
+            }
             return Task.CompletedTask;
         }
     }

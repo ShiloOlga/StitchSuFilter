@@ -2,16 +2,16 @@
 
 namespace Web.Domain
 {
-    public partial class FabricType
+    public partial class KitManufacturer
     {
-        public FabricType()
+        public KitManufacturer()
         {
-            Fabrics = new HashSet<Fabric>();
+            Kits = new HashSet<Kit>();
         }
 
         public int Id { get; set; }
         public string Name { get; set; }
 
-        public ICollection<Fabric> Fabrics { get; set; }
+        public ICollection<Kit> Kits { get; set; }
     }
 }
