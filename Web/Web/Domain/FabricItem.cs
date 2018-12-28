@@ -11,7 +11,7 @@ namespace Web.Domain
         }
 
         public int Id { get; set; }
-        public int FabricId { get; set; }
+        public int? FabricId { get; set; }
         public string Sku { get; set; }
         public string ColorId { get; set; }
         public string ColorName { get; set; }

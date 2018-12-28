@@ -12,8 +12,8 @@ namespace Web.Domain
         public int Id { get; set; }
         public string Name { get; set; }
         public sbyte Count { get; set; }
-        public int FabricTypeId { get; set; }
-        public int ContentTypeId { get; set; }
+        public int? FabricTypeId { get; set; }
+        public int? ContentTypeId { get; set; }
         public sbyte Priority { get; set; }
 
         public ContentType ContentType { get; set; }

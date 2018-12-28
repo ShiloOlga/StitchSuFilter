@@ -16,7 +16,7 @@ namespace Web.Domain
         public int ColorsCount { get; set; }
         public short Width { get; set; }
         public short Height { get; set; }
-        public int AuthorId { get; set; }
+        public int? AuthorId { get; set; }
         public string Image { get; set; }
         public string Link { get; set; }
 
