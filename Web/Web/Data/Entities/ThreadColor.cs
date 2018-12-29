@@ -1,12 +1,18 @@
 ﻿using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace Web.Data.Entities
 {
-    public partial class ThreadColor
+    public class ThreadColor
     {
-        public ThreadColor()
+        private readonly ILazyLoader _lazyLoader;
+        private ThreadManufacturer _manufacturer;
+        private ICollection<ThreadColorOption> _threadColorOptions;
+
+        public ThreadColor(ILazyLoader lazyLoader)
         {
-            ThreadColorOptions = new HashSet<ThreadColorOption>();
+            _lazyLoader = lazyLoader;
+            _threadColorOptions = new HashSet<ThreadColorOption>();
         }
 
         public int Id { get; set; }
@@ -17,7 +23,16 @@ namespace Web.Data.Entities
         public string RgbColor { get; set; }
         public sbyte Length { get; set; }
 
-        public virtual ThreadManufacturer Manufacturer { get; set; }
-        public virtual ICollection<ThreadColorOption> ThreadColorOptions { get; set; }
+        public ThreadManufacturer Manufacturer
+        {
+            get => _lazyLoader.Load(this, ref _manufacturer);
+            set => _manufacturer = value;
+        }
+
+        public ICollection<ThreadColorOption> ThreadColorOptions
+        {
+            get => _lazyLoader.Load(this, ref _threadColorOptions);
+            set => _threadColorOptions = value;
+        }
     }
 }

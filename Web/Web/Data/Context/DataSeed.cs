@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Web.Data.Entities;
@@ -15,6 +16,7 @@ namespace Web.Data.Context
     public class DataSeed
     {
         private readonly MariaDbContext _dbContext;
+        private readonly ILazyLoader _lazyLoader;
         private const string FileName = "backup.json";
 
         #region Private classes
@@ -677,6 +679,7 @@ B5200 0101 1,1";
         public DataSeed(MariaDbContext dbContext)
         {
             _dbContext = dbContext;
+            _lazyLoader = null;
         }
 
         public void Execute()
@@ -714,11 +717,11 @@ B5200 0101 1,1";
                 var dmc = _dbContext.ThreadColors.Local.First(c => c.ColorId == parts[0]);
                 var pnk = _dbContext.ThreadColors.Local.First(c => c.ColorId == parts[1]);
                 var length = decimal.Parse(parts[2]);
-                dmcArray.Add(new ThreadColorOption{Pattern = pattern, ThreadColor = dmc, RequiredLength = length });
+                dmcArray.Add(new ThreadColorOption(_lazyLoader){Pattern = pattern, ThreadColor = dmc, RequiredLength = length });
                 var existingPnk = pnkArray.FirstOrDefault(p => p.ThreadColor == pnk);
                 if (existingPnk == null)
                 {
-                    pnkArray.Add(new ThreadColorOption { Pattern = pattern, ThreadColor = pnk, RequiredLength = length });
+                    pnkArray.Add(new ThreadColorOption(_lazyLoader) { Pattern = pattern, ThreadColor = pnk, RequiredLength = length });
                 }
                 else
                 {
@@ -741,7 +744,7 @@ B5200 0101 1,1";
             var manufacturer = _dbContext.ThreadManufacturers.First(m => m.Name.StartsWith("ПНК"));
             foreach (var token in jsonArray)
             {
-                var dto = new ThreadColor();
+                var dto = new ThreadColor(_lazyLoader);
                 dto.Manufacturer = manufacturer;
                 var name = token["Name"].Value<string>();
                 dto.ColorId = name;
@@ -762,7 +765,7 @@ B5200 0101 1,1";
             foreach (var thread in _dmcColors.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries))
             {
                 var parts = thread.Split(',').Select(t => t.Trim()).ToArray();
-                var dto = new ThreadColor();
+                var dto = new ThreadColor(_lazyLoader);
                 dto.Manufacturer = manufacturer;
                 dto.ColorId = parts[0];
                 dto.ColorName = parts[1];
@@ -785,12 +788,12 @@ B5200 0101 1,1";
             var dtoKits = new List<Kit>();
             foreach (var seedKit in _kits.Skip(1))
             {
-                var dto = new Kit();
+                var dto = new Kit((_lazyLoader));
                 dto.Title = seedKit.Title;
                 var author = _dbContext.PatternAuthors.Local.FirstOrDefault(a => a.Name == seedKit.Author);
                 if (author == null && !string.IsNullOrEmpty(seedKit.Author))
                 {
-                    author = new PatternAuthor { Name = seedKit.Author };
+                    author = new PatternAuthor((_lazyLoader)) { Name = seedKit.Author };
                     _dbContext.PatternAuthors.Add(author);
                 }
                 dto.Author = author;
@@ -799,7 +802,7 @@ B5200 0101 1,1";
                 var manufacturer = _dbContext.KitManufacturers.Local.FirstOrDefault(a => a.Name.ToLowerInvariant() == seedKit.Manufacturer.ToLowerInvariant());
                 if (manufacturer == null)
                 {
-                    manufacturer = new KitManufacturer { Name = seedKit.Manufacturer };
+                    manufacturer = new KitManufacturer((_lazyLoader)) { Name = seedKit.Manufacturer };
                     _dbContext.KitManufacturers.Add(manufacturer);
                 }
                 dto.Manufacturer = manufacturer;
@@ -812,14 +815,14 @@ B5200 0101 1,1";
                 var threadManufacturer = _dbContext.ThreadManufacturers.Local.FirstOrDefault(m => m.Name.ToLowerInvariant() == seedKit.ThreadManufacturer.ToLowerInvariant());
                 if (threadManufacturer == null)
                 {
-                    threadManufacturer = new ThreadManufacturer { Name = seedKit.ThreadManufacturer };
+                    threadManufacturer = new ThreadManufacturer(_lazyLoader) { Name = seedKit.ThreadManufacturer };
                     _dbContext.ThreadManufacturers.Add(threadManufacturer);
                 }
                 dto.ThreadManufacturer = threadManufacturer;
                 var fabricItem = _dbContext.FabricItems.Local.FirstOrDefault(f => f.Fabric != null && f.Fabric.Name == seedKit.FabricItem);
                 if (fabricItem == null)
                 {
-                    fabricItem = new FabricItem { Fabric = _dbContext.Fabrics.First(f => f.Name == seedKit.FabricItem), Sku = "KitModel", ColorId = "-", ColorName = "-" };
+                    fabricItem = new FabricItem((_lazyLoader)) { Fabric = _dbContext.Fabrics.First(f => f.Name == seedKit.FabricItem), Sku = "KitModel", ColorId = "-", ColorName = "-" };
                     _dbContext.FabricItems.Add(fabricItem);
                 }
                 dto.FabricItem = fabricItem;
@@ -834,7 +837,7 @@ B5200 0101 1,1";
             var fabricsDto = new List<Fabric>(_fabrics.Count);
             foreach (var fabric in _fabrics)
             {
-                var dto = new Fabric();
+                var dto = new Fabric(_lazyLoader);
                 dto.Name = fabric.Name;
                 dto.Count = fabric.Count;
                 dto.Priority = fabric.Priority;
@@ -851,7 +854,7 @@ B5200 0101 1,1";
             var contentTypes = _fabrics
                 .Select(k => k.Content)
                 .Distinct()
-                .Select(a => new ContentType() { Name = a })
+                .Select(a => new ContentType(_lazyLoader) { Name = a })
                 .ToArray();
             _dbContext.ContentTypes.AddRange(contentTypes);
         }
@@ -861,7 +864,7 @@ B5200 0101 1,1";
             var fabricTypes = _fabrics
                 .Select(k => k.Type)
                 .Distinct()
-                .Select(a => new FabricType() { Name = a })
+                .Select(a => new FabricType(_lazyLoader) { Name = a })
                 .ToArray();
             _dbContext.FabricTypes.AddRange(fabricTypes);
         }
@@ -871,7 +874,7 @@ B5200 0101 1,1";
             var dtoPatterns = new List<Pattern>();
             foreach (var kit in kits.Where(k => k.KitType == KitType.DesignerPattern))
             {
-                var dto = new Pattern();
+                var dto = new Pattern((_lazyLoader));
                 dto.Title = kit.Title;
                 dto.AuthorId = _dbContext.PatternAuthors.First(f => f.Name == kit.Manufacturer).Id;
                 dto.Item = kit.Item;
@@ -892,7 +895,7 @@ B5200 0101 1,1";
                 .Where(k => k.KitType == KitType.DesignerPattern)
                 .Select(k => k.Manufacturer)
                 .Distinct()
-                .Select(a => new PatternAuthor { Name = a })
+                .Select(a => new PatternAuthor(_lazyLoader) { Name = a })
                 .ToArray();
             _dbContext.PatternAuthors.AddRange(authors);
         }
@@ -903,7 +906,7 @@ B5200 0101 1,1";
                 .Where(k => k.KitType == KitType.ManufacturerKit)
                 .Select(k => k.Manufacturer)
                 .Distinct()
-                .Select(a => new KitManufacturer { Name = a })
+                .Select(a => new KitManufacturer(_lazyLoader) { Name = a })
                 .ToArray();
             _dbContext.KitManufacturers.AddRange(manufacturers);
         }

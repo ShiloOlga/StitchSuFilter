@@ -39,7 +39,6 @@ namespace Web
             services.AddSingleton<ICrossStitchRepository>(new CrossStitchRepository());
             services.AddScoped<ICrossStitchKitsRepository, CrossStitchKitsRepository>();
             services.AddDbContext<MariaDbContext>(options => options
-                .UseLazyLoadingProxies()
                 .UseMySql(Configuration.GetConnectionString("CrossStitchMariaDB")));
             services.AddAutoMapper(c => c.AddProfile<EntityMappingProfile>());
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
