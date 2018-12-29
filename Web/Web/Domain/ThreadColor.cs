@@ -17,7 +17,7 @@ namespace Web.Domain
         public string RgbColor { get; set; }
         public sbyte Length { get; set; }
 
-        public ThreadManufacturer Manufacturer { get; set; }
-        public ICollection<ThreadColorOption> ThreadColorOptions { get; set; }
+        public virtual ThreadManufacturer Manufacturer { get; set; }
+        public virtual ICollection<ThreadColorOption> ThreadColorOptions { get; set; }
     }
 }

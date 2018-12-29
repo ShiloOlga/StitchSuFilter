@@ -6,7 +6,7 @@
         public int ThreadColorId { get; set; }
         public decimal? RequiredLength { get; set; }
 
-        public Pattern Pattern { get; set; }
-        public ThreadColor ThreadColor { get; set; }
+        public virtual Pattern Pattern { get; set; }
+        public virtual ThreadColor ThreadColor { get; set; }
     }
 }

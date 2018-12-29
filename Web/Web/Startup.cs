@@ -38,7 +38,9 @@ namespace Web
             services.AddSingleton<ICrossStitchRepository>(new CrossStitchRepository());
             services.AddScoped<ICrossStitchKitsRepository, CrossStitchKitsRepository>();
             //services.AddTransient(s => new CrossStitchSetsDbContext(Configuration.GetConnectionString("CrossStitchMongoDB")));
-            services.AddDbContext<MariaDbContext>(options => options.UseMySql(Configuration.GetConnectionString("CrossStitchMariaDB")));
+            services.AddDbContext<MariaDbContext>(options => options
+                .UseLazyLoadingProxies()
+                .UseMySql(Configuration.GetConnectionString("CrossStitchMariaDB")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

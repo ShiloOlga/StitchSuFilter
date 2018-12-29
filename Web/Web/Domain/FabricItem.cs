@@ -16,8 +16,8 @@ namespace Web.Domain
         public string ColorId { get; set; }
         public string ColorName { get; set; }
 
-        public Fabric Fabric { get; set; }
-        public ICollection<FabricOption> FabricOptions { get; set; }
-        public ICollection<Kit> Kits { get; set; }
+        public virtual Fabric Fabric { get; set; }
+        public virtual ICollection<FabricOption> FabricOptions { get; set; }
+        public virtual ICollection<Kit> Kits { get; set; }
     }
 }

@@ -12,6 +12,6 @@ namespace Web.Domain
         public int Id { get; set; }
         public string Name { get; set; }
 
-        public ICollection<Kit> Kits { get; set; }
+        public virtual ICollection<Kit> Kits { get; set; }
     }
 }

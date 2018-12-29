@@ -17,9 +17,9 @@
         public string Image { get; set; }
         public string Link { get; set; }
 
-        public PatternAuthor Author { get; set; }
-        public FabricItem FabricItem { get; set; }
-        public KitManufacturer Manufacturer { get; set; }
-        public ThreadManufacturer ThreadManufacturer { get; set; }
+        public virtual PatternAuthor Author { get; set; }
+        public virtual FabricItem FabricItem { get; set; }
+        public virtual KitManufacturer Manufacturer { get; set; }
+        public virtual ThreadManufacturer ThreadManufacturer { get; set; }
     }
 }

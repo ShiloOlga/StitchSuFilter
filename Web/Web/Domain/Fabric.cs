@@ -16,8 +16,8 @@ namespace Web.Domain
         public int? ContentTypeId { get; set; }
         public sbyte Priority { get; set; }
 
-        public ContentType ContentType { get; set; }
-        public FabricType FabricType { get; set; }
-        public ICollection<FabricItem> FabricItems { get; set; }
+        public virtual ContentType ContentType { get; set; }
+        public virtual FabricType FabricType { get; set; }
+        public virtual ICollection<FabricItem> FabricItems { get; set; }
     }
 }

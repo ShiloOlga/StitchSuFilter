@@ -20,8 +20,8 @@ namespace Web.Domain
         public string Image { get; set; }
         public string Link { get; set; }
 
-        public PatternAuthor Author { get; set; }
-        public ICollection<FabricOption> FabricOptions { get; set; }
-        public ICollection<ThreadColorOption> ThreadColorOptions { get; set; }
+        public virtual PatternAuthor Author { get; set; }
+        public virtual ICollection<FabricOption> FabricOptions { get; set; }
+        public virtual ICollection<ThreadColorOption> ThreadColorOptions { get; set; }
     }
 }
