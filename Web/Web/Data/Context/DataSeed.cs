@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Web.Domain;
+using Web.Data.Entities;
 using Web.Models;
-using Kit = Web.Models.Kit;
+using FabricItem = Web.Data.Entities.FabricItem;
+using Kit = Web.Data.Entities.Kit;
 
-namespace Web.Data
+namespace Web.Data.Context
 {
     public class DataSeed
     {
@@ -684,7 +684,7 @@ B5200 0101 1,1";
             //if (File.Exists(FileName))
             //{
             //    var result = File.ReadAllText(FileName);
-            //    var kits = JsonConvert.DeserializeObject<IEnumerable<Kit>>(result).ToArray();
+            //    var kits = JsonConvert.DeserializeObject<IEnumerable<KitModel>>(result).ToArray();
 
             //    AddKitManufacturers(kits);
             //    AddPatternAuthors(kits);
@@ -782,10 +782,10 @@ B5200 0101 1,1";
             _dbContext.ThreadManufacturers.Load();
             _dbContext.Fabrics.Load();
             _dbContext.FabricItems.Load();
-            var dtoKits = new List<Domain.Kit>();
+            var dtoKits = new List<Kit>();
             foreach (var seedKit in _kits.Skip(1))
             {
-                var dto = new Domain.Kit();
+                var dto = new Kit();
                 dto.Title = seedKit.Title;
                 var author = _dbContext.PatternAuthors.Local.FirstOrDefault(a => a.Name == seedKit.Author);
                 if (author == null && !string.IsNullOrEmpty(seedKit.Author))
@@ -819,7 +819,7 @@ B5200 0101 1,1";
                 var fabricItem = _dbContext.FabricItems.Local.FirstOrDefault(f => f.Fabric != null && f.Fabric.Name == seedKit.FabricItem);
                 if (fabricItem == null)
                 {
-                    fabricItem = new Domain.FabricItem { Fabric = _dbContext.Fabrics.First(f => f.Name == seedKit.FabricItem), Sku = "Kit", ColorId = "-", ColorName = "-" };
+                    fabricItem = new FabricItem { Fabric = _dbContext.Fabrics.First(f => f.Name == seedKit.FabricItem), Sku = "KitModel", ColorId = "-", ColorName = "-" };
                     _dbContext.FabricItems.Add(fabricItem);
                 }
                 dto.FabricItem = fabricItem;
@@ -866,7 +866,7 @@ B5200 0101 1,1";
             _dbContext.FabricTypes.AddRange(fabricTypes);
         }
 
-        private void AddPatterns(IEnumerable<Kit> kits)
+        private void AddPatterns(IEnumerable<KitModel> kits)
         {
             var dtoPatterns = new List<Pattern>();
             foreach (var kit in kits.Where(k => k.KitType == KitType.DesignerPattern))
@@ -886,7 +886,7 @@ B5200 0101 1,1";
             _dbContext.Patterns.AddRange(dtoPatterns);
         }
 
-        private void AddPatternAuthors(IEnumerable<Kit> kits)
+        private void AddPatternAuthors(IEnumerable<KitModel> kits)
         {
             var authors = kits
                 .Where(k => k.KitType == KitType.DesignerPattern)
@@ -897,7 +897,7 @@ B5200 0101 1,1";
             _dbContext.PatternAuthors.AddRange(authors);
         }
 
-        private void AddKitManufacturers(IEnumerable<Kit> kits)
+        private void AddKitManufacturers(IEnumerable<KitModel> kits)
         {
             var manufacturers = kits
                 .Where(k => k.KitType == KitType.ManufacturerKit)

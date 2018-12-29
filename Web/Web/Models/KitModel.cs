@@ -1,7 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using Newtonsoft.Json;
-using Web.Domain;
+using Web.Data;
 
 namespace Web.Models
 {
@@ -11,11 +11,8 @@ namespace Web.Models
         DesignerPattern
     }
 
-    public class Kit
+    public class KitModel
     {
-        [JsonIgnore]
-        [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
         public string Title { get; set; }
         public string Manufacturer { get; set; }

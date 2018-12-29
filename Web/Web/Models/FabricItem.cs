@@ -1,4 +1,5 @@
-﻿using Web.Domain;
+﻿using Web.Data;
+using Web.Data.Entities;
 
 namespace Web.Models
 {

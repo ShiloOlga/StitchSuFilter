@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Web.Domain
+namespace Web.Data.Entities
 {
     public partial class FabricItem
     {

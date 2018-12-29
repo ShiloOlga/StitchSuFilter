@@ -3,7 +3,8 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Web.Domain;
+using Web.Data;
+using Web.Data.Context;
 
 namespace Web.Migrations
 {

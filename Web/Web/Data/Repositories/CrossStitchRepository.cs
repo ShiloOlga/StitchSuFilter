@@ -1,11 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Web.Models.CrossStitch;
 using Web.Utils.CrossStitch;
 
-namespace Web.Data
+namespace Web.Data.Repositories
 {
     public interface ICrossStitchRepository
     {

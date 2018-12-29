@@ -1,4 +1,4 @@
-﻿namespace Web.Domain
+﻿namespace Web.Data
 {
     public class Size
     {

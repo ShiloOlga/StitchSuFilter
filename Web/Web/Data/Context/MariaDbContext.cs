@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Web.Data.Entities;
 
-namespace Web.Domain
+namespace Web.Data.Context
 {
     public partial class MariaDbContext : DbContext
     {

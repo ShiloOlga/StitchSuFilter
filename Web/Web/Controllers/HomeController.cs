@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Web.Data;
+using Web.Data.Repositories;
 using Web.Models;
 
 namespace Web.Controllers
@@ -21,7 +22,7 @@ namespace Web.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var sets = (await _kitsRepository.All())?.OrderBy(x => _random.Next()) ?? Enumerable.Empty<Kit>();
+            var sets = (await _kitsRepository.All())?.OrderBy(x => _random.Next()) ?? Enumerable.Empty<KitModel>();
             return View(sets);
         }
 
@@ -35,7 +36,7 @@ namespace Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var dto = new Kit
+                var dto = new KitModel
                 {
                     Id = kit.Id,
                     Title = kit.Title,

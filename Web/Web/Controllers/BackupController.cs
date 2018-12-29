@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Web.Data;
+using Web.Data.Repositories;
 using Web.Models;
 
 namespace Web.Controllers
@@ -22,7 +23,7 @@ namespace Web.Controllers
         [Route("api/[controller]/Create")]
         public async Task<IActionResult> Create()
         {
-            var kits = (await _kitsRepository.All()) ?? Enumerable.Empty<Kit>();
+            var kits = (await _kitsRepository.All()) ?? Enumerable.Empty<KitModel>();
             var result = JsonConvert.SerializeObject(kits);
             System.IO.File.WriteAllText(FileName, result);
             TempData[Constants.Message] = "Backup finished successfully.";
@@ -35,7 +36,7 @@ namespace Web.Controllers
             if (System.IO.File.Exists(FileName))
             {
                 var result = System.IO.File.ReadAllText(FileName);
-                var kits = JsonConvert.DeserializeObject<IEnumerable<Kit>>(result);
+                var kits = JsonConvert.DeserializeObject<IEnumerable<KitModel>>(result);
                 await _kitsRepository.AddRange(kits);
                 TempData[Constants.Message] = "Restore finished successfully.";
             }

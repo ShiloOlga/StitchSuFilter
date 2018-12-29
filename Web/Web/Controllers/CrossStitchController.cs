@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Web.Data;
+using Web.Data.Repositories;
 using Web.Models.CrossStitch;
 
 namespace Web.Controllers

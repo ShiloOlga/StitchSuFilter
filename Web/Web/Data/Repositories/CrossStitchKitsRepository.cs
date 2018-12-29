@@ -2,14 +2,10 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using MongoDB.Bson;
-using MongoDB.Driver;
-using Newtonsoft.Json;
-using Web.Domain;
+using Web.Data.Context;
 using Web.Models;
-using Kit = Web.Models.Kit;
 
-namespace Web.Data
+namespace Web.Data.Repositories
 {
     public class CrossStitchKitsRepository : ICrossStitchKitsRepository
     {
@@ -20,9 +16,9 @@ namespace Web.Data
             _dbContext = dbContext;
         }
 
-        public async Task<IEnumerable<Kit>> All()
+        public async Task<IEnumerable<KitModel>> All()
         {
-            return await _dbContext.Patterns.Include(x => x.Author).Select(p => new Kit
+            return await _dbContext.Patterns.Include(x => x.Author).Select(p => new KitModel
                 {
                     Item = p.Item,
                     Manufacturer = p.Author.Name,
@@ -40,18 +36,18 @@ namespace Web.Data
             return Task.CompletedTask;
         }
 
-        public Task<Kit> GetByItem(string item)
+        public Task<KitModel> GetByItem(string item)
         {
             var i = _dbContext.Patterns.First(p => p.Item == item);
-            return Task.FromResult(new Kit());
+            return Task.FromResult(new KitModel());
         }
 
-        public Task Add(Kit kit)
+        public Task Add(KitModel kit)
         {
             return Task.CompletedTask;
         }
 
-        public Task AddRange(IEnumerable<Kit> kits)
+        public Task AddRange(IEnumerable<KitModel> kits)
         {
             return Task.CompletedTask;
         }

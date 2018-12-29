@@ -2,15 +2,15 @@
 using System.Threading.Tasks;
 using Web.Models;
 
-namespace Web.Data
+namespace Web.Data.Repositories
 {
     public interface ICrossStitchKitsRepository
     {
-        Task<IEnumerable<Kit>> All();
+        Task<IEnumerable<KitModel>> All();
         Task Clear();
-        Task<Kit> GetByItem(string item);
-        Task Add(Kit kit);
-        Task AddRange(IEnumerable<Kit> kits);
+        Task<KitModel> GetByItem(string item);
+        Task Add(KitModel kit);
+        Task AddRange(IEnumerable<KitModel> kits);
         bool IsEmpty { get; }
         Task Execute();
     }

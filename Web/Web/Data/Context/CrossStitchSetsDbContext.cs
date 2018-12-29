@@ -1,9 +1,6 @@
 ﻿using MongoDB.Driver;
-using Web.Domain;
-using Web.Models;
-using Kit = Web.Models.Kit;
 
-namespace Web.Data
+namespace Web.Data.Context
 {
     public class CrossStitchSetsDbContext
     {
@@ -15,7 +12,7 @@ namespace Web.Data
             var dbClient = new MongoClient(connectionString);
             _database = dbClient.GetDatabase(connection.DatabaseName);
         }
-        //public IMongoCollection<Kit> Sets => _database.GetCollection<Kit>("CrossStitchKits");
+        //public IMongoCollection<KitModel> Sets => _database.GetCollection<KitModel>("CrossStitchKits");
         //public IMongoCollection<Fabric> Fabrics => _database.GetCollection<Fabric>("Fabric");
         //public IMongoCollection<Palette> Palettes => _database.GetCollection<Palette>("Palettes");
         //public IMongoCollection<Floss> Flosses => _database.GetCollection<Floss>("Flosses");

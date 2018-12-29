@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 
-namespace Web.Domain
+namespace Web.Data.Entities
 {
-    public partial class ContentType
+    public partial class FabricType
     {
-        public ContentType()
+        public FabricType()
         {
             Fabrics = new HashSet<Fabric>();
         }

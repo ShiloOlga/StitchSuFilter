@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using Web.Domain;
+using Web.Data;
 
 namespace Web.Models
 {
