@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Web.Data;
 using Web.Data.Context;
+using Web.Data.Mappings;
 using Web.Data.Repositories;
 using Web.Models;
 
@@ -40,7 +41,7 @@ namespace Web
             services.AddDbContext<MariaDbContext>(options => options
                 .UseLazyLoadingProxies()
                 .UseMySql(Configuration.GetConnectionString("CrossStitchMariaDB")));
-            //services.AddAutoMapper(c => c.AddProfile());
+            services.AddAutoMapper(c => c.AddProfile<EntityMappingProfile>());
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

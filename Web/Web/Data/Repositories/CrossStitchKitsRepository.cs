@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Web.Data.Context;
 using Web.Models;
@@ -10,10 +11,12 @@ namespace Web.Data.Repositories
     public class CrossStitchKitsRepository : ICrossStitchKitsRepository
     {
         private readonly MariaDbContext _dbContext;
+        private readonly IMapper _mapper;
 
-        public CrossStitchKitsRepository(MariaDbContext dbContext)
+        public CrossStitchKitsRepository(MariaDbContext dbContext, IMapper mapper)
         {
             _dbContext = dbContext;
+            _mapper = mapper;
         }
 
         public async Task<IEnumerable<KitModel>> All()
@@ -38,8 +41,8 @@ namespace Web.Data.Repositories
 
         public Task<KitModel> GetByItem(string item)
         {
-            var i = _dbContext.Patterns.First(p => p.Item == item);
-            return Task.FromResult(new KitModel());
+            var dto = _dbContext.Patterns.First(p => p.Item == item);
+            return Task.FromResult(_mapper.Map<KitModel>(dto));
         }
 
         public Task Add(KitModel kit)
