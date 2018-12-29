@@ -1,4 +1,4 @@
-﻿@model PatternDetailsViewModel
+﻿@model PatternModel
 @{
     ViewData["Title"] = "Index";
 }
@@ -6,28 +6,46 @@
 <div style="margin: 20px">
     <input type="hidden" asp-for="Id" />
     <img src="@Model.ImageUrl" class="img-thumbnail" alt="@Model.Title" style="max-width: 40%" />
-    <dl class="dl-horizontal">
-        <dt>@nameof(Model.Title)</dt>
+    <dl class="row">
+        <dt class="col-2">@nameof(Model.Title)</dt>
         <dd>@Model.Title</dd>
     </dl>
-    <dl class="dl-horizontal">
-        <dt>@nameof(Model.Item)</dt>
+    <dl class="row">
+        <dt class="col-2">@nameof(Model.Item)</dt>
         <dd>@Model.Item</dd>
     </dl>
-    <dl class="dl-horizontal">
-        <dt>@nameof(Model.Manufacturer)</dt>
-        <dd>@Model.Manufacturer</dd>
+    <dl class="row">
+        <dt class="col-2">@nameof(Model.ColorsCount)</dt>
+        <dd>@Model.ColorsCount</dd>
     </dl>
-    <dl class="dl-horizontal">
-        <dt>@nameof(Model.Size)</dt>
+    <dl class="row">
+        <dt class="col-2">Author</dt>
+        <dd>@Model.Author.Name</dd>
+    </dl>
+    <dl class="row">
+        <dt class="col-2">@nameof(Model.Size)</dt>
         <dd>
             <p style="display: inline">@Model.Size</p>
             <i class="fa fa-pencil" style="margin-left: 10px"></i>
         </dd>
     </dl>
-    <dl class="dl-horizontal">
-        <dt>@nameof(Model.KitType)</dt>
-        <dd>@Model.KitType</dd>
-    </dl>
+    @if (Model.FabricItems != null)
+    {
+        foreach (var item in Model.FabricItems)
+        {
+            <p>@item</p>
+        }
+    }
+    @if (Model.ColorsMap != null)
+    {
+        foreach (var color in Model.ColorsMap)
+        {
+            <h1>@color.Key.Name</h1>
+            foreach (var item in color.Value)
+            {
+                <p>@item</p>
+            }
+        }
+    }
 </div>
 

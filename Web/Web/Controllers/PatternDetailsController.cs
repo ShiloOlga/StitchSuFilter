@@ -23,18 +23,8 @@ namespace Web.Controllers
         // GET: /<controller>/
         public async Task<IActionResult> Index(string item)
         {
-            var kit =  await _kitsRepository.GetByItem(item);
-            var model = new PatternDetailsViewModel
-            {
-                Id = kit.Id,
-                Title = kit.Title,
-                ImageUrl = kit.ImageUrl,
-                Manufacturer = kit.Manufacturer,
-                KitType = kit.KitType,
-                Size = kit.Size,
-                Item = kit.Item,
-            };
-            return View(model ?? new PatternDetailsViewModel());
+            var model =  await _kitsRepository.GetByItem(item);
+            return View(model ?? new PatternModel());
         }
     }
 }

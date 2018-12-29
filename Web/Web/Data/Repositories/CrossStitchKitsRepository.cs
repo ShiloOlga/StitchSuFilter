@@ -39,10 +39,10 @@ namespace Web.Data.Repositories
             return Task.CompletedTask;
         }
 
-        public Task<KitModel> GetByItem(string item)
+        public Task<PatternModel> GetByItem(string item)
         {
             var dto = _dbContext.Patterns.First(p => p.Item == item);
-            return Task.FromResult(_mapper.Map<KitModel>(dto));
+            return Task.FromResult(_mapper.Map<PatternModel>(dto));
         }
 
         public Task Add(KitModel kit)
