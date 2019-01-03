@@ -13,5 +13,6 @@ namespace Web.Data.Repositories
         Task AddRange(IEnumerable<KitModel> kits);
         bool IsEmpty { get; }
         Task Execute();
+        Task<IEnumerable<ThreadColorReportModel>> GetColorReport();
     }
 }

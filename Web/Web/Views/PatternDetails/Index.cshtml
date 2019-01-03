@@ -44,8 +44,8 @@
             {
                 foreach (var color in Model.ColorsMap)
                 {
-                    <h1>@color.Key.Name</h1>
-                    foreach (var item in color.Value)
+                    <h3>@($"{color.Key.Name} - {color.Value.Count()} colors")</h3>
+                    foreach (var item in color.Value.OrderBy(p => p.Color))
                     {
                         <p>@item</p>
                     }

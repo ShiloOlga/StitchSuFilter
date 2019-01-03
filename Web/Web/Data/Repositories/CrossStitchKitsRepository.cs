@@ -34,6 +34,20 @@ namespace Web.Data.Repositories
                 .ToArrayAsync();
         }
 
+        public async Task<IEnumerable<ThreadColorReportModel>> GetColorReport()
+        {
+            var patternGroups = _dbContext.ThreadColorOptions.GroupBy(g => g.PatternId);
+
+            return await _dbContext.ThreadColorOptions.Where(o => o.ThreadColor.Manufacturer.Id == 3)
+                .GroupBy(p => p.ThreadColor)
+                .Select(p => new ThreadColorReportModel
+                {
+                    Color = p.Key,
+                    TotalLength = p.Sum(x => x.RequiredLength ?? 0)
+                })
+                .ToArrayAsync();
+        }
+
         public Task Clear()
         {
             return Task.CompletedTask;
@@ -62,5 +76,7 @@ namespace Web.Data.Repositories
             new DataSeed(_dbContext).Execute();
             return Task.CompletedTask;
         }
+
+
     }
 }

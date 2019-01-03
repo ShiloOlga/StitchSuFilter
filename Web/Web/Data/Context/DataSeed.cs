@@ -702,6 +702,91 @@ B5200 0101 1,1";
             //AddPnkPalette();
             //AddPatternThreads();
             //_dbContext.SaveChanges();
+
+            //AddPatternColors();
+           // _dbContext.SaveChanges();
+        }
+
+        private void AddPatternColors()
+        {
+            string s = @"154 7,2
+211 1,8
+316 1,3
+369 3,5
+413 2,2 
+554 1,8
+562 1,8
+563 2,2
+564 0,7
+597 1,1 
+598 0,9
+648 1,7
+677 0,3
+712 0,9
+727 0,4 
+746 0,3
+760 0,2
+761 1
+775 2,3
+778 4,6 
+796 0,1
+799 0,2
+809 0,5
+819 8,2
+832 0,3 
+833 0,4
+834 0,5
+905 0,8
+906 1,4
+907 1,9 
+963 1,6
+964 0,9
+966 0,5
+987 0,5
+988 0,6 
+3072 1,1
+3078 0,5
+3348 0,4
+3687 1,8
+3688 2,2 
+3689 1,5
+3713 6,2
+3726 2,8
+3727 1,1
+3756 2,7 
+3770 1,1
+3810 1,0
+3834 9
+3835 3,5
+3836 3,6 
+3838 0,9
+3840 0,8
+3841 1,7
+B5200 0,6
+Blanc 5,3  ";
+            var datalines = s.Split(new[] {"\r\n", "\n"}, StringSplitOptions.RemoveEmptyEntries);
+            var dmcArray = new List<ThreadColorOption>(datalines.Length);
+            var pattern = _dbContext.Patterns.First(p => p.Item == "21749");
+            foreach (var line in datalines)
+            {
+                var parts = line.Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(l => l.Trim()).ToArray();
+                if (parts.Length != 2)
+                {
+                    throw new Exception();
+                }
+
+                var dmc = _dbContext.ThreadColors.First(c => c.ColorId == parts[0]);
+                if (dmc == null)
+                {
+                    throw new Exception();
+                }
+
+                var length = decimal.Parse(parts[1]);
+                dmcArray.Add(new ThreadColorOption(_lazyLoader)
+                    {Pattern = pattern, ThreadColor = dmc, RequiredLength = length});
+            }
+
+            _dbContext.ThreadColorOptions.AddRange(dmcArray);
         }
 
         private void AddPatternThreads()
