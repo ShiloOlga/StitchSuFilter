@@ -48,9 +48,12 @@ namespace Web.Data.Repositories
                 .ToArrayAsync();
         }
 
-        public Task Clear()
+        public async Task<IEnumerable<FabricItemModel>> GetFabricItems()
         {
-            return Task.CompletedTask;
+            return await _dbContext.FabricItems
+                .Include(fi => fi.Fabric)
+                .Where(fi => fi.Sku != "Kit")
+                .Select(fi => _mapper.Map<FabricItemModel>(fi)).ToListAsync();
         }
 
         public Task<PatternModel> GetByItem(string item)
@@ -70,6 +73,11 @@ namespace Web.Data.Repositories
         }
 
         public bool IsEmpty { get; }
+
+        public Task Clear()
+        {
+            return Task.CompletedTask;
+        }
 
         public Task Execute()
         {

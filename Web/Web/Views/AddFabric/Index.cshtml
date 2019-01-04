@@ -1,0 +1,68 @@
+﻿@model AddFabricViewModel
+
+<script src="lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+<div>
+    <div class="container-fluid">
+        <div class="form-inline">
+            @Html.DropDownListFor(m => m.ExistingItems, new List<SelectListItem>(@Model.ExistingItems
+                .GroupBy(m => m.Fabric.Name)
+                .Select(group => group.First())
+                .Select(m => new SelectListItem(m.Fabric.Name, m.Fabric.Name))),
+                string.Empty,
+                htmlAttributes: new {@class = "form-control", @id = "Fabric"})
+            <button type="button" onclick="showAddFabricForm()"><i class="fa fa-plus-square-o fa-2x" style="margin-left: 10px;"></i></button>
+        </div>
+        <div class="form-inline" id="AddFabric" style="display: none">
+            <form id="AddFabricForm">
+                <div class="form-group">
+                    <label>Name:</label>
+                </div>
+                <button type="button" onclick="hideAddFabricForm()">Cancel</button>
+                <button type="button" onclick="hideAddFabricForm()">Cancel</button>
+            </form>
+        </div>
+        <div class="form-inline">
+            <div id="Color" class="container"></div>
+        </div>
+        <div class="form-inline" id="AddFabricItem">
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        function showAddFabricForm() {
+            $("#AddFabric").show();
+        }
+        function hideAddFabricForm() {
+            $("#AddFabric").hide();
+        }
+        $('#Fabric').change(function () {
+            var fabric = $("#Fabric").val();
+            var color = $('#FabricColor');
+            if (fabric != null && fabric != '') {
+                $.getJSON('@Url.Action("GetColors")', { name: fabric }, function (colors) {
+                    if (colors != null && !jQuery.isEmptyObject(colors)) {
+                        if (!color.length) {
+                            color = $('<select/>', { id: "FabricColor" }).addClass("form-control");
+                            var div = $('#Color');
+                            div.append(color);
+                        }
+                        color.empty();
+                        $.each(colors, function (index, c) {
+                            color.append($('<option/>', {
+                                value: c.value,
+                                text: c.text
+                            }));
+                        });
+                    };
+                });
+            }
+            else if (color != null) {
+                color.remove();
+            }
+
+        });
+    </script>
+}

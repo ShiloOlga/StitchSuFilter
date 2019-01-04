@@ -11,6 +11,7 @@ namespace Web.Data.Repositories
         Task<PatternModel> GetByItem(string item);
         Task Add(KitModel kit);
         Task AddRange(IEnumerable<KitModel> kits);
+        Task<IEnumerable<FabricItemModel>> GetFabricItems();
         bool IsEmpty { get; }
         Task Execute();
         Task<IEnumerable<ThreadColorReportModel>> GetColorReport();

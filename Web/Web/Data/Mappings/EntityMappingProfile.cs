@@ -30,6 +30,8 @@ namespace Web.Data.Mappings
                 .ForMember(p => p.ImageUrl, expr => expr.MapFrom(p => p.Image))
                 .ForMember(p => p.FabricItems, expr => expr.MapFrom(p => p.FabricOptions))
                 .ForMember(p => p.ColorsMap, expr => expr.MapFrom(p => p.ThreadColorOptions));
+
+            CreateMap<FabricItem, FabricItemModel>();
         }
     }
 
