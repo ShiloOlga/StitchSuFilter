@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Web.Data.Context;
 using Web.Data.Repositories;
 
 namespace Web.Controllers
@@ -14,7 +15,7 @@ namespace Web.Controllers
     {
         private readonly ICrossStitchKitsRepository _repository;
 
-        public ReportController(ICrossStitchKitsRepository repository)
+        public ReportController(ICrossStitchKitsRepository repository, MariaDbContext dbContext)
         {
             _repository = repository;
         }
@@ -30,6 +31,19 @@ namespace Web.Controllers
                 sb.AppendLine($"{model.Color.ColorId,-5} - {model.TotalLength,5}m");
             }
             return sb.ToString();
+        }
+
+        private void AddPattern()
+        {
+            var canvas = new[]
+            {
+                new {Name = "Brittney", Color = "White"},
+                new {Name = "Linda", Color = "White"},
+            };
+            var dmcColors = new[]
+            {
+                new {Name = "", Length = }
+            }
         }
 
     }
