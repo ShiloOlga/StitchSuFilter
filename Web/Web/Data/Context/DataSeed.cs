@@ -705,6 +705,7 @@ B5200 0101 1,1";
 
             //AddPatternColors();
            // _dbContext.SaveChanges();
+            new PatternSeed().Execute(_dbContext);
         }
 
         private void AddPatternColors()

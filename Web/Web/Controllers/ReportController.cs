@@ -40,10 +40,10 @@ namespace Web.Controllers
                 new {Name = "Brittney", Color = "White"},
                 new {Name = "Linda", Color = "White"},
             };
-            var dmcColors = new[]
-            {
-                new {Name = "", Length = }
-            }
+            //var dmcColors = new[]
+            //{
+            //    //new {Name = "", Length = }
+            //};
         }
 
     }
