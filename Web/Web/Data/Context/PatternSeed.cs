@@ -50,7 +50,7 @@ namespace Web.Data.Context
             {
                 var patternModel = patternFunc();
                 var pattern = context.Patterns.First(x => x.Item == patternModel.Id);
-                if (pattern.FabricOptions.Count != patternModel.Canvases.Count() || pattern.FabricOptions.Any(fo))
+                //if (pattern.FabricOptions.Count != patternModel.Canvases.Count() || pattern.FabricOptions.Any(fo))
             }
         }
 
