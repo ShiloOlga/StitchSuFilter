@@ -37,9 +37,7 @@ namespace Web
             });
 
             services.AddSingleton<ICrossStitchRepository>(new CrossStitchRepository());
-            services.AddScoped<ICrossStitchKitsRepository, CrossStitchKitsRepository>();
-            services.AddDbContext<MariaDbContext>(options => options
-                .UseMySql(Configuration.GetConnectionString("CrossStitchMariaDB")));
+            services.AddScoped<ICrossStitchKitsRepository, FileRepository>();
             services.AddAutoMapper(c => c.AddProfile<EntityMappingProfile>());
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

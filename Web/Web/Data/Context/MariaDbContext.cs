@@ -17,7 +17,7 @@ namespace Web.Data.Context
         public virtual DbSet<ContentType> ContentTypes { get; set; }
         public virtual DbSet<FabricItem> FabricItems { get; set; }
         public virtual DbSet<FabricOption> FabricOptions { get; set; }
-        public virtual DbSet<Fabric> Fabrics { get; set; }
+        public virtual DbSet<Entities.Fabric> Fabrics { get; set; }
         public virtual DbSet<FabricType> FabricTypes { get; set; }
         public virtual DbSet<KitManufacturer> KitManufacturers { get; set; }
         public virtual DbSet<Kit> Kits { get; set; }
@@ -122,11 +122,11 @@ namespace Web.Data.Context
                                     .HasConstraintName("fk_fabric_option_pattern_id");
             });
 
-            modelBuilder.Entity<Fabric>(entity =>
+            modelBuilder.Entity<Entities.Fabric>((Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<Entities.Fabric> entity) =>
             {
                 entity.ToTable("fabrics");
 
-                entity.HasAlternateKey(e => new {e.Name, e.Count});
+                entity.HasAlternateKey(e => (new { e.Name, e.Count}));
 
                 entity.HasIndex(e => e.ContentTypeId)
                     .HasName("fk_content_type_id");
