@@ -1,14 +1,26 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Newtonsoft.Json;
-using Web.Models;
+using Newtonsoft.Json.Linq;
+using Web.Data.Entities;
+using Web.Models.V2;
 
 namespace Web.Data.Context
 {
     public class FileDataSeed
     {
         private const string FileName = "backup.json";
+        private ICollection<KitModel> _kits;
+        private ICollection<string> _kitManufacturers;
+        private ICollection<string> _patternAuthors;
+        private ICollection<PatternModel> _patterns;
+        private ICollection<string> _fabricTypes;
+        private ICollection<string> _fabricContentTypes;
+        private ICollection<string> _threadManufacturers = new[]{"ПНК", "DMC"};
+        private ICollection<FabricModel> _fabrics;
+        private ICollection<ThreadColorModel> _threads;
 
         public FileDataSeed()
         {
@@ -19,64 +31,58 @@ namespace Web.Data.Context
             if (File.Exists(FileName))
             {
                 var result = File.ReadAllText(FileName);
-                var kits = JsonConvert.DeserializeObject<IEnumerable<KitModel>>(result).ToArray();
+                _kits = JsonConvert.DeserializeObject<IEnumerable<KitModel>>(result).ToArray();
 
-                //    AddKitManufacturers(kits);
-                //    AddPatternAuthors(kits);
-                //    AddPatterns(kits);
+                _kitManufacturers = GetKitManufacturers(_kits);
+                _patternAuthors = GetPatternAuthors(_kits);
+                _patterns = GetPatterns(_kits);
             }
 
-                //AddFabricTypes();
-                //AddFabricContentTypes();
-                //AddFabrics();
-                //AddKits();
-                //AddDmcPalette();
-                //AddPnkPalette();
-                //AddPatternThreads();
+            _fabricTypes = GetFabricTypes();
+            _fabricContentTypes = GetFabricContentTypes();
+            _fabrics = GetFabrics(_fabricTypes, _fabricContentTypes);
+            //AddKits();
+            var threads = new List<ThreadColorModel>(GetPnkPalette());
+            threads.AddRange(GetDmcPalette());
+            _threads = threads;
+            //AddPatternThreads();
+        }
+
+        private ICollection<ThreadColorModel> GetPnkPalette()
+        {
+            var threads = new List<ThreadColorModel>();
+            foreach (var thread in Data.PnkColors.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries))
+            {
+                var model = new ThreadColorModel();
+                model.Manufacturer = "ПНК";
+                var parts = thread.Split(',').Select(t => t.Trim()).ToArray();
+                model.ColorId = parts[0];
+                model.ColorName = parts[1];
+                model.RgbColor = parts[2];
+                model.Length = 10;
+                model.Sku = "";
+                threads.Add(model);
             }
+            return threads;
+        }
 
-        //    private void AddPnkPalette()
-        //    {
-
-        //        var dtoThreads = new List<ThreadColor>();
-        //        var content = File.ReadAllText("pnk.json");
-        //        var jsonArray = JsonConvert.DeserializeObject(content) as JArray;
-        //        var manufacturer = _dbContext.ThreadManufacturers.First(m => m.Name.StartsWith("ПНК"));
-        //        foreach (var token in jsonArray)
-        //        {
-        //            var dto = new ThreadColor(_lazyLoader);
-        //            dto.Manufacturer = manufacturer;
-        //            var name = token["Name"].Value<string>();
-        //            dto.ColorId = name;
-        //            dto.ColorName = name;
-        //            var rgb = token["Rgb"].Value<string>();
-        //            dto.RgbColor = rgb;
-        //            dto.Length = 10;
-        //            dto.Sku = "";
-        //            dtoThreads.Add(dto);
-        //        }
-        //        _dbContext.ThreadColors.AddRange(dtoThreads);
-        //    }
-
-        //    private void AddDmcPalette()
-        //    {
-        //        var dtoThreads = new List<ThreadColor>();
-        //        var manufacturer = _dbContext.ThreadManufacturers.First(m => m.Name == "DMC");
-        //        foreach (var thread in _dmcColors.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries))
-        //        {
-        //            var parts = thread.Split(',').Select(t => t.Trim()).ToArray();
-        //            var dto = new ThreadColor(_lazyLoader);
-        //            dto.Manufacturer = manufacturer;
-        //            dto.ColorId = parts[0];
-        //            dto.ColorName = parts[1];
-        //            dto.RgbColor = parts[2];
-        //            dto.Length = 8;
-        //            dto.Sku = "117S";
-        //            dtoThreads.Add(dto);
-        //        }
-
-        //        _dbContext.ThreadColors.AddRange(dtoThreads);
-        //    }
+        private ICollection<ThreadColorModel> GetDmcPalette()
+        {
+            var threads = new List<ThreadColorModel>();
+            foreach (var thread in Data.DmcColors.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries))
+            {
+                var model = new ThreadColorModel();
+                model.Manufacturer = "DMC";
+                var parts = thread.Split(',').Select(t => t.Trim()).ToArray();
+                model.ColorId = parts[0];
+                model.ColorName = parts[1];
+                model.RgbColor = parts[2];
+                model.Length = 8;
+                model.Sku = "117S";
+                threads.Add(model);
+            }
+            return threads;
+        }
 
         //    private void AddKits()
         //    {
@@ -132,83 +138,76 @@ namespace Web.Data.Context
         //        _dbContext.Kits.AddRange(dtoKits);
         //    }
 
-        //    private void AddFabrics()
-        //    {
-        //        var fabricsDto = new List<Entities.Fabric>(_fabrics.Count);
-        //        foreach (var fabric in _fabrics)
-        //        {
-        //            var dto = new Entities.Fabric(_lazyLoader);
-        //            dto.Name = fabric.Name;
-        //            dto.Count = fabric.Count;
-        //            dto.Priority = fabric.Priority;
-        //            dto.FabricTypeId = _dbContext.FabricTypes.First(f => f.Name == fabric.Type).Id;
-        //            dto.ContentTypeId = _dbContext.ContentTypes.First(f => f.Name == fabric.Content).Id;
-        //            fabricsDto.Add(dto);
-        //        }
+        private ICollection<FabricModel> GetFabrics(ICollection<string> fabricTypes, ICollection<string> contentTypes)
+        {
+            var fabricModels = new List<FabricModel>(Data.Fabrics.Count);
+            foreach (var fabric in Data.Fabrics)
+            {
+                var item = new FabricModel();
+                item.Name = fabric.Name;
+                item.Count = fabric.Count;
+                item.Priority = fabric.Priority;
+                item.FabricType = fabricTypes.First(f => f == fabric.Type);
+                item.ContentType = contentTypes.First(f => f == fabric.Content);
+                fabricModels.Add(item);
+            }
 
-        //        _dbContext.Fabrics.AddRange(fabricsDto);
-        //    }
+            return fabricModels;
+        }
 
-        //    private void AddFabricContentTypes()
-        //    {
-        //        var contentTypes = _fabrics
-        //            .Select(k => k.Content)
-        //            .Distinct()
-        //            .Select(a => new ContentType(_lazyLoader) { Name = a })
-        //            .ToArray();
-        //        _dbContext.ContentTypes.AddRange(contentTypes);
-        //    }
+        private ICollection<string> GetFabricContentTypes()
+        {
+            return Data.Fabrics
+                .Select(k => k.Content)
+                .Distinct()
+                .ToArray();
+        }
 
-        //    private void AddFabricTypes()
-        //    {
-        //        var fabricTypes = _fabrics
-        //            .Select(k => k.Type)
-        //            .Distinct()
-        //            .Select(a => new FabricType(_lazyLoader) { Name = a })
-        //            .ToArray();
-        //        _dbContext.FabricTypes.AddRange(fabricTypes);
-        //    }
+        private ICollection<string> GetFabricTypes()
+        {
+            return Data.Fabrics
+                .Select(k => k.Type)
+                .Distinct()
+                .ToArray();
+        }
 
-        //    private void AddPatterns(IEnumerable<KitModel> kits)
-        //    {
-        //        var dtoPatterns = new List<Pattern>();
-        //        foreach (var kit in kits.Where(k => k.KitType == KitType.DesignerPattern))
-        //        {
-        //            var dto = new Pattern((_lazyLoader));
-        //            dto.Title = kit.Title;
-        //            dto.AuthorId = _dbContext.PatternAuthors.First(f => f.Name == kit.Manufacturer).Id;
-        //            dto.Item = kit.Item;
-        //            dto.ColorsCount = 0;
-        //            dto.Width = (short)kit.Size.Width;
-        //            dto.Height = (short)kit.Size.Height;
-        //            dto.Image = kit.ImageUrl;
-        //            dto.Link = String.Empty;
-        //            dtoPatterns.Add(dto);
-        //        }
+        private ICollection<PatternModel> GetPatterns(IEnumerable<KitModel> kits)
+        {
+            var patterns = new List<PatternModel>();
+            foreach (var pattern in kits.Where(k => k.KitType == KitType.DesignerPattern))
+            {
+                var model = new PatternModel
+                {
+                    Title = pattern.Title,
+                    Author = pattern.Manufacturer,
+                    Item = pattern.Item,
+                    ColorsCount = 0,
+                    Size = pattern.Size,
+                    ImageUrl = pattern.ImageUrl,
+                    Link = string.Empty
+                };
+                patterns.Add(model);
+            }
 
-        //        _dbContext.Patterns.AddRange(dtoPatterns);
-        //    }
+            return patterns;
+        }
 
-        //    private void AddPatternAuthors(IEnumerable<KitModel> kits)
-        //    {
-        //        var authors = kits
-        //            .Where(k => k.KitType == KitType.DesignerPattern)
-        //            .Select(k => k.Manufacturer)
-        //            .Distinct()
-        //            .Select(a => new PatternAuthor(_lazyLoader) { Name = a })
-        //            .ToArray();
-        //        _dbContext.PatternAuthors.AddRange(authors);
-        //    }
+        private ICollection<string> GetPatternAuthors(IEnumerable<KitModel> kits)
+        {
+            return kits
+                .Where(k => k.KitType == KitType.DesignerPattern)
+                .Select(k => k.Manufacturer)
+                .Distinct()
+                .ToArray();
+        }
 
-        //    private void AddKitManufacturers(IEnumerable<KitModel> kits)
-        //    {
-        //        var manufacturers = kits
-        //            .Where(k => k.KitType == KitType.ManufacturerKit)
-        //            .Select(k => k.Manufacturer)
-        //            .Distinct()
-        //            .Select(a => new KitManufacturer(_lazyLoader) { Name = a })
-        //            .ToArray();
-        //        _dbContext.KitManufacturers.AddRange(manufacturers);
-        //    }
+        private ICollection<string> GetKitManufacturers(IEnumerable<KitModel> kits)
+        {
+            return kits
+                .Where(k => k.KitType == KitType.ManufacturerKit)
+                .Select(k => k.Manufacturer)
+                .Distinct()
+                .ToArray();
+        }
     }
 }
