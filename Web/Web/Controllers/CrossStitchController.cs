@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Web.Data;
 using Web.Data.Repositories;
 using Web.Models.CrossStitch;
 
@@ -13,7 +12,7 @@ namespace Web.Controllers
     public class CrossStitchController : Controller
     {
         private const string CookieKey = "PatternId";
-        private ICrossStitchRepository _crossStitchRepository;
+        private readonly ICrossStitchRepository _crossStitchRepository;
 
         public CrossStitchController(ICrossStitchRepository crossStitchRepository)
         {
@@ -82,8 +81,10 @@ namespace Web.Controllers
             {
                 MethodName = methodName,
                 Items = items,
-                Authors = new SelectList(authors),
-                Statuses = new SelectList(statuses)
+                Authors = authors.Select(x => new SelectListItem(x, x)),
+                Author = filter?.Author,
+                Status = filter?.Status,
+                Statuses = statuses.Select(x => new SelectListItem(x, x))
             };
             return model;
         }

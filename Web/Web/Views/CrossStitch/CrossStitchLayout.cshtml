@@ -8,27 +8,29 @@
 <br />
 <br />
 
-@using (Html.BeginForm(Model.MethodName, "CrossStitch", FormMethod.Post))
+@using (Html.BeginForm(Model.MethodName, "CrossStitch", FormMethod.Post, new { id = "myForm" }))
 {
     <p>
         <table>
             <tr>
                 <td>
-                    <!--<input type="text" name="Author" />-->
-                    @Html.DropDownList("Author", Model.Authors as SelectList)
+                    <div class="form-group">
+                        <select name="Author" class="form-control" asp-for="Author" asp-items="Model.Authors" onchange="$('#myForm').submit();"></select>
+                    </div>
                 </td>
-                <td style="">
-                    @Html.DropDownList("Status", Model.Statuses as SelectList)
+                <td>
+                    <div class="form-group">
+                        <select name="Status" class="form-control" asp-for="Status" asp-items="Model.Statuses" onchange="$('#myForm').submit();"></select>
+                    </div>
                 </td>
             </tr>
         </table>
-        <input type="submit" value="Search" />
     </p>
 }
 <br />
 <br />
 <p>Total: @Model.Items.Count()</p>
-<table class="table table-bordered table-responsive">
+<table class="table table-bordered table-responsive" style="width: 100%">
     <tr>
         <th>#</th>
         <th>Image</th>

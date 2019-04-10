@@ -6,8 +6,10 @@ namespace Web.Models.CrossStitch
     public class CrossStitchViewModel
     {
         public IEnumerable<CrossStitchPatternModel> Items { get; set; }
-        public SelectList Authors { get; set; }
-        public SelectList Statuses { get; set; }
+        public IEnumerable<SelectListItem> Authors { get; set; }
+        public IEnumerable<SelectListItem> Statuses { get; set; }
         public string MethodName { get; set; }
+        public string Author { get; set; }
+        public string Status { get; set; }
     }
 }
