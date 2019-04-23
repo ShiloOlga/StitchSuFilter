@@ -2368,6 +2368,30 @@
       "ImageUrl": "https://www.stitch.su/images/patterns/big/13865.jpg",
       "ColorsCount": 0,
       "Link": ""
+    },
+    {
+      "Title": "Казбеги",
+      "Author": "Радюкина Евгения",
+      "Item": "18276",
+      "Size": {
+        "Width": 90.0,
+        "Height": 72.0
+      },
+      "ImageUrl": "https://www.stitch.su/images/patterns/big/18276.jpg",
+      "ColorsCount": 0,
+      "Link": ""
+    },
+    {
+      "Title": "Рождество",
+      "Author": "Радюкина Евгения",
+      "Item": "13520",
+      "Size": {
+        "Width": 120.0,
+        "Height": 154.0
+      },
+      "ImageUrl": "https://www.stitch.su/images/patterns/big/13520.jpg",
+      "ColorsCount": 0,
+      "Link": ""
     }
   ],
   "FabricTypes": [
