@@ -4,27 +4,62 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Web.Data;
-using Web.Data.Context;
 using Web.Data.Repositories;
 using Web.Models;
+using Web.Models.ViewModels;
 
 namespace Web.Controllers
 {
     public class HomeController : Controller
     {
+        public const int ItemsPerPage = 25;
         private readonly ICrossStitchKitsRepository _kitsRepository;
-        private Random _random = new Random();
+        private readonly Random _random = new Random();
+        private IReadOnlyCollection<KitModel> _kits;
+
+        private async Task<IReadOnlyCollection<KitModel>> GetKits()
+        {
+            if (_kits != null)
+            {
+                return _kits;
+            }
+            var kits = await _kitsRepository.All();
+            if (kits != null)
+            {
+                _kits = kits
+                    .OrderBy(x => _random.Next())
+                    .ToArray();
+            }
+            else
+            {
+                _kits = Array.Empty<KitModel>();
+            }
+
+            return _kits;
+        }
 
         public HomeController(ICrossStitchKitsRepository kitsRepository)
         {
             _kitsRepository = kitsRepository;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1)
         {
-            var sets = (await _kitsRepository.All())?.OrderBy(x => _random.Next()) ?? Enumerable.Empty<KitModel>();
-            return View(sets);
+            var kits = await GetKits();
+            var viewModel = new KitSummaryViewModel
+            {
+                KitItems = kits
+                    .Skip((page - 1) * ItemsPerPage)
+                    .Take(ItemsPerPage)
+                    .OrderBy(x => _random.Next()),
+                PagingInfo = new PagingModel
+                {
+                    CurrentPage = page,
+                    PageSize = ItemsPerPage,
+                    TotalCount = kits.Count
+                }
+            };
+            return View(viewModel);
         }
 
         public IActionResult Create()

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<KitModel>
+﻿@model KitSummaryViewModel
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -70,9 +70,15 @@
         <a asp-action="Create" class="btn btn-primary btn-lg">Add</a>
     </div>
 </div>
+<div>
+    <partial name="Pagination" model="@Model.PagingInfo" />
+</div>
 <div style="column-count: 3">
-    @foreach (var kit in Model)
+    @foreach (var kit in Model.KitItems)
     {
-        @Html.Partial("KitSummary", kit)
+        <partial name="KitSummary" model="@kit" />
     }
+</div>
+<div>
+    <partial name="Pagination" model="@Model.PagingInfo" />
 </div>
