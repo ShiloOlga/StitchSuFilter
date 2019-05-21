@@ -254,6 +254,78 @@
     },
     {
       "Id": null,
+      "Title": "Щегол",
+      "Manufacturer": "Кларт",
+      "Item": "8-087",
+      "Size": {
+        "Width": 10.0,
+        "Height": 30.0
+      },
+      "ImageUrl": "http://images.firma-gamma.ru/400x400/1/5/d10168874172l.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Алая гроздь",
+      "Manufacturer": "М.П. Студия",
+      "Item": "М-107",
+      "Size": {
+        "Width": 28.0,
+        "Height": 17.0
+      },
+      "ImageUrl": "https://mpstudia.ru/upload/resize_cache/iblock/32b/800_800_1/32b513f47915806c7d93fd5f69897179.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Кот в снегу",
+      "Manufacturer": "М.П. Студия",
+      "Item": "НВ-557",
+      "Size": {
+        "Width": 20.0,
+        "Height": 25.0
+      },
+      "ImageUrl": "https://mpstudia.ru/upload/resize_cache/iblock/fab/800_800_1/fab4d0fb1d1c3f1a61e89e0f91b593c3.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Морской конек",
+      "Manufacturer": "Riolis",
+      "Item": "1703",
+      "Size": {
+        "Width": 45.0,
+        "Height": 16.0
+      },
+      "ImageUrl": "http://www.riolis.ru/zoom/photos/3814.jpg?02407209",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Спрятался!",
+      "Manufacturer": "Чаривна мить",
+      "Item": "А-086",
+      "Size": {
+        "Width": 17.0,
+        "Height": 14.0
+      },
+      "ImageUrl": "https://www.stitch.su/images/big2/9760.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Кленовый лист",
+      "Manufacturer": "Марья Искусница",
+      "Item": "16.001.05",
+      "Size": {
+        "Width": 20.0,
+        "Height": 20.0
+      },
+      "ImageUrl": "http://www.gela.ru.opt-images.1c-bitrix-cdn.ru/upload/iblock/cc0/d5d4f880_3fb1_11e7_b75c_000c29dae4c7_0.jpg?1558408232385608",
+      "KitType": 0
+    },
+    {
+      "Id": null,
       "Title": "Цветущий сад",
       "Manufacturer": "Мешкова Екатерина (oilima)",
       "Item": "23751",
