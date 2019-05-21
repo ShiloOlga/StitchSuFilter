@@ -39,6 +39,9 @@ namespace Web.Data.Repositories
         public ICollection<ThreadColorModel> Threads { get; }
         [JsonIgnore]
         public bool IsEmpty => false;
+        private IEnumerable<KitModel> _patterns;
+        private IEnumerable<KitModel> _kits;
+        private readonly Random _random = new Random();
 
         public FileRepository()
         {
@@ -65,16 +68,43 @@ namespace Web.Data.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<KitModel>> All()
+        public Task<IEnumerable<KitModel>> AllPatterns()
         {
-            return Task.FromResult(Patterns.Select(pattern => new KitModel
+            if (_patterns == null)
             {
-                Title = pattern.Title,
-                Manufacturer = pattern.Author,
-                Item = pattern.Item,
-                Size = pattern.Size,
-                ImageUrl = pattern.ImageUrl
-            }));
+                _patterns = Patterns
+                    .Select(kit => new KitModel
+                    {
+                        Title = kit.Title,
+                        Manufacturer = kit.Author,
+                        Item = kit.Item,
+                        Size = kit.Size,
+                        ImageUrl = kit.ImageUrl
+                    })
+                    .OrderBy(x => _random.Next())
+                    .ToArray();
+            }
+            return Task.FromResult(_patterns);
+        }
+
+        public Task<IEnumerable<KitModel>> AllKits()
+        {
+            if (_kits == null)
+            {
+                _kits = Kits
+                    .Select(kit => new KitModel
+                    {
+                        Title = kit.Title,
+                        Manufacturer = kit.Manufacturer,
+                        Item = kit.Item,
+                        Size = kit.Size,
+                        ImageUrl = kit.ImageUrl
+                    })
+                    .OrderBy(x => _random.Next())
+                    .ToArray();
+            }
+
+            return Task.FromResult(_kits);
         }
 
         public Task Clear()
