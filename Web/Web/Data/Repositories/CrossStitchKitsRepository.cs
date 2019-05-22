@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -19,7 +20,7 @@ namespace Web.Data.Repositories
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<KitModel>> All()
+        public async Task<IEnumerable<KitModel>> AllPatterns()
         {
             return await _dbContext.Patterns.Include(x => x.Author).Select(p => new KitModel
                 {
@@ -32,6 +33,11 @@ namespace Web.Data.Repositories
                     Id = p.Id.ToString()
                 })
                 .ToArrayAsync();
+        }
+
+        public Task<IEnumerable<KitModel>> AllKits()
+        {
+            throw new Exception();
         }
 
         public async Task<IEnumerable<ThreadColorReportModel>> GetColorReport()

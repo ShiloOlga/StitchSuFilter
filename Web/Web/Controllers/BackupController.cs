@@ -23,7 +23,7 @@ namespace Web.Controllers
         [Route("api/[controller]/Create")]
         public async Task<IActionResult> Create()
         {
-            var kits = (await _kitsRepository.All()) ?? Enumerable.Empty<KitModel>();
+            var kits = (await _kitsRepository.AllPatterns()) ?? Enumerable.Empty<KitModel>();
             var result = JsonConvert.SerializeObject(kits);
             System.IO.File.WriteAllText(FileName, result);
             TempData[Constants.Message] = "Backup finished successfully.";

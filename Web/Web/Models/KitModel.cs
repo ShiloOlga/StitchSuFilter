@@ -20,5 +20,10 @@ namespace Web.Models
         public Size Size { get; set; }
         public string ImageUrl { get; set; }
         public KitType KitType { get; set; }
+
+        public override string ToString()
+        {
+            return $"#{Id} - {Title}";
+        }
     }
 }

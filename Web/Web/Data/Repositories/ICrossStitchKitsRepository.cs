@@ -6,7 +6,8 @@ namespace Web.Data.Repositories
 {
     public interface ICrossStitchKitsRepository
     {
-        Task<IEnumerable<KitModel>> All();
+        Task<IEnumerable<KitModel>> AllPatterns();
+        Task<IEnumerable<KitModel>> AllKits();
         Task Clear();
         Task<PatternModel> GetByItem(string item);
         Task Add(KitModel kit);

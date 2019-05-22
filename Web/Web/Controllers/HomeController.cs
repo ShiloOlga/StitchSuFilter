@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,28 +14,6 @@ namespace Web.Controllers
         public const int ItemsPerPage = 25;
         private readonly ICrossStitchKitsRepository _kitsRepository;
         private readonly Random _random = new Random();
-        private IReadOnlyCollection<KitModel> _kits;
-
-        private async Task<IReadOnlyCollection<KitModel>> GetKits()
-        {
-            if (_kits != null)
-            {
-                return _kits;
-            }
-            var kits = await _kitsRepository.All();
-            if (kits != null)
-            {
-                _kits = kits
-                    .OrderBy(x => _random.Next())
-                    .ToArray();
-            }
-            else
-            {
-                _kits = Array.Empty<KitModel>();
-            }
-
-            return _kits;
-        }
 
         public HomeController(ICrossStitchKitsRepository kitsRepository)
         {
@@ -45,7 +22,26 @@ namespace Web.Controllers
 
         public async Task<IActionResult> Index(int page = 1)
         {
-            var kits = await GetKits();
+            var patterns = (await _kitsRepository.AllPatterns()).ToList();
+            var viewModel = new KitSummaryViewModel
+            {
+                KitItems = patterns
+                    .Skip((page - 1) * ItemsPerPage)
+                    .Take(ItemsPerPage)
+                    .OrderBy(x => _random.Next()),
+                PagingInfo = new PagingModel
+                {
+                    CurrentPage = page,
+                    PageSize = ItemsPerPage,
+                    TotalCount = patterns.Count
+                }
+            };
+            return View(viewModel);
+        }
+
+        public async Task<IActionResult> Kits(int page = 1)
+        {
+            var kits = (await _kitsRepository.AllKits()).ToList();
             var viewModel = new KitSummaryViewModel
             {
                 KitItems = kits
@@ -59,7 +55,7 @@ namespace Web.Controllers
                     TotalCount = kits.Count
                 }
             };
-            return View(viewModel);
+            return View("Index", viewModel);
         }
 
         public IActionResult Create()
