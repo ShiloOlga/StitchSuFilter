@@ -38,6 +38,18 @@
     },
     {
       "Id": null,
+      "Title": "Теплая осень",
+      "Manufacturer": "Riolis",
+      "Item": "1676",
+      "Size": {
+        "Width": 30.0,
+        "Height": 30.0
+      },
+      "ImageUrl": "http://www.riolis.ru/zoom/photos/3672.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
       "Title": "Снегири",
       "Manufacturer": "Золотое Руно",
       "Item": "РС-018",
@@ -98,6 +110,18 @@
     },
     {
       "Id": null,
+      "Title": "Весна идет",
+      "Manufacturer": "Овен",
+      "Item": "933",
+      "Size": {
+        "Width": 28.0,
+        "Height": 21.0
+      },
+      "ImageUrl": "http://ooo-oven.ru/upload/iblock/6b8/6b883d62e1a5960e31db2dd272e66e49.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
       "Title": "Tiger chilling out",
       "Manufacturer": "Dimensions",
       "Item": "35222",
@@ -130,6 +154,18 @@
         "Height": 41.0
       },
       "ImageUrl": "http://chudo-igla.ru/thumb/2/bIled3wWBnJ_74DyzsJVnw/c/d/90-01_baget.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Летний букетик",
+      "Manufacturer": "Чудесная игла",
+      "Item": "100-004",
+      "Size": {
+        "Width": 20.0,
+        "Height": 23.0
+      },
+      "ImageUrl": "http://chudo-igla.ru/d/100-004.jpg",
       "KitType": 0
     },
     {
@@ -311,19 +347,80 @@
       },
       "ImageUrl": "https://www.stitch.su/images/big4/36821.jpg",
       "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Кошачья грация",
+      "Manufacturer": "RTO",
+      "Item": "М553",
+      "Size": {
+        "Width": 25.5,
+        "Height": 21.5
+      },
+      "ImageUrl": "https://hobby-express.ru/data/upload/shop/store/goods/4/2018/11/4_15429872802284252_360.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Боня грызун",
+      "Manufacturer": "RTO",
+      "Item": "H260",
+      "Size": {
+        "Width": 10.0,
+        "Height": 10.0
+      },
+      "ImageUrl": "https://hobby-express.ru/data/upload/shop/store/goods/13/2018/11/13_15427877611893536_360.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Зарянка",
+      "Manufacturer": "RTO",
+      "Item": "H222",
+      "Size": {
+        "Width": 10.0,
+        "Height": 10.0
+      },
+      "ImageUrl": "https://hobby-express.ru/data/upload/shop/store/goods/4/2018/11/4_15429874520268554_360.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Кардинал",
+      "Manufacturer": "RTO",
+      "Item": "H220",
+      "Size": {
+        "Width": 10.0,
+        "Height": 10.0
+      },
+      "ImageUrl": "https://hobby-express.ru/data/upload/shop/store/goods/4/2019/04/4_15541774047202350_360.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Рыжая русалка",
+      "Manufacturer": "RTO",
+      "Item": "M596",
+      "Size": {
+        "Width": 25.5,
+        "Height": 36.0
+      },
+      "ImageUrl": "https://hobby-express.ru/data/upload/shop/store/goods/4/2018/11/4_15429873116133333_360.jpg",
+      "KitType": 0
     }
   ],
   "KitManufacturers": [
     "Dimensions",
     "OLanTa",
     "Riolis",
+    "RTO",
     "Алиса",
     "Золотое Руно",
     "М.П. Студия",
-	"Марья Искусница",
-	"Мережка",
+    "Марья Искусница",
+    "Мережка",
     "Овен",
-	"Чаривна мить",
+    "Чаривна мить",
     "Чудесная игла"
   ],
   "PatternAuthors": [
