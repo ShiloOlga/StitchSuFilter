@@ -398,6 +398,42 @@
     },
     {
       "Id": null,
+      "Title": "Кардинал",
+      "Manufacturer": "RTO",
+      "Item": "H220",
+      "Size": {
+        "Width": 10.0,
+        "Height": 10.0
+      },
+      "ImageUrl": "https://hobby-express.ru/data/upload/shop/store/goods/4/2019/04/4_15541774047202350_360.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Клевер",
+      "Manufacturer": "RTO",
+      "Item": "M520",
+      "Size": {
+        "Width": 14.0,
+        "Height": 23.0
+      },
+      "ImageUrl": "https://hobby-express.ru/data/upload/shop/store/goods/13/2018/11/13_15427877446614143_360.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Дружба",
+      "Manufacturer": "RTO",
+      "Item": "M608",
+      "Size": {
+        "Width": 21.0,
+        "Height": 21.0
+      },
+      "ImageUrl": "https://hobby-express.ru/data/upload/shop/store/goods/4/2019/04/4_15549190135335866_360.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
       "Title": "Рыжая русалка",
       "Manufacturer": "RTO",
       "Item": "M596",
@@ -1674,6 +1710,30 @@
         "Height": 154.0
       },
       "ImageUrl": "https://www.stitch.su/images/patterns/big/13520.jpg",
+      "ColorsCount": 0,
+      "Link": ""
+    },
+    {
+      "Title": "Тюлени",
+      "Author": "Моя вышивка",
+      "Item": "24654",
+      "Size": {
+        "Width": 81.0,
+        "Height": 123.0
+      },
+      "ImageUrl": "https://www.stitch.su/images/patterns/big/24654.jpg",
+      "ColorsCount": 0,
+      "Link": ""
+    },
+    {
+      "Title": "Зимний венок",
+      "Author": "Петунова Анна",
+      "Item": "24217",
+      "Size": {
+        "Width": 152.0,
+        "Height": 155.0
+      },
+      "ImageUrl": "https://www.stitch.su/images/patterns/big/24217.jpg",
       "ColorsCount": 0,
       "Link": ""
     }
