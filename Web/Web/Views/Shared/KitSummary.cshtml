@@ -5,7 +5,7 @@
             <a><img src="@Model.ImageUrl" class="center"></a>
         </div>
         <div class="kit-info">
-            <h3 class="kit-title"><a data-toggle="modal" data-target="#myModal">@Model.Manufacturer</a></h3>
+            <h3 class="kit-title"><a asp-controller="Home" asp-action="Author" asp-route-name="@Model.Manufacturer">@Model.Manufacturer</a></h3>
             <p>@($"#{Model.Item}")</p>
             <p>@(Model.Size)</p>
             <span class="price"><a asp-controller="PatternDetails" asp-action="Index" asp-route-item="@Model.Item"> @Model.Title</a></span>

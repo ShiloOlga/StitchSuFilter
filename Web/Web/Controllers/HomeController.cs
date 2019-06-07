@@ -84,11 +84,25 @@ namespace Web.Controllers
             return View(kit);
         }
 
-        public IActionResult Contact()
+        public async Task<IActionResult> Author(string name, int page = 1)
         {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
+            var patterns = (await _kitsRepository.AllPatterns())
+                .Where(x => x.Manufacturer == name)
+                .ToList();
+            var viewModel = new KitSummaryViewModel
+            {
+                KitItems = patterns
+                    .Skip((page - 1) * ItemsPerPage)
+                    .Take(ItemsPerPage)
+                    .OrderBy(x => _random.Next()),
+                PagingInfo = new PagingModel
+                {
+                    CurrentPage = page,
+                    PageSize = ItemsPerPage,
+                    TotalCount = patterns.Count
+                }
+            };
+            return View("Index", viewModel);
         }
 
         [Route("api/Execute")]
