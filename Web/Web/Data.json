@@ -1061,6 +1061,23 @@
         "Width": 180.0,
         "Height": 249.0
       },
+      "Fabric": [
+        {
+          "Name": "Edinburgh",
+          "Color": "3217/1079",
+          "ColorName": "Vintage Dune"
+        },
+        {
+          "Name": "Aida 18",
+          "Color": "3793/17",
+          "ColorName": "Silver Flecked White"
+        },
+        {
+          "Name": "Murano",
+          "Color": "3984/11",
+          "ColorName": "Pearl Flecked White"
+        }
+      ],
       "ImageUrl": "https://www.stitch.su/images/patterns/big/20071.jpg",
       "ColorsCount": 0,
       "Link": ""
@@ -1373,6 +1390,18 @@
         "Width": 140.0,
         "Height": 210.0
       },
+      "Fabric": [
+        {
+          "Name": "Aida 16",
+          "Color": "3251/100",
+          "ColorName": "White"
+        },
+        {
+          "Name": "Aida 18",
+          "Color": "3793/100",
+          "ColorName": "White"
+        }
+      ],
       "ImageUrl": "https://www.stitch.su/images/patterns/big/13971.jpg",
       "ColorsCount": 0,
       "Link": ""
@@ -1385,6 +1414,13 @@
         "Width": 175.0,
         "Height": 250.0
       },
+      "Fabric": [
+        {
+          "Name": "Aida 16",
+          "Color": "3251/100",
+          "ColorName": "White"
+        }
+      ],
       "ImageUrl": "https://www.stitch.su/images/patterns/big/1876.jpg",
       "ColorsCount": 0,
       "Link": ""
@@ -1397,6 +1433,23 @@
         "Width": 107.0,
         "Height": 164.0
       },
+      "Fabric": [
+        {
+          "Name": "Aida 14",
+          "Color": "3706/100",
+          "ColorName": "White"
+        },
+        {
+          "Name": "Aida 16",
+          "Color": "3251/100",
+          "ColorName": "White"
+        },
+        {
+          "Name": "Aida 18",
+          "Color": "3793/100",
+          "ColorName": "White"
+        }
+      ],
       "ImageUrl": "https://www.stitch.su/images/patterns/big/24258.jpg",
       "ColorsCount": 0,
       "Link": ""
@@ -1409,6 +1462,23 @@
         "Width": 162.0,
         "Height": 180.0
       },
+      "Fabric": [
+        {
+          "Name": "Aida 14",
+          "Color": "3706/100",
+          "ColorName": "White"
+        },
+        {
+          "Name": "Aida 16",
+          "Color": "3251/100",
+          "ColorName": "White"
+        },
+        {
+          "Name": "Aida 18",
+          "Color": "3793/100",
+          "ColorName": "White"
+        }
+      ],
       "ImageUrl": "https://www.stitch.su/images/patterns/big/16677.jpg",
       "ColorsCount": 0,
       "Link": ""
@@ -1421,6 +1491,13 @@
         "Width": 160.0,
         "Height": 160.0
       },
+      "Fabric": [
+        {
+          "Name": "Aida 14",
+          "Color": "3706/720",
+          "ColorName": "Black"
+        }
+      ],
       "ImageUrl": "https://www.stitch.su/images/patterns/big/9485.jpg",
       "ColorsCount": 0,
       "Link": ""
@@ -1433,6 +1510,23 @@
         "Width": 186.0,
         "Height": 118.0
       },
+      "Fabric": [
+        {
+          "Name": "Aida 14",
+          "Color": "3706/100",
+          "ColorName": "White"
+        },
+        {
+          "Name": "Aida 16",
+          "Color": "3251/100",
+          "ColorName": "White"
+        },
+        {
+          "Name": "Aida 18",
+          "Color": "3793/100",
+          "ColorName": "White"
+        }
+      ],
       "ImageUrl": "https://www.stitch.su/images/patterns/big/22372.jpg",
       "ColorsCount": 0,
       "Link": ""
@@ -1733,6 +1827,33 @@
         "Width": 152.0,
         "Height": 155.0
       },
+      "Fabric": [
+        {
+          "Name": "Aida 14",
+          "Color": "3706/100",
+          "ColorName": "White"
+        },
+        {
+          "Name": "Aida 16",
+          "Color": "3251/100",
+          "ColorName": "White"
+        },
+        {
+          "Name": "Aida 18",
+          "Color": "3793/100",
+          "ColorName": "White"
+        },
+        {
+          "Name": "Linda",
+          "Color": "1235/1",
+          "ColorName": "White"
+        },
+        {
+          "Name": "Murano",
+          "Color": "3984/100",
+          "ColorName": "White"
+        }
+      ],
       "ImageUrl": "https://www.stitch.su/images/patterns/big/24217.jpg",
       "ColorsCount": 0,
       "Link": ""
