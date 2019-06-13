@@ -497,6 +497,13 @@
         "Width": 121.0,
         "Height": 79.0
       },
+      "Fabric": [
+        {
+          "Name": "Murano",
+          "Color": "3984/100",
+          "ColorName": "White"
+        }
+      ],
       "ImageUrl": "https://www.stitch.su/images/patterns/big/21935.jpg",
       "ColorsCount": 0,
       "Link": ""
