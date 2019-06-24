@@ -490,6 +490,116 @@
   ],
   "Patterns": [
     {
+      "Title": "Пума",
+      "Author": "Николаева Евдокия (Punochka)",
+      "Item": "-",
+      "Size": {
+        "Width": "100.0",
+        "Height": "58.0"
+      },
+      "Fabric": [
+        {
+          "Name": "Murano",
+          "Color": "3984/3009",
+          "ColorName": "Vintage Country Mocha"
+        }
+      ],
+      "ImageUrl": "https://pp.userapi.com/c852228/v852228312/c99fb/JSLNh0Ey0f0.jpg",
+      "ColorsCount": 0,
+      "Link": ""
+    },
+    {
+      "Title": "Белая куропатка",
+      "Author": "Николаева Евдокия (Punochka)",
+      "Item": "-",
+      "Size": {
+        "Width": "91.0",
+        "Height": "123.0"
+      },
+      "Fabric": [
+        {
+          "Name": "Belfast",
+          "Color": "3609/53",
+          "ColorName": "Raw Linen"
+        },
+        {
+          "Name": "Eva 28 ct.",
+          "Color": "UE4000",
+          "ColorName": "Natur"
+        }
+      ],
+      "ImageUrl": "https://pp.userapi.com/c850428/v850428384/c40a2/Da4jLpsFiWU.jpg",
+      "ColorsCount": 0,
+      "Link": ""
+    },
+    {
+      "Title": "Весенний кролик",
+      "Author": "Николаева Евдокия (Punochka)",
+      "Item": "-",
+      "Size": {
+        "Width": "49.0",
+        "Height": "66.0"
+      },
+      "Fabric": [
+        {
+          "Name": "Monika 28 ct.",
+          "Color": "UM2150",
+          "ColorName": "Mandelgrün"
+        }
+      ],
+      "ImageUrl": "https://pp.userapi.com/c830709/v830709800/f29dd/rPmoabwFKiY.jpg",
+      "ColorsCount": 0,
+      "Link": ""
+    },
+    {
+      "Title": "Птицы и ягоды",
+      "Author": "Николаева Евдокия (Punochka)",
+      "Item": "-",
+      "Size": {
+        "Width": "141.0",
+        "Height": "168.0"
+      },
+      "Fabric": [
+        {
+          "Name": "Belfast",
+          "Color": "3609/53",
+          "ColorName": "Raw Linen"
+        },
+        {
+          "Name": "Murano",
+          "Color": "3984/770",
+          "ColorName": "Platinum"
+        },
+        {
+          "Name": "Eva 28 ct.",
+          "Color": "UE4000",
+          "ColorName": "Natur"
+        }
+      ],
+      "ImageUrl": "https://pp.userapi.com/c834402/v834402012/c1ef0/WLz1GuVnjbg.jpg",
+      "ColorsCount": 0,
+      "Link": ""
+    },
+    {
+      "Title": "Цветочный чай",
+      "Author": "Нарен Юлия",
+      "Item": "-",
+      "Size": {
+        "Width": 84.0,
+        "Height": 148.0
+      },
+      "Fabric": [
+        {
+          "Name": "Linda",
+          "Color": "3984/100",
+          "ColorName": "Black"
+        }
+      ],
+      "ImageUrl": "https://pp.userapi.com/c851232/v851232942/afd69/mUh1sD5YO14.jpg",
+      "ColorsCount": 0,
+      "Link": ""
+    },
+    {
       "Title": "Для тебя",
       "Author": "Vik Dollin",
       "Item": "21935",
@@ -1206,6 +1316,44 @@
         "Height": 105.0
       },
       "ImageUrl": "https://www.stitch.su/images/patterns/big/22265.jpg",
+      "ColorsCount": 0,
+      "Link": ""
+    },
+    {
+      "Title": "Ёлка",
+      "Author": "Окнеас Алиса",
+      "Item": "20527",
+      "Size": {
+        "Width": 98.0,
+        "Height": 117.0
+      },
+      "Fabric": [
+        {
+          "Name": "Murano",
+          "Color": "3984/100",
+          "ColorName": "White"
+        }
+      ],
+      "ImageUrl": "https://www.stitch.su/images/patterns/big/20527.jpg",
+      "ColorsCount": 0,
+      "Link": ""
+    },
+    {
+      "Title": "Флорариум",
+      "Author": "Окнеас Алиса",
+      "Item": "18608",
+      "Size": {
+        "Width": 85.0,
+        "Height": 133.0
+      },
+      "Fabric": [
+        {
+          "Name": "Murano",
+          "Color": "3984/100",
+          "ColorName": "White"
+        }
+      ],
+      "ImageUrl": "https://www.stitch.su/images/patterns/big/18608.jpg",
       "ColorsCount": 0,
       "Link": ""
     },
