@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Web.Data.Repositories;
 using Web.Models.CrossStitch;
+using Web.Models.CrossStitch.Pattern;
 
 namespace Web.Controllers
 {

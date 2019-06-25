@@ -1,6 +1,6 @@
 ﻿namespace Web.Models.CrossStitch
 {
-    public class PatternImage
+    public class ItemImage
     {
         public string PreviewImageUrl { get; set; }
         public string FullImageUrl { get; set; }

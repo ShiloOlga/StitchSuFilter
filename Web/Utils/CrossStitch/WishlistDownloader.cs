@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Web.Models.CrossStitch;
 
@@ -10,35 +9,26 @@ namespace Web.Utils.CrossStitch
     {
         public async Task<CrossStitchPageContent> Parse()
         {
-            var models = new List<CrossStitchPatternModel>();
+            var patternModels = new List<CrossStitchPatternModel>();
+            var kitModels = new List<WishlistKitModel>();
             var currentPageNum = 1;
-            var uri = new Uri($"https://www.stitch.su/users/wishlist/Lamya");
-            using (var content = await DownloadContent(uri))
+            int? totalPages = null;
+            do
             {
-                var pageModels = content.SelectPatterns(uri);
-                var pages = content.CalculatePagesCount();
-                models.AddRange(pageModels);
-                for (var i = currentPageNum + 1; i <= pages; i++)
+                var uri = new Uri($"https://www.stitch.su/users/wishlist/Lamya/page{currentPageNum}");
+                using (var content = await DownloadContent(uri))
                 {
-                    var patternsFromPage = await SelectPatternsFromPage(i);
-                    models.AddRange(patternsFromPage);
+                    totalPages = totalPages ?? content.CalculatePagesCount();
+                    patternModels.AddRange(content.SelectPatterns(uri));
+                    kitModels.AddRange(content.SelectKits(uri));
                 }
-            }
-            var pageContent = new CrossStitchPageContent()
+            } while (++currentPageNum <= totalPages.Value);
+            var pageContent = new CrossStitchPageContent
             {
-                Patterns = models
+                Patterns = patternModels,
+                Kits = kitModels
             };
             return pageContent;
-        }
-
-        private async Task<IEnumerable<CrossStitchPatternModel>> SelectPatternsFromPage(int pageId)
-        {
-            var uri = new Uri($"https://www.stitch.su/users/wishlist/Lamya/page{pageId}");
-            using (var content = await DownloadContent(uri))
-            {
-                var pageModels = content.SelectPatterns(uri);
-                return pageModels.ToArray();
-            }
         }
     }
 }

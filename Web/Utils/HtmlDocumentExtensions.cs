@@ -12,9 +12,16 @@ namespace Web.Utils
     {
         public static IEnumerable<CrossStitchPatternModel> SelectPatterns(this IHtmlDocument document, Uri uri)
         {
-            var divNodes = document.All.Where(item => item.LocalName == "div").Where(i => i.Id != null && Regex.IsMatch(i.Id, @"^(\bset|\bfav)_[_\d]+$"));
+            var divNodes = document.All.Where(item => item.LocalName == "div").Where(i => i.Id != null && Regex.IsMatch(i.Id, @"^set_\d+$|fav_12_\d+$"));
             return divNodes.Select(item => CrossStitchPatternModel.Parse(item, uri));
         }
+
+        public static IEnumerable<WishlistKitModel> SelectKits(this IHtmlDocument document, Uri uri)
+        {
+            var divNodes = document.All.Where(item => item.LocalName == "div").Where(i => i.Id != null && Regex.IsMatch(i.Id, @"^fav_1_\d+$"));
+            return divNodes.Select(item => WishlistKitModel.Parse(item, uri));
+        }
+
         public static int CalculatePagesCount(this IHtmlDocument document)
         {
             var totalPages = 1;

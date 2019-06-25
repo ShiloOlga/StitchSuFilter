@@ -1,44 +1,43 @@
-﻿using AngleSharp.Dom;
-using AngleSharp.Dom.Html;
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
+using AngleSharp.Dom;
+using AngleSharp.Dom.Html;
+using Web.Models.CrossStitch.Kit;
 using Web.Models.CrossStitch.Pattern;
 using Web.Utils;
 
 namespace Web.Models.CrossStitch
 {
-    public interface IWishlistItemModel { }
-
-    public class CrossStitchPatternModel : IWishlistItemModel
+    public class WishlistKitModel : IWishlistItemModel
     {
-        public static CrossStitchPatternModel Default = new CrossStitchPatternModel();
-
-        public PatternId PatternId { get; private set; }
-        public PatternAuthor Author { get; private set; }
+        public KitId KitId { get; private set; }
+        public Manufacturer Manufacturer { get; private set; }
         public ItemImage Image { get; private set; }
-        public PatternInfo Info { get; private set; }
+        public Description Info { get; private set; }
         public PatternPrice PriceInfo { get; private set; }
         public PatternDistributionStatus Status { get; private set; }
 
-        private CrossStitchPatternModel() { }
+        private WishlistKitModel() { }
 
-        public static CrossStitchPatternModel Parse(IElement root, Uri uri)
+        public static WishlistKitModel Parse(IElement root, Uri uri)
         {
-            var model = new CrossStitchPatternModel();
+            var model = new WishlistKitModel();
             var id = GetId(root, uri);
             ItemImage image = GetImageInfo(root, uri);
-            PatternAuthor author = GetAuthorInfo(root, id.ToString());
-            PatternInfo patternInfo = GetPatternDescriptionInfo(root);
-            PatternPrice patternPrice = GetPriceInfo(root);
-            PatternDistributionStatus status = GetStatus(root, patternPrice);
+            Manufacturer author = GetManufacturerInfo(root, id.ToString());
+            Description patternInfo = GetDescriptionInfo(root);
+            //PatternPrice patternPrice = GetPriceInfo(root);
+            //PatternDistributionStatus status = GetStatus(root, patternPrice);
             //
-            model.PatternId = id;
+            model.KitId = id;
             model.Image = image;
-            model.Author = author;
+            model.Manufacturer = author;
             model.Info = patternInfo;
-            model.PriceInfo = patternPrice;
-            model.Status = status;
+            //model.PriceInfo = patternPrice;
+            //model.Status = status;
             return model;
         }
 
@@ -77,19 +76,25 @@ namespace Web.Models.CrossStitch
             }
         }
 
-        private static PatternId GetId(IElement root, Uri uri)
+        private static KitId GetId(IElement root, Uri uri)
         {
             // Id
-            var id = new PatternId();
-            if (!string.IsNullOrEmpty(root.Id))
+            var id = new KitId();
+
+            var container = root.QuerySelector("div.set__title");
+            if (container != null)
             {
-                var endingNumber = string.Concat(root.Id.ToCharArray().Reverse().TakeWhile(char.IsNumber).Reverse());
-                id.Id = int.Parse(endingNumber);
+                var name = container.TextContent;
+                if (!string.IsNullOrEmpty(name))
+                {
+                    name = name.Substring(name.LastIndexOf(' ')).Trim(' ', '#', '\xA0');
+                }
+                id.Id = name;
             }
             var linkContainer = root.QuerySelector("a.set__link");
             if (linkContainer != null)
             {
-                id.PatternLink = HtmlProcessingUtility.BuildAbsoluteUri(uri, linkContainer.GetAttribute("href"));
+                id.Link = HtmlProcessingUtility.BuildAbsoluteUri(uri, linkContainer.GetAttribute("href"));
             }
             return id;
         }
@@ -109,53 +114,43 @@ namespace Web.Models.CrossStitch
             return image;
         }
 
-        private static PatternAuthor GetAuthorInfo(IElement root, string id)
+        private static Manufacturer GetManufacturerInfo(IElement root, string id)
         {
-            // Author
-            var author = new PatternAuthor();
-            var authorContainer = root.QuerySelector("div.set__title");
-            if (authorContainer != null)
+            var manufacturer = new Manufacturer();
+            var container = root.QuerySelector("div.set__title");
+            if (container != null)
             {
-                author.ProfileLink = authorContainer.QuerySelector("a")?.GetAttribute("href");
-                var authorName = authorContainer.TextContent;
-                if (!string.IsNullOrEmpty(authorName))
+                var name = container.TextContent;
+                if (!string.IsNullOrEmpty(name))
                 {
-                    authorName = authorName.Replace(id, string.Empty).Trim(' ', '#', '\xA0');
+                    name = name.Replace(id, string.Empty).Trim(' ', '#', '\xA0');
                 }
-                author.Name = authorName;
+                manufacturer.Name = name;
             }
 
-            return author;
+            return manufacturer;
         }
 
-        private static PatternInfo GetPatternDescriptionInfo(IElement root)
+        private static Description GetDescriptionInfo(IElement root)
         {
-            // Pattern info
-            var patternInfo = new PatternInfo();
+            var description = new Description();
             var infoContainer = root.QuerySelector("div.set__info") as IHtmlDivElement;
             if (infoContainer != null && !string.IsNullOrEmpty(infoContainer.InnerText))
             {
-                var lines = infoContainer.InnerText.Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
-                if (lines.Length >= 2)
+                var lines = infoContainer.InnerText.Split(new[] { ", " }, StringSplitOptions.RemoveEmptyEntries);
+                if (lines.Length > 1)
                 {
-                    patternInfo.Title = lines[0];
-                    patternInfo.Description = infoContainer.InnerText.Replace(patternInfo.Title, string.Empty).TrimStart('.', ' ', '\n');
+                    description.Title = lines[0];
                 }
-                if (lines.Length == 1)
+                if (lines.Length >= 4)
                 {
-                    var singleLine = lines[0];
-                    if (singleLine.ToLowerInvariant().Contains("размер"))
-                    {
-                        patternInfo.Description = singleLine;
-                    }
-                    else
-                    {
-                        patternInfo.Title = singleLine;
-                    }
+                    description.Size = lines[1];
+                    description.Fabric = lines[2];
+                    description.AdditionalInfo = lines[3];
                 }
             }
 
-            return patternInfo;
+            return description;
         }
 
         private static PatternPrice GetPriceInfo(IElement root)
@@ -212,7 +207,7 @@ namespace Web.Models.CrossStitch
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append($"{PatternId} - {Info.Title}. Status - {Status}");
+            sb.Append($"{KitId} - {Info.Title}. Status - {Status}");
             if (PriceInfo.HasPrice)
             {
                 sb.Append($" ({PriceInfo.Price}");

@@ -1,4 +1,4 @@
-﻿namespace Web.Models.CrossStitch
+﻿namespace Web.Models.CrossStitch.Pattern
 {
     public enum PatternDistributionStatus
     {
