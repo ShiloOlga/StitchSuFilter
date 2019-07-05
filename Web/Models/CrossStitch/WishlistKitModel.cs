@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using AngleSharp.Dom;
 using AngleSharp.Dom.Html;
 using Web.Models.CrossStitch.Kit;
@@ -17,8 +14,8 @@ namespace Web.Models.CrossStitch
         public Manufacturer Manufacturer { get; private set; }
         public ItemImage Image { get; private set; }
         public Description Info { get; private set; }
-        public PatternPrice PriceInfo { get; private set; }
-        public PatternDistributionStatus Status { get; private set; }
+        //public PatternPrice PriceInfo { get; private set; }
+        //public PatternDistributionStatus Status { get; private set; }
 
         private WishlistKitModel() { }
 
@@ -28,14 +25,14 @@ namespace Web.Models.CrossStitch
             var id = GetId(root, uri);
             ItemImage image = GetImageInfo(root, uri);
             Manufacturer author = GetManufacturerInfo(root, id.ToString());
-            Description patternInfo = GetDescriptionInfo(root);
+            Description descriptionInfo = GetDescriptionInfo(root);
             //PatternPrice patternPrice = GetPriceInfo(root);
             //PatternDistributionStatus status = GetStatus(root, patternPrice);
             //
             model.KitId = id;
             model.Image = image;
             model.Manufacturer = author;
-            model.Info = patternInfo;
+            model.Info = descriptionInfo;
             //model.PriceInfo = patternPrice;
             //model.Status = status;
             return model;
@@ -43,7 +40,8 @@ namespace Web.Models.CrossStitch
 
         public string GetColor()
         {
-            switch (Status)
+            return "#FFFFFF";
+            /*switch (Status)
             {
                 case PatternDistributionStatus.AvailableToBuy:
                     return "#FAFFE3";
@@ -56,13 +54,13 @@ namespace Web.Models.CrossStitch
                 case PatternDistributionStatus.Undefined:
                 default:
                     return "#FFFFFF";
-            }
+            }*/
         }
 
         public string Comment()
         {
-
-            switch (Status)
+            return "    ";
+            /*switch (Status)
             {
                 case PatternDistributionStatus.OnSale:
                     return PriceInfo.DiscountPercent;
@@ -73,7 +71,7 @@ namespace Web.Models.CrossStitch
                 case PatternDistributionStatus.Undefined:
                 default:
                     return "    ";
-            }
+            }*/
         }
 
         private static KitId GetId(IElement root, Uri uri)
@@ -207,16 +205,7 @@ namespace Web.Models.CrossStitch
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append($"{KitId} - {Info.Title}. Status - {Status}");
-            if (PriceInfo.HasPrice)
-            {
-                sb.Append($" ({PriceInfo.Price}");
-                if (PriceInfo.HasDiscount)
-                {
-                    sb.Append($" , discount {PriceInfo.DiscountPercent}");
-                }
-                sb.Append(")");
-            }
+            sb.Append($"{KitId} - {Info.Title}.");
             return sb.ToString();
         }
     }

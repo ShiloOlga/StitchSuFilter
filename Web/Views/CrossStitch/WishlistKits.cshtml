@@ -1,0 +1,50 @@
+﻿@model Web.Models.CrossStitch.WishlistKitsViewModel
+@{
+    Func<string, string, string> FormatTitle = (id, title) => $"{id} - {title}";
+    int _counter = 1;
+}
+
+<h2>Updates</h2>
+<br />
+<br />
+
+@using (Html.BeginForm(Model.MethodName, "CrossStitch", FormMethod.Post, new { id = "myForm" }))
+{
+    <p>
+        <table>
+            <tr>
+                <td>
+                    <div class="form-group">
+                        <select name="Author" class="form-control" asp-for="Manufacturer" asp-items="Model.Manufacturers" onchange="$('#myForm').submit();"></select>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </p>
+}
+<br />
+<br />
+<p>Total: @Model.Items.Count()</p>
+<table class="table table-bordered table-responsive" style="width: 100%">
+    <tr>
+        <th>#</th>
+        <th>Image</th>
+        <th>Manufacturer</th>
+        <th>Title</th>
+        <th>Description</th>
+    </tr>
+    @foreach (var d in Model.Items)
+    {
+        <tr style="background-color:@d.GetColor()">
+            <td>@(_counter++)</td>
+            <td>
+                <a href="@d.Image.FullImageUrl" target="_blank">
+                    <img alt="@d.Image.Description" src="@d.Image.PreviewImageUrl" />
+                </a>
+            </td>
+            <td>@d.Manufacturer.Name</td>
+            <td><a href="@d.KitId.Link" target="_blank">@FormatTitle(d.KitId.Id, d.Info.Title)</a></td>
+            <td>@($"{d.Info.Size}, {d.Info.Fabric}")<br />@d.Info.AdditionalInfo</td>
+        </tr>
+    }
+</table>

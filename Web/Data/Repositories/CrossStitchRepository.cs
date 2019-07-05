@@ -8,7 +8,8 @@ namespace Web.Data.Repositories
 {
     public interface ICrossStitchRepository
     {
-        Task<IEnumerable<CrossStitchPatternModel>> GetWishlist();
+        Task<IEnumerable<CrossStitchPatternModel>> GetWishlistPatterns();
+        Task<IEnumerable<WishlistKitModel>> GetWishlistKits();
         Task<IEnumerable<CrossStitchPatternModel>> GetUpdates(string lastSavedId);
     }
 
@@ -16,8 +17,9 @@ namespace Web.Data.Repositories
     {
         private Task<CrossStitchPageContent> _wishListTask;
         private Task<CrossStitchPageContent> _lastUpdatesTask;
-        private IEnumerable<CrossStitchPatternModel> _wishlistItems;
+        private IEnumerable<CrossStitchPatternModel> _wishlistPatterns;
         private List<CrossStitchPatternModel> _updateItems;
+        private IEnumerable<WishlistKitModel> _wishlistKits;
 
         public CrossStitchRepository()
         {
@@ -30,7 +32,8 @@ namespace Web.Data.Repositories
             var wishlistDownloader = new WishlistDownloader();
             _wishListTask = wishlistDownloader.Parse();
             await _wishListTask;
-            _wishlistItems = _wishListTask.Result.Patterns.ToArray();
+            _wishlistPatterns = _wishListTask.Result.Patterns.ToArray();
+            _wishlistKits = _wishListTask.Result.Kits.ToArray();
         }
 
         private async void LoadLastUpdates()
@@ -41,10 +44,16 @@ namespace Web.Data.Repositories
             _updateItems = _lastUpdatesTask.Result.Patterns.ToList();
         }
 
-        public async Task<IEnumerable<CrossStitchPatternModel>> GetWishlist()
+        public async Task<IEnumerable<CrossStitchPatternModel>> GetWishlistPatterns()
         {
             await _wishListTask;
-            return _wishlistItems;
+            return _wishlistPatterns;
+        }
+
+        public async Task<IEnumerable<WishlistKitModel>> GetWishlistKits()
+        {
+            await _wishListTask;
+            return _wishlistKits;
         }
 
         public async Task<IEnumerable<CrossStitchPatternModel>> GetUpdates(string lastSavedId)

@@ -40,9 +40,39 @@ namespace Web.Controllers
 
         public async Task<IActionResult> Wishlist([FromForm] Filter filter = null)
         {
-            var items = await _crossStitchRepository.GetWishlist();
+            var items = await _crossStitchRepository.GetWishlistPatterns();
             var model = BuildViewModel(items, "Wishlist", filter);
             return View(model);
+        }
+
+        public async Task<IActionResult> WishlistKits([FromForm] Filter filter = null)
+        {
+            var items = await _crossStitchRepository.GetWishlistKits();
+            var model = BuildViewModel(items, "WishlistKits", filter);
+            return View(model);
+        }
+
+        private WishlistKitsViewModel BuildViewModel(IEnumerable<WishlistKitModel> sourceItems, string methodName, Filter filter = null)
+        {
+            var items = sourceItems.ToArray();
+            var manufacturers = items.Select(m => m.Manufacturer.Name).Distinct().OrderBy(m => m).ToList();
+            manufacturers.Insert(0, Filter.All);
+            if (filter != null && !filter.IsEmpty)
+            {
+                var filterByAuthor = filter.Author != Filter.All;
+                if (filterByAuthor)
+                {
+                    items = items.Where(i => i.Manufacturer.Name == filter.Author).ToArray();
+                }
+            }
+            var model = new WishlistKitsViewModel
+            {
+                MethodName = methodName,
+                Items = items,
+                Manufacturer = filter?.Author,
+                Manufacturers = manufacturers.Select(x => new SelectListItem(x, x))
+            };
+            return model;
         }
 
         private CrossStitchViewModel BuildViewModel(IEnumerable<CrossStitchPatternModel> sourceItems, string methodName, Filter filter = null)
