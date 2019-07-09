@@ -128,7 +128,7 @@ namespace Web.Data.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<FabricItemModel>> GetFabricItems()
+        public Task<IEnumerable<Models.FabricItemModel>> GetFabricItems()
         {
             throw new NotImplementedException();
         }

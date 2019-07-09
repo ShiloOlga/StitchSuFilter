@@ -35,16 +35,33 @@
     </tr>
     @foreach (var d in Model.Items)
     {
-        <tr style="background-color:@d.GetColor()">
-            <td>@(_counter++)</td>
-            <td>
+        <tr style="background-color: @d.GetColor()">
+            @{ var count = d.AvailableShops.Any() ? d.AvailableShops.Count() : 1;}
+            <td rowspan="@count">@(_counter++)</td>
+            <td rowspan="@count">
                 <a href="@d.Image.FullImageUrl" target="_blank">
                     <img alt="@d.Image.Description" src="@d.Image.PreviewImageUrl" />
                 </a>
             </td>
-            <td>@d.Manufacturer.Name</td>
-            <td><a href="@d.KitId.Link" target="_blank">@FormatTitle(d.KitId.Id, d.Info.Title)</a></td>
-            <td>@($"{d.Info.Size}, {d.Info.Fabric}")<br />@d.Info.AdditionalInfo</td>
+            <td rowspan="@count">@d.Manufacturer.Name</td>
+            <td rowspan="@count"><a href="@d.KitId.Link" target="_blank">@FormatTitle(d.KitId.Id, d.Info.Title)</a></td>
+            <td rowspan="@count">@($"{d.Info.Size}, {d.Info.Fabric}")<br />@d.Info.AdditionalInfo</td>
+            @if (!d.AvailableShops.Any())
+            {
+                <td colspan="2">Отсутствует в магазинах.</td>
+            }
+            else
+            {
+                foreach (var shop in d.AvailableShops)
+                {
+                    <td>@shop.Name</td>
+                    <td>@shop.Price</td>
+                    if (count > 1 && shop != d.AvailableShops.Last())
+                    {
+                    @:</tr><tr>
+                    }
+                }
+            }
         </tr>
     }
 </table>

@@ -26,10 +26,17 @@
                 <ul class="nav navbar-nav">
                     <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="CrossStitch" asp-action="Updates">Updates</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Wishlist</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarWishlist" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Wishlist</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarWishlist">
                             <a class="dropdown-item" asp-area="" asp-controller="CrossStitch" asp-action="Wishlist">Patterns</a>
                             <a class="dropdown-item" asp-area="" asp-controller="CrossStitch" asp-action="WishlistKits">Kits</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarReports" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Reports</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarReports">
+                            <a class="dropdown-item" asp-area="" asp-controller="CrossStitch" asp-action="Wishlist">Kits prices</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="CrossStitch" asp-action="WishlistKits">Patterns fabric options</a>
                         </div>
                     </li>
                 </ul>

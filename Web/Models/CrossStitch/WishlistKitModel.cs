@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using AngleSharp.Dom;
 using AngleSharp.Dom.Html;
 using Web.Models.CrossStitch.Kit;
@@ -14,6 +17,7 @@ namespace Web.Models.CrossStitch
         public Manufacturer Manufacturer { get; private set; }
         public ItemImage Image { get; private set; }
         public Description Info { get; private set; }
+        public IEnumerable<ShopInfo> AvailableShops { get; private set; }
         //public PatternPrice PriceInfo { get; private set; }
         //public PatternDistributionStatus Status { get; private set; }
 
@@ -23,9 +27,10 @@ namespace Web.Models.CrossStitch
         {
             var model = new WishlistKitModel();
             var id = GetId(root, uri);
-            ItemImage image = GetImageInfo(root, uri);
-            Manufacturer author = GetManufacturerInfo(root, id.ToString());
-            Description descriptionInfo = GetDescriptionInfo(root);
+            var image = GetImageInfo(root, uri);
+            var author = GetManufacturerInfo(root, id.ToString());
+            var descriptionInfo = GetDescriptionInfo(root);
+            var availableShops = GetPriceInfo(root, uri);
             //PatternPrice patternPrice = GetPriceInfo(root);
             //PatternDistributionStatus status = GetStatus(root, patternPrice);
             //
@@ -33,6 +38,7 @@ namespace Web.Models.CrossStitch
             model.Image = image;
             model.Manufacturer = author;
             model.Info = descriptionInfo;
+            model.AvailableShops = availableShops;
             //model.PriceInfo = patternPrice;
             //model.Status = status;
             return model;
@@ -136,44 +142,58 @@ namespace Web.Models.CrossStitch
             if (infoContainer != null && !string.IsNullOrEmpty(infoContainer.InnerText))
             {
                 var lines = infoContainer.InnerText.Split(new[] { ", " }, StringSplitOptions.RemoveEmptyEntries);
-                if (lines.Length > 1)
-                {
-                    description.Title = lines[0];
-                }
                 if (lines.Length >= 4)
                 {
-                    description.Size = lines[1];
-                    description.Fabric = lines[2];
-                    description.AdditionalInfo = lines[3];
+                    description.Title = lines.Take(lines.Length - 3).Aggregate((x, y) => x + ", " + y);
+                    description.Size = lines[lines.Length - 3];
+                    description.Fabric = lines[lines.Length - 2];
+                    description.AdditionalInfo = lines[lines.Length - 1];
+                }
+                else if (lines.Length == 3)
+                {
+                    description.Size = lines[lines.Length - 3];
+                    description.Fabric = lines[lines.Length - 2];
+                    description.AdditionalInfo = lines[lines.Length - 1];
+                    description.Title = "-";
+                }
+                else
+                {
+                    description.Title = infoContainer.InnerText;
                 }
             }
 
             return description;
         }
 
-        private static PatternPrice GetPriceInfo(IElement root)
+        private static IEnumerable<ShopInfo> GetPriceInfo(IElement root, Uri uri)
         {
             // Price
-            var patternPrice = new PatternPrice();
-            var priceContainer = root.QuerySelector("div.cart_button");
-            if (priceContainer != null)
+            var container = root.QuerySelectorAll("table tr");
+            var result = new List<ShopInfo>(container.Length);
+            foreach (var item in container)
             {
-                decimal price;
-                decimal discountPrice = 0;
-                var discountContainer = priceContainer.QuerySelector("span.action");
-                if (discountContainer != null)
+                var dto = new ShopInfo();
+                if (item.HasChildNodes && item.ChildElementCount == 2)
                 {
-                    decimal.TryParse(discountContainer.TextContent, out price);
-                    decimal.TryParse(priceContainer.QuerySelector("span.pat_cost")?.TextContent, out discountPrice);
+                    var shopInfo = item.Children[0];
+                    if (item.QuerySelector("a") is IHtmlAnchorElement link)
+                    {
+                        dto.Name = link.Text;
+                        dto.Link = HtmlProcessingUtility.BuildAbsoluteUri(uri, link.Download);
+                    }
+                    else
+                    {
+                        dto.Name = shopInfo.TextContent;
+                    }
+                    dto.Price = decimal.Parse(Regex.Match(item.Children[1].TextContent, @"\d+").Value);
+                    result.Add(dto);
                 }
-                else
+                else if (item.QuerySelector("td.nomags") == null)
                 {
-                    decimal.TryParse(priceContainer.QuerySelector("span.pat_cost")?.TextContent, out price);
+                    throw new Exception("Invalid kit shop line format");
                 }
-                patternPrice.Price = price;
-                patternPrice.DiscountPrice = discountPrice;
             }
-            return patternPrice;
+            return result.OrderBy(x => x.Price);
         }
 
         private static PatternDistributionStatus GetStatus(IElement root, PatternPrice patternPrice)
