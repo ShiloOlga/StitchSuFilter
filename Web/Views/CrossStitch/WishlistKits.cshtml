@@ -54,7 +54,14 @@
             {
                 foreach (var shop in d.AvailableShops)
                 {
-                    <td>@shop.Name</td>
+                    if (!string.IsNullOrEmpty(shop.Link))
+                    {
+                        <td><a href="@shop.Link">@shop.Name</a></td>
+                    }
+                    else
+                    {
+                        <td>@shop.Name</td>
+                    }
                     <td>@shop.Price</td>
                     if (count > 1 && shop != d.AvailableShops.Last())
                     {

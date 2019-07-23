@@ -1,49 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Web.Data.Context;
 using Web.Data.Repositories;
+using Web.Models.ViewModels;
 
 namespace Web.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class ReportController
+    public class ReportController : Controller
     {
-        private readonly ICrossStitchKitsRepository _repository;
+        private readonly ICrossStitchRepository _repository;
 
-        public ReportController(ICrossStitchKitsRepository repository, MariaDbContext dbContext)
+        public ReportController(ICrossStitchRepository repository)
         {
             _repository = repository;
         }
 
-        [HttpGet]
-        public string Get()
+        public async Task<IActionResult> KitPrices()
         {
-            var sb = new StringBuilder();
-            var reportTask = _repository.GetColorReport();
-            reportTask.Wait();
-            foreach (var model in reportTask.Result.OrderByDescending(p => p.Color.ColorId.Length).ThenBy(p => p.Color.ColorId))
-            {
-                sb.AppendLine($"{model.Color.ColorId,-5} - {model.TotalLength,5}m");
-            }
-            return sb.ToString();
-        }
-
-        private void AddPattern()
-        {
-            var canvas = new[]
-            {
-                new {Name = "Brittney", Color = "White"},
-                new {Name = "Linda", Color = "White"},
-            };
-            //var dmcColors = new[]
-            //{
-            //    //new {Name = "", Length = }
-            //};
+            var items = await _repository.GetWishlistKits();
+            return View(KitPricesReportViewModel.Build(items));
         }
 
     }

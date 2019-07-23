@@ -1,0 +1,25 @@
+﻿@model KitPricesReportViewModel
+@{
+    ViewData["Title"] = "GetKitPricesReport";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GetKitPricesReport</h2>
+@foreach (var shop in Model.Shops)
+{
+    <h2><a href="@shop.ShopLink">@shop.ShopName</a></h2>
+    <table>
+        @foreach (var line in shop.Kits)
+        {
+            <tr>
+                <td>@line.Title</td>
+                <td>@line.Price</td>
+            </tr>
+        }
+            <tr>
+                <td style="alignment: right">Total: @shop.TotalAmount</td>
+                <td style="alignment: right">Amount: @shop.TotalCount</td>
+            </tr>
+    </table>
+}
+
