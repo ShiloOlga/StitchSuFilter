@@ -13,13 +13,16 @@
         {
             <tr>
                 <td>@line.Title</td>
-                <td>@line.Price</td>
+                <td>
+                    <div style="display: inline-block">@line.Price</div>
+                    <div style="display: inline-block; font-weight: @(line.Place > 5 ? "normal" : "bold")">(@line.Place)</div>
+                </td>
             </tr>
         }
-            <tr>
-                <td style="alignment: right">Total: @shop.TotalAmount</td>
-                <td style="alignment: right">Amount: @shop.TotalCount</td>
-            </tr>
+        <tr>
+            <td style="alignment: right">Total: @shop.TotalAmount</td>
+            <td style="alignment: right">Amount: @shop.TotalCount</td>
+        </tr>
     </table>
 }
 

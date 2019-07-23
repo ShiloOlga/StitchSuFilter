@@ -51,7 +51,8 @@ namespace Web.Models.ViewModels
                 .Select(x => new KitPriceReportUnit
                 {
                     Price = x.Shop.Price,
-                    Title = x.Kit.Info.Title
+                    Title = x.Kit.Info.Title,
+                    Place = x.Kit.AvailableShops.Count(y => x.Shop.Price > y.Price) + 1
                 })
                 .ToArray();
             result.ShopName = matchingKits.First().Shop.Name;
@@ -66,5 +67,6 @@ namespace Web.Models.ViewModels
     {
         public string Title { get; set; }
         public decimal Price { get; set; }
+        public int Place { get; set; }
     }
 }
