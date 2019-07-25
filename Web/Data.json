@@ -489,9 +489,53 @@
     "Петунова Анна",
     "Нарен Юлия",
     "Николаева Евдокия (Punochka)",
-    "Золотова Юлия"
+    "Золотова Юлия",
+    "Дик Жанна"
   ],
   "Patterns": [
+    {
+      "Title": "Пчелка",
+      "Author": "Дик Жанна",
+      "Item": "-",
+      "Size": {
+        "Width": "160.0",
+        "Height": "130.0"
+      },
+      "Fabric": [
+        {
+          "Name": "Murano",
+          "Color": "3984/101",
+          "ColorName": "Antique White"
+        }
+      ],
+      "ImageUrl": "https://sun1.beltelecom-by-minsk.userapi.com/c855324/v855324303/a0fd5/fCdXxLOAFWw.jpg",
+      "ColorsCount": 0,
+      "Link": ""
+    },
+    {
+      "Title": "Закат над рекой",
+      "Author": "Ульчицкая Анна",
+      "Item": "27565",
+      "Size": {
+        "Width": "145.0",
+        "Height": "207.0"
+      },
+      "Fabric": [
+        {
+          "Name": "Aida 14",
+          "Color": "3706/100",
+          "ColorName": "White"
+        },
+        {
+          "Name": "Aida 16",
+          "Color": "3251/100",
+          "ColorName": "White"
+        }
+      ],
+      "ImageUrl": "https://www.stitch.su/images/patterns/big/27565.jpg",
+      "ColorsCount": 0,
+      "Link": ""
+    },
     {
       "Title": "Исландия",
       "Author": "Золотова Юлия",
