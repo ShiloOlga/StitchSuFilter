@@ -997,6 +997,13 @@
         "Width": 29.0,
         "Height": 100.0
       },
+      "Fabric": [
+        {
+          "Name": "Linda",
+          "Color": "1235/611",
+          "ColorName": ""
+        }
+      ],
       "ImageUrl": "https://www.stitch.su/images/patterns/big/13032.jpg",
       "ColorsCount": 0,
       "Link": ""
@@ -1009,6 +1016,13 @@
         "Width": 117.0,
         "Height": 101.0
       },
+      "Fabric": [
+        {
+          "Name": "Linda",
+          "Color": "1235/611",
+          "ColorName": ""
+        }
+      ],
       "ImageUrl": "https://www.stitch.su/images/patterns/big/20034.jpg",
       "ColorsCount": 0,
       "Link": ""
@@ -1213,6 +1227,13 @@
         "Width": 180.0,
         "Height": 127.0
       },
+      "Fabric": [
+        {
+          "Name": "Aida 14",
+          "Color": "3706/100",
+          "ColorName": "White"
+        }
+      ],
       "ImageUrl": "https://www.stitch.su/images/patterns/big/20339.jpg",
       "ColorsCount": 0,
       "Link": ""
@@ -1237,6 +1258,13 @@
         "Width": 140.0,
         "Height": 94.0
       },
+      "Fabric": [
+        {
+          "Name": "Linda",
+          "Color": "1235/611",
+          "ColorName": ""
+        }
+      ],
       "ImageUrl": "https://www.stitch.su/images/patterns/big/19396.jpg",
       "ColorsCount": 0,
       "Link": ""
@@ -1604,6 +1632,13 @@
         "Width": 72.0,
         "Height": 88.0
       },
+      "Fabric": [
+        {
+          "Name": "Belfast",
+          "Color": "3609/778",
+          "ColorName": "Smokey Pearl"
+        }
+      ],
       "ImageUrl": "https://www.stitch.su/images/patterns/big/397.jpg",
       "ColorsCount": 0,
       "Link": ""
