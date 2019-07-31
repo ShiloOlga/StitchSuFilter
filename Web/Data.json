@@ -889,6 +889,13 @@
         "Width": 131.0,
         "Height": 256.0
       },
+      "Fabric": [
+        {
+          "Name": "Belfast",
+          "Color": "3609/578",
+          "ColorName": "Blue Spruce/French Blue"
+        }
+      ],
       "ImageUrl": "https://www.stitch.su/images/patterns/big/1778.jpg",
       "ColorsCount": 0,
       "Link": ""
