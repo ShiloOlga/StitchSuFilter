@@ -1,0 +1,15 @@
+﻿@model PatternFabricOptionsReportViewModel
+
+@{
+    ViewBag.Title = "Fabric report";
+    Layout = "_Layout";
+}
+
+@foreach (var line in Model.Lines)
+{
+    <p><b>@line.Name</b></p>
+    foreach (var p in line.Patterns)
+     {
+         <p>@p</p>
+     }
+}

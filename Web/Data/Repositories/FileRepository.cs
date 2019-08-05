@@ -13,7 +13,7 @@ using PatternModel = Web.Models.PatternModel;
 
 namespace Web.Data.Repositories
 {
-    public class FileRepository : ICrossStitchKitsRepository
+    public class FileRepository : ICrossStitchKitsRepository, ICrossStitchPatternsRepository
     {
         private class Temp
         {

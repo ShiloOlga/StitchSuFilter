@@ -10,7 +10,7 @@ namespace Web.Models.V2
         public string Item { get; set; }
         public Size Size { get; set; }
         [JsonProperty("Fabric")]
-        public FabricItemModel[] Fabrics { get; set; }
+        public FabricItemModel[] FabricOptions { get; set; }
         public string ImageUrl { get; set; }
         public int ColorsCount { get; set; }
         public string Link { get; set; }

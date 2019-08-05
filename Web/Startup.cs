@@ -38,6 +38,7 @@ namespace Web
 
             services.AddSingleton<ICrossStitchRepository>(new CrossStitchRepository());
             services.AddSingleton<ICrossStitchKitsRepository, FileRepository>();
+            services.AddSingleton<ICrossStitchPatternsRepository, FileRepository>();
             services.AddAutoMapper(c => c.AddProfile<EntityMappingProfile>());
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
