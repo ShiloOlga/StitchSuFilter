@@ -490,9 +490,34 @@
     "Нарен Юлия",
     "Николаева Евдокия (Punochka)",
     "Золотова Юлия",
-    "Дик Жанна"
+    "Дик Жанна",
+    "Демина Мария"
   ],
   "Patterns": [
+    {
+      "Title": "Драконий клад кроликов",
+      "Author": "Демина Мария",
+      "Item": "26410",
+      "Size": {
+        "Width": "145.0",
+        "Height": "131.0"
+      },
+      "Fabric": [
+        {
+          "Name": "Murano",
+          "Color": "3984/101",
+          "ColorName": "Antique White"
+        },
+        {
+          "Name": "Murano",
+          "Color": "3984/100",
+          "ColorName": "White"
+        }
+      ],
+      "ImageUrl": "https://www.stitch.su/images/patterns/big/26410.jpg",
+      "ColorsCount": 0,
+      "Link": ""
+    },
     {
       "Title": "Пчелка",
       "Author": "Дик Жанна",
