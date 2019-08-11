@@ -491,9 +491,34 @@
     "Николаева Евдокия (Punochka)",
     "Золотова Юлия",
     "Дик Жанна",
-    "Демина Мария"
+    "Демина Мария",
+    "Князева Ольга"
   ],
   "Patterns": [
+    {
+      "Title": "Софья",
+      "Author": "Князева Ольга",
+      "Item": "26926",
+      "Size": {
+        "Width": "58.0",
+        "Height": "99.0"
+      },
+      "Fabric": [
+        {
+          "Name": "Murano",
+          "Color": "3984/503",
+          "ColorName": "Light Blue"
+        },
+        {
+          "Name": "Monika 28 ct.",
+          "Color": "2180",
+          "ColorName": ""
+        }
+      ],
+      "ImageUrl": "https://www.stitch.su/images/patterns/big/26926.jpg",
+      "ColorsCount": 0,
+      "Link": ""
+    },
     {
       "Title": "Драконий клад кроликов",
       "Author": "Демина Мария",
