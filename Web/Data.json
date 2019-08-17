@@ -26,18 +26,6 @@
     },
     {
       "Id": null,
-      "Title": "Озеро в горах",
-      "Manufacturer": "Riolis",
-      "Item": "1235",
-      "Size": {
-        "Width": 60.0,
-        "Height": 40.0
-      },
-      "ImageUrl": "http://www.riolis.ru/zoom/photos/2450.jpg",
-      "KitType": 0
-    },
-    {
-      "Id": null,
       "Title": "Теплая осень",
       "Manufacturer": "Riolis",
       "Item": "1676",
@@ -218,6 +206,42 @@
     },
     {
       "Id": null,
+      "Title": "Зимняя царица",
+      "Manufacturer": "М.П. Студия",
+      "Item": "HB-606",
+      "Size": {
+        "Width": 28.0,
+        "Height": 20.0
+      },
+      "ImageUrl": "https://www.mirkrestikom.ru/uploads/info/item_full/2749238-nv-606-zimnyaya-carica-mp-stydiya.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Новогодняя фея",
+      "Manufacturer": "М.П. Студия",
+      "Item": "HB-631",
+      "Size": {
+        "Width": 35.0,
+        "Height": 25.0
+      },
+      "ImageUrl": "https://www.mirkrestikom.ru/uploads/info/item_full/2752171-nv-631-novogodnyaya-feya-mp-stydiya.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Снежная пора",
+      "Manufacturer": "М.П. Студия",
+      "Item": "HB-671",
+      "Size": {
+        "Width": 30.0,
+        "Height": 21.0
+      },
+      "ImageUrl": "https://www.mirkrestikom.ru/uploads/info/item_full/2776669-nv-671-snejnaya-pora-mp-stydiya.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
       "Title": "Щегол",
       "Manufacturer": "Кларт",
       "Item": "8-087",
@@ -290,6 +314,54 @@
     },
     {
       "Id": null,
+      "Title": "Вьюнок",
+      "Manufacturer": "Марья Искусница",
+      "Item": "06.002.32",
+      "Size": {
+        "Width": 25.0,
+        "Height": 35.0
+      },
+      "ImageUrl": "http://www.gela.ru/upload/resize_cache/iblock/283/800_800_1/6540ca60_3410_11e4_93d4_000c29dae4c7_0.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Каракал",
+      "Manufacturer": "Марья Искусница",
+      "Item": "03.014.05",
+      "Size": {
+        "Width": 25.0,
+        "Height": 36.0
+      },
+      "ImageUrl": "http://www.gela.ru/upload/iblock/c7b/0ea7ff3c_60c0_4380_82aa_023ac54bd091_0.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Полевой клевер",
+      "Manufacturer": "Марья Искусница",
+      "Item": "06.002.62",
+      "Size": {
+        "Width": 20.0,
+        "Height": 40.0
+      },
+      "ImageUrl": "http://www.gela.ru/upload/iblock/ae3/06cd7de6_063d_11e6_9f69_000c29dae4c7_0.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Рыбы",
+      "Manufacturer": "Марья Искусница",
+      "Item": "14.001.09",
+      "Size": {
+        "Width": 40.0,
+        "Height": 40.0
+      },
+      "ImageUrl": "http://www.gela.ru/upload/iblock/9e8/46e53c11_9d99_11e5_834a_000c29dae4c7_0.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
       "Title": "Всплеск красок",
       "Manufacturer": "Чаривна мить",
       "Item": "РК-101",
@@ -350,6 +422,18 @@
     },
     {
       "Id": null,
+      "Title": "Леопард",
+      "Manufacturer": "Luca-S",
+      "Item": "BU4006",
+      "Size": {
+        "Width": 21.5,
+        "Height": 31.5
+      },
+      "ImageUrl": "https://www.mirkrestikom.ru/uploads/info/item_full/2808221-bu4006-leopard-luca-s.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
       "Title": "Кошачья грация",
       "Manufacturer": "RTO",
       "Item": "М553",
@@ -382,18 +466,6 @@
         "Height": 10.0
       },
       "ImageUrl": "https://hobby-express.ru/data/upload/shop/store/goods/4/2018/11/4_15429874520268554_360.jpg",
-      "KitType": 0
-    },
-    {
-      "Id": null,
-      "Title": "Кардинал",
-      "Manufacturer": "RTO",
-      "Item": "H220",
-      "Size": {
-        "Width": 10.0,
-        "Height": 10.0
-      },
-      "ImageUrl": "https://hobby-express.ru/data/upload/shop/store/goods/4/2019/04/4_15541774047202350_360.jpg",
       "KitType": 0
     },
     {
@@ -447,6 +519,7 @@
   ],
   "KitManufacturers": [
     "Dimensions",
+    "Luca-S",
     "OLanTa",
     "Riolis",
     "RTO",
