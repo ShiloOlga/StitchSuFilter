@@ -74,6 +74,18 @@
     },
     {
       "Id": null,
+      "Title": "Подушка-черепашка",
+      "Manufacturer": "Panna",
+      "Item": "ПД-1551",
+      "Size": {
+        "Width": 36.0,
+        "Height": 44.0
+      },
+      "ImageUrl": "https://panna.ru/images/c/b/d19652818022b.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
       "Title": "Февральский домик",
       "Manufacturer": "Алиса",
       "Item": "3-22",
@@ -106,6 +118,78 @@
         "Height": 21.0
       },
       "ImageUrl": "http://ooo-oven.ru/upload/iblock/6b8/6b883d62e1a5960e31db2dd272e66e49.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Лето, море, маки",
+      "Manufacturer": "Овен",
+      "Item": "1028",
+      "Size": {
+        "Width": 37.0,
+        "Height": 20.0
+      },
+      "ImageUrl": "http://ooo-oven.ru/upload/resize_cache/iblock/15d/940_829_1/15dea4a763b98b38e614f879c68a882b.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Лето, море, маки",
+      "Manufacturer": "Овен",
+      "Item": "1010",
+      "Size": {
+        "Width": 31.0,
+        "Height": 20.0
+      },
+      "ImageUrl": "http://ooo-oven.ru/upload/resize_cache/iblock/3eb/940_829_1/3ebdb9f84b6ff2b3f99e15a74dee0697.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Душистые травы",
+      "Manufacturer": "Овен",
+      "Item": "1079",
+      "Size": {
+        "Width": 34.0,
+        "Height": 22.0
+      },
+      "ImageUrl": "http://ooo-oven.ru/upload/resize_cache/iblock/294/940_829_1/2940338411dc77a231d2d729669077ae.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Русская кухня",
+      "Manufacturer": "Овен",
+      "Item": "1081",
+      "Size": {
+        "Width": 8.0,
+        "Height": 9.0
+      },
+      "ImageUrl": "http://ooo-oven.ru/upload/iblock/d8b/d8b0e6c98e0a107562707251566c334e.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Осень",
+      "Manufacturer": "Овен",
+      "Item": "1082",
+      "Size": {
+        "Width": 34.0,
+        "Height": 25.0
+      },
+      "ImageUrl": "http://ooo-oven.ru/upload/iblock/ccf/ccf687050284ecb0be76d047a2069bd1.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Летняя композиция",
+      "Manufacturer": "Овен",
+      "Item": "951",
+      "Size": {
+        "Width": 15.0,
+        "Height": 44.0
+      },
+      "ImageUrl": "http://ooo-oven.ru/upload/iblock/2fd/2fd74d04c5612aacb92127bc14142fc0.jpg",
       "KitType": 0
     },
     {
@@ -309,7 +393,7 @@
         "Width": 20.0,
         "Height": 20.0
       },
-      "ImageUrl": "http://www.gela.ru.opt-images.1c-bitrix-cdn.ru/upload/iblock/cc0/d5d4f880_3fb1_11e7_b75c_000c29dae4c7_0.jpg?1558408232385608",
+      "ImageUrl": "https://www.stitch.su/images/big5/39642.jpg",
       "KitType": 0
     },
     {
@@ -321,7 +405,7 @@
         "Width": 25.0,
         "Height": 35.0
       },
-      "ImageUrl": "http://www.gela.ru/upload/resize_cache/iblock/283/800_800_1/6540ca60_3410_11e4_93d4_000c29dae4c7_0.jpg",
+      "ImageUrl": "https://www.stitch.su/images/big4/30760.jpg",
       "KitType": 0
     },
     {
@@ -333,7 +417,7 @@
         "Width": 25.0,
         "Height": 36.0
       },
-      "ImageUrl": "http://www.gela.ru/upload/iblock/c7b/0ea7ff3c_60c0_4380_82aa_023ac54bd091_0.jpg",
+      "ImageUrl": "https://www.stitch.su/images/big3/15297.jpg",
       "KitType": 0
     },
     {
@@ -345,7 +429,7 @@
         "Width": 20.0,
         "Height": 40.0
       },
-      "ImageUrl": "http://www.gela.ru/upload/iblock/ae3/06cd7de6_063d_11e6_9f69_000c29dae4c7_0.jpg",
+      "ImageUrl": "https://www.stitch.su/images/big4/35528.jpg",
       "KitType": 0
     },
     {
@@ -357,7 +441,7 @@
         "Width": 40.0,
         "Height": 40.0
       },
-      "ImageUrl": "http://www.gela.ru/upload/iblock/9e8/46e53c11_9d99_11e5_834a_000c29dae4c7_0.jpg",
+      "ImageUrl": "https://www.stitch.su/images/big4/34416.jpg",
       "KitType": 0
     },
     {
@@ -506,14 +590,146 @@
     },
     {
       "Id": null,
-      "Title": "Рыжая русалка",
+      "Title": "Подарок",
       "Manufacturer": "RTO",
-      "Item": "M596",
+      "Item": "M609",
+      "Size": {
+        "Width": 20.5,
+        "Height": 21.5
+      },
+      "ImageUrl": "https://hobby-express.ru/data/upload/shop/store/goods/4/2019/04/4_15549190140934726_1280.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Несущий звёзды",
+      "Manufacturer": "RTO",
+      "Item": "M610",
+      "Size": {
+        "Width": 20.5,
+        "Height": 21.0
+      },
+      "ImageUrl": "https://hobby-express.ru/data/upload/shop/store/goods/4/2019/04/4_15549190145927967_1280.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Несущий звёзды",
+      "Manufacturer": "RTO",
+      "Item": "M610",
+      "Size": {
+        "Width": 20.5,
+        "Height": 21.0
+      },
+      "ImageUrl": "https://hobby-express.ru/data/upload/shop/store/goods/4/2019/04/4_15549190145927967_1280.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Слушая тишину",
+      "Manufacturer": "RTO",
+      "Item": "M726",
       "Size": {
         "Width": 25.5,
-        "Height": 36.0
+        "Height": 32.0
       },
-      "ImageUrl": "https://hobby-express.ru/data/upload/shop/store/goods/4/2018/11/4_15429873116133333_360.jpg",
+      "ImageUrl": "https://hobby-express.ru/data/upload/shop/store/goods/13/2018/11/13_15427878617735339_1280.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Тюльпаны Востока",
+      "Manufacturer": "RTO",
+      "Item": "M597",
+      "Size": {
+        "Width": 35.5,
+        "Height": 33.0
+      },
+      "ImageUrl": "https://hobby-express.ru/data/upload/shop/store/goods/4/2018/11/4_15429873119545340_1280.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Весы",
+      "Manufacturer": "Золотое Руно",
+      "Item": "ЦГ-007",
+      "Size": {
+        "Width": 16.5,
+        "Height": 15.5
+      },
+      "ImageUrl": "https://www.rukodelie.ru/upload/iblock/868/d26789a2_3690_11e9_835c_54a0508456a9_4561ab2f_38e0_11e9_835c_54a0508456a9.resize1.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Тупик",
+      "Manufacturer": "Дивная вишня",
+      "Item": "ВВ-138",
+      "Size": {
+        "Width": 5.8,
+        "Height": 7.6
+      },
+      "ImageUrl": "https://www.divishnya.ru/images/products/bb-138/bb-138-420x420.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Курочка Ряба",
+      "Manufacturer": "Волшебная страна",
+      "Item": "FLK-079",
+      "Size": {
+        "Width": 10.0,
+        "Height": 9.5
+      },
+      "ImageUrl": "https://volshebnaya-strana.com.ua/sites/default/files/styles/large/public/product/nabir-dlya-vishivannya-biserom-po-derevu-flk-079-34538.png",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Ежевика",
+      "Manufacturer": "Riolis",
+      "Item": "1550",
+      "Size": {
+        "Width": 19.0,
+        "Height": 48.0
+      },
+      "ImageUrl": "http://www.riolis.ru/zoom/photos/3324.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Венок с пшеницей",
+      "Manufacturer": "Riolis",
+      "Item": "1537",
+      "Size": {
+        "Width": 30.0,
+        "Height": 30.0
+      },
+      "ImageUrl": "http://www.riolis.ru/zoom/photos/3195.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Волна",
+      "Manufacturer": "Riolis",
+      "Item": "1559",
+      "Size": {
+        "Width": 40.0,
+        "Height": 30.0
+      },
+      "ImageUrl": "http://www.riolis.ru/zoom/photos/3481.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Фрезии",
+      "Manufacturer": "Riolis",
+      "Item": "1561",
+      "Size": {
+        "Width": 40.0,
+        "Height": 30.0
+      },
+      "ImageUrl": "http://www.riolis.ru/zoom/photos/3450.jpg",
       "KitType": 0
     }
   ],
@@ -565,9 +781,34 @@
     "Золотова Юлия",
     "Дик Жанна",
     "Демина Мария",
-    "Князева Ольга"
+    "Князева Ольга",
+    "Фролова Дарья"
   ],
   "Patterns": [
+    {
+      "Title": "Котолампочки",
+      "Author": "Фролова Дарья",
+      "Item": "-",
+      "Size": {
+        "Width": "104.0",
+        "Height": "97.0"
+      },
+      "Fabric": [
+        {
+          "Name": "Brittney",
+          "Color": "3270/589",
+          "ColorName": "Navy"
+        },
+        {
+          "Name": "Monika 28 ct.",
+          "Color": "2186",
+          "ColorName": ""
+        }
+      ],
+      "ImageUrl": "https://sun9-23.userapi.com/c850336/v850336202/1d0708/uppwv_sm4vA.jpg",
+      "ColorsCount": 0,
+      "Link": ""
+    },
     {
       "Title": "Софья",
       "Author": "Князева Ольга",
