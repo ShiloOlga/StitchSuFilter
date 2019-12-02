@@ -12,8 +12,14 @@ namespace Web.Utils
                 case "Aida 14":
                 case "Monika 28 ct.":
                 case "Eva 28 ct.":
+                case "Brittney":
                     {
                         stitchCount = 14;
+                        break;
+                    }
+                case "Monika 30 ct.":
+                    {
+                        stitchCount = 15;
                         break;
                     }
                 case "Aida 16":
