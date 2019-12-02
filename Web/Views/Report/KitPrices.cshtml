@@ -12,10 +12,16 @@
         @foreach (var line in shop.Kits)
         {
             <tr>
+                <td style="min-width:100px; min-height:100px;">
+                    <div style="max-width:100px; max-height:100px;">
+                        <img src="@line.Url" style="max-height:100%; max-width:100%"/>
+                    </div>
+                </td>
                 <td>@line.Title</td>
                 <td>
                     <div style="display: inline-block">@line.Price</div>
                     <div style="display: inline-block; font-weight: @(line.Place > 5 ? "normal" : "bold")">(@line.Place)</div>
+                    <div style="display: inline-block">+@line.Delta</div>
                 </td>
             </tr>
         }

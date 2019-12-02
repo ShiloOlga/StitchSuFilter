@@ -43,7 +43,8 @@ namespace Web.Models.ViewModels
                 .Select(x => new
                 {
                     Kit = x,
-                    Shop = x.AvailableShops.FirstOrDefault(y => y.Name.Equals(shopName))
+                    Shop = x.AvailableShops.FirstOrDefault(y => y.Name.Equals(shopName)),
+                    MinPrice = x.AvailableShops.DefaultIfEmpty().Min(y => y?.Price ?? 0)
                 })
                 .Where(x => x.Shop != null)
                 .ToArray();
@@ -52,8 +53,12 @@ namespace Web.Models.ViewModels
                 {
                     Price = x.Shop.Price,
                     Title = x.Kit.Info.Title,
-                    Place = x.Kit.AvailableShops.Count(y => x.Shop.Price > y.Price) + 1
+                    Place = x.Kit.AvailableShops.Count(y => x.Shop.Price > y.Price) + 1,
+                    Url = x.Kit.Image.PreviewImageUrl,
+                    Delta = x.Shop.Price - x.MinPrice
                 })
+                .OrderBy(x => x.Place)
+                .ThenBy(x => x.Price)
                 .ToArray();
             result.ShopName = matchingKits.First().Shop.Name;
             result.ShopLink = matchingKits.First().Shop.Link;
@@ -66,7 +71,9 @@ namespace Web.Models.ViewModels
     public class KitPriceReportUnit
     {
         public string Title { get; set; }
+        public string Url { get; set; }
         public decimal Price { get; set; }
+        public decimal Delta { get; set; }
         public int Place { get; set; }
     }
 }
