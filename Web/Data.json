@@ -86,6 +86,42 @@
     },
     {
       "Id": null,
+      "Title": "Северная зима",
+      "Manufacturer": "Panna",
+      "Item": "PS-1977",
+      "Size": {
+        "Width": 24.0,
+        "Height": 24.0
+      },
+      "ImageUrl": "https://panna.ru/images/c/1/d47844747272l.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Ранняя весна",
+      "Manufacturer": "Panna",
+      "Item": "PS-1997",
+      "Size": {
+        "Width": 24.0,
+        "Height": 24.0
+      },
+      "ImageUrl": "https://panna.ru/images/f/7/d50698727012l.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Ласковое лето",
+      "Manufacturer": "Panna",
+      "Item": "PS-1970",
+      "Size": {
+        "Width": 24.0,
+        "Height": 24.0
+      },
+      "ImageUrl": "https://panna.ru/images/7/d/d47969981632l.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
       "Title": "Февральский домик",
       "Manufacturer": "Алиса",
       "Item": "3-22",
@@ -182,6 +218,18 @@
     },
     {
       "Id": null,
+      "Title": "Мухоловки в снегу",
+      "Manufacturer": "Овен",
+      "Item": "1244",
+      "Size": {
+        "Width": 29.0,
+        "Height": 42.0
+      },
+      "ImageUrl": "https://ooo-oven.ru/upload/iblock/c64/c64644d30a78b8700f333134ee72b2aa.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
       "Title": "Летняя композиция",
       "Manufacturer": "Овен",
       "Item": "951",
@@ -238,6 +286,42 @@
         "Height": 23.0
       },
       "ImageUrl": "http://chudo-igla.ru/d/100-004.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Осенний букетик",
+      "Manufacturer": "Чудесная игла",
+      "Item": "100-005",
+      "Size": {
+        "Width": 20.0,
+        "Height": 23.0
+      },
+      "ImageUrl": "http://chudo-igla.ru/d/100-005.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Флоксы и тысячелистник",
+      "Manufacturer": "Чудесная игла",
+      "Item": "100-081",
+      "Size": {
+        "Width": 24.0,
+        "Height": 33.0
+      },
+      "ImageUrl": "http://chudo-igla.ru/d/100-081.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Цветное настроение",
+      "Manufacturer": "Жар-птица",
+      "Item": "Р-418",
+      "Size": {
+        "Width": 9.0,
+        "Height": 13.0
+      },
+      "ImageUrl": "https://mpstudia.ru/upload/resize_cache/iblock/f64/800_800_1/f643d59076f576bdd366d3539372b0dd.jpg",
       "KitType": 0
     },
     {
@@ -614,14 +698,26 @@
     },
     {
       "Id": null,
-      "Title": "Несущий звёзды",
+      "Title": "Стрекоза",
       "Manufacturer": "RTO",
-      "Item": "M610",
+      "Item": "M757",
       "Size": {
-        "Width": 20.5,
-        "Height": 21.0
+        "Width": 19.5,
+        "Height": 13.5
       },
-      "ImageUrl": "https://hobby-express.ru/data/upload/shop/store/goods/4/2019/04/4_15549190145927967_1280.jpg",
+      "ImageUrl": "https://hobby-express.ru/data/upload/shop/store/goods/4/2019/09/4_15676845513172471_360.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Нектар для бабочки",
+      "Manufacturer": "RTO",
+      "Item": "M755",
+      "Size": {
+        "Width": 13.5,
+        "Height": 13.0
+      },
+      "ImageUrl": "https://hobby-express.ru/data/upload/shop/store/goods/4/2019/09/4_15676845498653677_360.jpg",
       "KitType": 0
     },
     {
@@ -782,9 +878,125 @@
     "Дик Жанна",
     "Демина Мария",
     "Князева Ольга",
-    "Фролова Дарья"
+    "Фролова Дарья",
+    "Светлова Валентина (Glert)"
   ],
   "Patterns": [
+    {
+      "Title": "Русалочка",
+      "Author": "Мищук Виталия",
+      "Item": "28657",
+      "Size": {
+        "Width": "135.0",
+        "Height": "171.0"
+      },
+      "Fabric": [
+        {
+          "Name": "Monika 30 ct.",
+          "Color": "2010",
+          "ColorName": "White"
+        },
+        {
+          "Name": "Monika 28 ct.",
+          "Color": "2110",
+          "ColorName": "White"
+        },
+        {
+          "Name": "Murano",
+          "Color": "3984/100",
+          "ColorName": "White"
+        }
+      ],
+      "ImageUrl": "https://www.stitch.su/images/patterns/big/28657.jpg",
+      "ColorsCount": 0,
+      "Link": ""
+    },
+    {
+      "Title": "Зимнее солнце",
+      "Author": "Ульчицкая Анна",
+      "Item": "28037",
+      "Size": {
+        "Width": "147.0",
+        "Height": "200.0"
+      },
+      "Fabric": [
+        {
+          "Name": "Monika 30 ct.",
+          "Color": "2010",
+          "ColorName": "White"
+        },
+        {
+          "Name": "Aida 16",
+          "Color": "3251/100",
+          "ColorName": "White"
+        }
+      ],
+      "ImageUrl": "https://www.stitch.su/images/patterns/big/28037.jpg",
+      "ColorsCount": 0,
+      "Link": ""
+    },
+    {
+      "Title": "Мать-и-мачеха",
+      "Author": "Вознесенская Ксения",
+      "Item": "21766",
+      "Size": {
+        "Width": "51.0",
+        "Height": "58.0"
+      },
+      "Fabric": [
+        {
+          "Name": "Aida 14",
+          "Color": "718",
+          "ColorName": "Confederate Grey"
+        },
+        {
+          "Name": "Linda",
+          "Color": "1235/611",
+          "ColorName": ""
+        }
+      ],
+      "ImageUrl": "https://www.stitch.su/images/patterns/big/21766.jpg",
+      "ColorsCount": 0,
+      "Link": ""
+    },
+    {
+      "Title": "Колокольчики",
+      "Author": "Светлова Валентина (Glert)",
+      "Item": "17910",
+      "Size": {
+        "Width": "91.0",
+        "Height": "260.0"
+      },
+      "Fabric": [
+      ],
+      "ImageUrl": "https://www.stitch.su/images/patterns/big/17910.jpg",
+      "ColorsCount": 0,
+      "Link": ""
+    },
+    {
+      "Title": "Свобода",
+      "Author": "Мешкова Екатерина (oilima)",
+      "Item": "1232",
+      "Size": {
+        "Width": "120.0",
+        "Height": "89.0"
+      },
+      "Fabric": [
+        {
+          "Name": "Monika 30 ct.",
+          "Color": "2010",
+          "ColorName": "White"
+        },
+        {
+          "Name": "Monika 28 ct.",
+          "Color": "2110",
+          "ColorName": "White"
+        }
+      ],
+      "ImageUrl": "https://www.stitch.su/images/patterns/big/1232.jpg",
+      "ColorsCount": 0,
+      "Link": ""
+    },
     {
       "Title": "Котолампочки",
       "Author": "Фролова Дарья",
@@ -2011,6 +2223,82 @@
         }
       ],
       "ImageUrl": "https://www.stitch.su/images/patterns/big/397.jpg",
+      "ColorsCount": 0,
+      "Link": ""
+    },
+    {
+      "Title": "Хозяин тайги",
+      "Author": "Орехова Наталья",
+      "Item": "27329",
+      "Size": {
+        "Width": 150.0,
+        "Height": 196.0
+      },
+      "Fabric": [
+        {
+          "Name": "Aida 16",
+          "Color": "3251/100",
+          "ColorName": "White"
+        }
+      ],
+      "ImageUrl": "https://www.stitch.su/images/patterns/big/27329.jpg",
+      "ColorsCount": 0,
+      "Link": ""
+    },
+    {
+      "Title": "Лукоморье",
+      "Author": "Орехова Наталья",
+      "Item": "22835",
+      "Size": {
+        "Width": "253.0",
+        "Height": "190.0"
+      },
+      "Fabric": [
+      ],
+      "ImageUrl": "https://www.stitch.su/images/patterns/big/22835.jpg",
+      "ColorsCount": 0,
+      "Link": ""
+    },
+    {
+      "Title": "Деревенька",
+      "Author": "Орехова Наталья",
+      "Item": "12247",
+      "Size": {
+        "Width": "100.0",
+        "Height": "54.0"
+      },
+      "Fabric": [
+        {
+          "Name": "Linda",
+          "Color": "1235/1",
+          "ColorName": "White"
+        },
+        {
+          "Name": "Murano",
+          "Color": "3984/100",
+          "ColorName": "White"
+        }
+      ],
+      "ImageUrl": "https://www.stitch.su/images/patterns/big/12247.jpg",
+      "ColorsCount": 0,
+      "Link": ""
+    },
+    {
+      "Title": "Зимний вечер",
+      "Author": "Орехова Наталья",
+      "Item": "408",
+      "Size": {
+        "Width": "70.0",
+        "Height": "70.0"
+      },
+      "Fabric": [
+        {
+          "Name": "Aida 16",
+          "Color": "3251/100",
+          "ColorName": "White"
+        }
+      ],
+      "ImageUrl": "https://www.stitch.su/images/patterns/big/408.jpg",
       "ColorsCount": 0,
       "Link": ""
     },
