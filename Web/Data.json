@@ -141,7 +141,7 @@
         "Width": 36.0,
         "Height": 36.0
       },
-      "ImageUrl": "http://ooo-oven.ru/upload/iblock/4a0/4a064e00055e36167637c0c72fb94394.jpg",
+      "ImageUrl": "https://www.stitch.su/images/big4/35695.jpg",
       "KitType": 0
     },
     {
@@ -153,7 +153,7 @@
         "Width": 28.0,
         "Height": 21.0
       },
-      "ImageUrl": "http://ooo-oven.ru/upload/iblock/6b8/6b883d62e1a5960e31db2dd272e66e49.jpg",
+      "ImageUrl": "https://www.stitch.su/images/big4/36371.jpg",
       "KitType": 0
     },
     {
@@ -165,7 +165,7 @@
         "Width": 37.0,
         "Height": 20.0
       },
-      "ImageUrl": "http://ooo-oven.ru/upload/resize_cache/iblock/15d/940_829_1/15dea4a763b98b38e614f879c68a882b.jpg",
+      "ImageUrl": "https://www.stitch.su/images/big5/40864.jpg",
       "KitType": 0
     },
     {
@@ -177,7 +177,7 @@
         "Width": 31.0,
         "Height": 20.0
       },
-      "ImageUrl": "http://ooo-oven.ru/upload/resize_cache/iblock/3eb/940_829_1/3ebdb9f84b6ff2b3f99e15a74dee0697.jpg",
+      "ImageUrl": "https://www.stitch.su/images/big5/40329.jpg",
       "KitType": 0
     },
     {
@@ -189,7 +189,7 @@
         "Width": 34.0,
         "Height": 22.0
       },
-      "ImageUrl": "http://ooo-oven.ru/upload/resize_cache/iblock/294/940_829_1/2940338411dc77a231d2d729669077ae.jpg",
+      "ImageUrl": "https://www.stitch.su/images/big5/42228.jpg",
       "KitType": 0
     },
     {
@@ -201,7 +201,7 @@
         "Width": 8.0,
         "Height": 9.0
       },
-      "ImageUrl": "http://ooo-oven.ru/upload/iblock/d8b/d8b0e6c98e0a107562707251566c334e.jpg",
+      "ImageUrl": "https://www.stitch.su/images/big5/42229.jpg",
       "KitType": 0
     },
     {
@@ -213,7 +213,7 @@
         "Width": 34.0,
         "Height": 25.0
       },
-      "ImageUrl": "http://ooo-oven.ru/upload/iblock/ccf/ccf687050284ecb0be76d047a2069bd1.jpg",
+      "ImageUrl": "https://www.stitch.su/images/big5/42377.jpg",
       "KitType": 0
     },
     {
@@ -225,7 +225,7 @@
         "Width": 29.0,
         "Height": 42.0
       },
-      "ImageUrl": "https://ooo-oven.ru/upload/iblock/c64/c64644d30a78b8700f333134ee72b2aa.jpg",
+      "ImageUrl": "https://www.stitch.su/images/big6/46962.jpg",
       "KitType": 0
     },
     {
@@ -237,7 +237,7 @@
         "Width": 15.0,
         "Height": 44.0
       },
-      "ImageUrl": "http://ooo-oven.ru/upload/iblock/2fd/2fd74d04c5612aacb92127bc14142fc0.jpg",
+      "ImageUrl": "https://www.stitch.su/images/big5/37983.jpg",
       "KitType": 0
     },
     {
@@ -250,6 +250,30 @@
         "Height": 36.0
       },
       "ImageUrl": "https://www.dimshop.ru/images/big/35222.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Wolf",
+      "Manufacturer": "Dimensions",
+      "Item": "65131",
+      "Size": {
+        "Width": 12.7,
+        "Height": 17.7
+      },
+      "ImageUrl": "https://www.dimshop.ru/images/big/65131.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Brilliant butterfly celebration",
+      "Manufacturer": "Dimensions",
+      "Item": "35063",
+      "Size": {
+        "Width": 30.0,
+        "Height": 41.0
+      },
+      "ImageUrl": "https://www.dimshop.ru/images/big/35063.jpg",
       "KitType": 0
     },
     {
