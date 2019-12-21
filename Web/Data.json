@@ -903,9 +903,23 @@
     "Демина Мария",
     "Князева Ольга",
     "Фролова Дарья",
-    "Светлова Валентина (Glert)"
+    "Светлова Валентина (Glert)",
+    "Нагорная Надежда"
   ],
-  "Patterns": [
+  "Patterns": [{
+    "Title": "Лисенок",
+    "Author": "Нагорная Надежда",
+    "Item": "21394",
+    "Size": {
+      "Width": "166.0",
+      "Height": "194.0"
+    },
+    "Fabric": [
+    ],
+    "ImageUrl": "https://www.stitch.su/images/patterns/big/21394.jpg",
+    "ColorsCount": 0,
+    "Link": ""
+  },
     {
       "Title": "Русалочка",
       "Author": "Мищук Виталия",
