@@ -53,11 +53,13 @@ namespace Web.Models.ViewModels
                 {
                     Price = x.Shop.Price,
                     Title = x.Kit.Info.Title,
+                    IsTop = x.Kit.Tags.Any(y => y.Name == "Top kit"),
                     Place = x.Kit.AvailableShops.Count(y => x.Shop.Price > y.Price) + 1,
                     Url = x.Kit.Image.PreviewImageUrl,
                     Delta = x.Shop.Price - x.MinPrice
                 })
-                .OrderBy(x => x.Place)
+                .OrderBy(x => x.IsTop ? 0 : 1)
+                .ThenBy(x => x.Place)
                 .ThenBy(x => x.Price)
                 .ToArray();
             result.ShopName = matchingKits.First().Shop.Name;
@@ -66,12 +68,64 @@ namespace Web.Models.ViewModels
             result.TotalAmount = result.Kits.Sum(x => x.Price);
             return result;
         }
+
+        private static int CompareDinosByLength(string x, string y)
+        {
+            if (x == null)
+            {
+                if (y == null)
+                {
+                    // If x is null and y is null, they're
+                    // equal. 
+                    return 0;
+                }
+                else
+                {
+                    // If x is null and y is not null, y
+                    // is greater. 
+                    return -1;
+                }
+            }
+            else
+            {
+                // If x is not null...
+                //
+                if (y == null)
+                // ...and y is null, x is greater.
+                {
+                    return 1;
+                }
+                else
+                {
+                    // ...and y is not null, compare the 
+                    // lengths of the two strings.
+                    //
+                    int retval = x.Length.CompareTo(y.Length);
+
+                    if (retval != 0)
+                    {
+                        // If the strings are not of equal length,
+                        // the longer string is greater.
+                        //
+                        return retval;
+                    }
+                    else
+                    {
+                        // If the strings are of equal length,
+                        // sort them with ordinary string comparison.
+                        //
+                        return x.CompareTo(y);
+                    }
+                }
+            }
+        }
     }
 
     public class KitPriceReportUnit
     {
         public string Title { get; set; }
         public string Url { get; set; }
+        public bool IsTop { get; set; }
         public decimal Price { get; set; }
         public decimal Delta { get; set; }
         public int Place { get; set; }

@@ -17,6 +17,7 @@ namespace Web.Models.CrossStitch
         public Manufacturer Manufacturer { get; private set; }
         public ItemImage Image { get; private set; }
         public Description Info { get; private set; }
+        public IEnumerable<Tag> Tags { get; private set; }
         public IEnumerable<ShopInfo> AvailableShops { get; private set; }
         //public PatternPrice PriceInfo { get; private set; }
         //public PatternDistributionStatus Status { get; private set; }
@@ -31,6 +32,7 @@ namespace Web.Models.CrossStitch
             var author = GetManufacturerInfo(root, id.ToString());
             var descriptionInfo = GetDescriptionInfo(root);
             var availableShops = GetPriceInfo(root, uri);
+            var tags = GetTags(root);
             //PatternPrice patternPrice = GetPriceInfo(root);
             //PatternDistributionStatus status = GetStatus(root, patternPrice);
             //
@@ -38,6 +40,7 @@ namespace Web.Models.CrossStitch
             model.Image = image;
             model.Manufacturer = author;
             model.Info = descriptionInfo;
+            model.Tags = tags;
             model.AvailableShops = availableShops;
             //model.PriceInfo = patternPrice;
             //model.Status = status;
@@ -163,6 +166,25 @@ namespace Web.Models.CrossStitch
             }
 
             return description;
+        }
+
+        private static IEnumerable<Tag> GetTags(IElement root)
+        {
+            var tags = new List<Tag>();
+            var tagLinks = root.QuerySelector("div.tags")?.QuerySelectorAll("a");
+            if (tagLinks?.Length > 0)
+            {
+                foreach (var t in tagLinks)
+                {
+                    tags.Add(new Tag
+                    {
+                        Name = t.TextContent,
+                        Link = t.GetAttribute("href")
+                    });
+                }
+            }
+
+            return tags;
         }
 
         private static IEnumerable<ShopInfo> GetPriceInfo(IElement root, Uri uri)
