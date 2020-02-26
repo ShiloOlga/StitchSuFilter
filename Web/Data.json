@@ -626,6 +626,30 @@
     },
     {
       "Id": null,
+      "Title": "Маки и бабочки",
+      "Manufacturer": "Luca-S",
+      "Item": "BU4018",
+      "Size": {
+        "Width": 22.5,
+        "Height": 31.0
+      },
+      "ImageUrl": "https://www.mirkrestikom.ru/uploads/info/item_full/2815665-bu4018-luca-s.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Clifftop Poppies",
+      "Manufacturer": "Anchor",
+      "Item": "APC940",
+      "Size": {
+        "Width": 45.0,
+        "Height": 23.0
+      },
+      "ImageUrl": "https://www.mirkrestikom.ru/uploads/info/item_full/2689839-apc940-pole-makov.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
       "Title": "Кошачья грация",
       "Manufacturer": "RTO",
       "Item": "М553",
@@ -906,20 +930,35 @@
     "Светлова Валентина (Glert)",
     "Нагорная Надежда"
   ],
-  "Patterns": [{
-    "Title": "Лисенок",
-    "Author": "Нагорная Надежда",
-    "Item": "21394",
-    "Size": {
-      "Width": "166.0",
-      "Height": "194.0"
+  "Patterns": [
+    {
+      "Title": "Пасхальный кролик",
+      "Author": "Нагорная Надежда",
+      "Item": "26011",
+      "Size": {
+        "Width": "121.0",
+        "Height": "79.0"
+      },
+      "Fabric": [
+      ],
+      "ImageUrl": "https://www.stitch.su/images/patterns/big/26011.jpg",
+      "ColorsCount": 0,
+      "Link": ""
     },
-    "Fabric": [
-    ],
-    "ImageUrl": "https://www.stitch.su/images/patterns/big/21394.jpg",
-    "ColorsCount": 0,
-    "Link": ""
-  },
+    {
+      "Title": "Лисенок",
+      "Author": "Нагорная Надежда",
+      "Item": "21394",
+      "Size": {
+        "Width": "166.0",
+        "Height": "194.0"
+      },
+      "Fabric": [
+      ],
+      "ImageUrl": "https://www.stitch.su/images/patterns/big/21394.jpg",
+      "ColorsCount": 0,
+      "Link": ""
+    },
     {
       "Title": "Русалочка",
       "Author": "Мищук Виталия",
