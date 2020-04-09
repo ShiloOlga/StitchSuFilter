@@ -201,7 +201,7 @@ namespace Web.Models.CrossStitch
                     if (item.QuerySelector("a") is IHtmlAnchorElement link)
                     {
                         dto.Name = link.Text;
-                        dto.Link = HtmlProcessingUtility.BuildAbsoluteUri(uri, link.Download);
+                        dto.Link = HtmlProcessingUtility.BuildAbsoluteUri(uri, link.PathName + link.Search);
                     }
                     else
                     {
