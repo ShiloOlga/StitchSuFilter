@@ -22,7 +22,8 @@
         "Height": 21.0
       },
       "ImageUrl": "http://www.riolis.ru/zoom/photos/1038.jpg",
-      "KitType": 0
+      "KitType": 0,
+      "HasXSD": "true"
     },
     {
       "Id": null,
@@ -250,7 +251,8 @@
         "Height": 36.0
       },
       "ImageUrl": "https://www.dimshop.ru/images/big/35222.jpg",
-      "KitType": 0
+      "KitType": 0,
+      "HasXSD": "true"
     },
     {
       "Id": null,
@@ -322,7 +324,8 @@
         "Height": 23.0
       },
       "ImageUrl": "http://chudo-igla.ru/d/100-005.jpg",
-      "KitType": 0
+      "KitType": 0,
+      "HasXSD": "true"
     },
     {
       "Id": null,
@@ -502,7 +505,8 @@
         "Height": 20.0
       },
       "ImageUrl": "https://www.stitch.su/images/big5/39642.jpg",
-      "KitType": 0
+      "KitType": 0,
+      "HasXSD": "true"
     },
     {
       "Id": null,
@@ -706,7 +710,8 @@
         "Height": 23.0
       },
       "ImageUrl": "https://hobby-express.ru/data/upload/shop/store/goods/13/2018/11/13_15427877446614143_360.jpg",
-      "KitType": 0
+      "KitType": 0,
+      "HasXSD": "true"
     },
     {
       "Id": null,
@@ -1096,7 +1101,8 @@
       ],
       "ImageUrl": "https://sun9-23.userapi.com/c850336/v850336202/1d0708/uppwv_sm4vA.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD":  "true"
     },
     {
       "Title": "Софья",
@@ -1120,7 +1126,8 @@
       ],
       "ImageUrl": "https://www.stitch.su/images/patterns/big/26926.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Драконий клад кроликов",
@@ -1376,7 +1383,8 @@
       },
       "ImageUrl": "https://www.stitch.su/images/patterns/big/12.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Звездное небо",
@@ -1635,7 +1643,8 @@
       },
       "ImageUrl": "https://www.stitch.su/images/patterns/big/24182.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Лазоревка",
@@ -1927,7 +1936,8 @@
       ],
       "ImageUrl": "https://www.stitch.su/images/patterns/big/19396.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Вселенная",
@@ -2004,7 +2014,8 @@
       },
       "ImageUrl": "https://www.stitch.su/images/patterns/big/18706.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Собор Парижской Богоматери",
@@ -2040,7 +2051,8 @@
       },
       "ImageUrl": "https://pp.userapi.com/c847217/v847217956/1cc0b9/XhStxF4j7h8.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Осенний эльф",
@@ -2076,7 +2088,8 @@
       },
       "ImageUrl": "https://www.stitch.su/images/patterns/big/22265.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Ёлка",
@@ -2095,7 +2108,8 @@
       ],
       "ImageUrl": "https://www.stitch.su/images/patterns/big/20527.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Флорариум",
@@ -2114,7 +2128,8 @@
       ],
       "ImageUrl": "https://www.stitch.su/images/patterns/big/18608.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Акварельный ручей",
@@ -2126,7 +2141,8 @@
       },
       "ImageUrl": "https://www.stitch.su/images/patterns/big/10417.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Бастет",
@@ -2138,7 +2154,8 @@
       },
       "ImageUrl": "https://www.stitch.su/images/patterns/big/25232.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Белый медведь",
@@ -2150,7 +2167,8 @@
       },
       "ImageUrl": "https://www.stitch.su/images/patterns/big/22779.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Зимняя мурлыка",
@@ -2162,7 +2180,8 @@
       },
       "ImageUrl": "https://www.stitch.su/images/patterns/big/24039.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Калитка",
@@ -2174,7 +2193,8 @@
       },
       "ImageUrl": "https://www.stitch.su/images/patterns/big/7559.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Крапива",
@@ -2186,7 +2206,8 @@
       },
       "ImageUrl": "https://www.stitch.su/images/patterns/big/20444.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Кувшинки",
@@ -2198,7 +2219,8 @@
       },
       "ImageUrl": "https://www.stitch.su/images/patterns/big/25799.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Лось",
@@ -2210,7 +2232,8 @@
       },
       "ImageUrl": "https://www.stitch.su/images/patterns/big/20799.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Лошадь белая",
@@ -2222,7 +2245,8 @@
       },
       "ImageUrl": "https://www.stitch.su/images/patterns/big/17018.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Маки",
@@ -2234,7 +2258,8 @@
       },
       "ImageUrl": "https://www.stitch.su/images/patterns/big/19936.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Песнь моря. Сирша",
@@ -2246,7 +2271,8 @@
       },
       "ImageUrl": "https://www.stitch.su/images/patterns/big/22864.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Рыбак",
@@ -2258,7 +2284,8 @@
       },
       "ImageUrl": "https://www.stitch.su/images/patterns/big/22432.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Фиттония",
@@ -2270,7 +2297,8 @@
       },
       "ImageUrl": "https://www.stitch.su/images/patterns/big/20262.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Встречая рассвет",
@@ -2301,7 +2329,8 @@
       ],
       "ImageUrl": "https://www.stitch.su/images/patterns/big/397.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Хозяин тайги",
@@ -2320,7 +2349,8 @@
       ],
       "ImageUrl": "https://www.stitch.su/images/patterns/big/27329.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Лукоморье",
@@ -2334,7 +2364,8 @@
       ],
       "ImageUrl": "https://www.stitch.su/images/patterns/big/22835.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Деревенька",
@@ -2358,7 +2389,8 @@
       ],
       "ImageUrl": "https://www.stitch.su/images/patterns/big/12247.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Зимний вечер",
@@ -2377,7 +2409,8 @@
       ],
       "ImageUrl": "https://www.stitch.su/images/patterns/big/408.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Балерина",
@@ -2538,7 +2571,8 @@
       },
       "ImageUrl": "https://www.stitch.su/images/patterns/big/-.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Весенние веночки у реки",
@@ -2550,7 +2584,8 @@
       },
       "ImageUrl": "https://www.stitch.su/images/patterns/big/23576.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Девушка  с яблоками",
@@ -2562,7 +2597,8 @@
       },
       "ImageUrl": "https://www.stitch.su/images/patterns/big/12625.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Дождливое настроение 11",
@@ -2574,7 +2610,8 @@
       },
       "ImageUrl": "https://www.stitch.su/images/patterns/big/21287.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Лисичка",
@@ -2586,7 +2623,8 @@
       },
       "ImageUrl": "https://www.stitch.su/images/patterns/big/10179.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Ночь огней",
@@ -2598,7 +2636,8 @@
       },
       "ImageUrl": "https://www.stitch.su/images/patterns/big/23749.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Осень в лесу",
@@ -2610,7 +2649,8 @@
       },
       "ImageUrl": "https://www.stitch.su/images/patterns/big/22922.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Фея малинового варенья",

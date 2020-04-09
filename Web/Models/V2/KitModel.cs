@@ -17,5 +17,6 @@ namespace Web.Models.V2
         public Size Size { get; set; }
         public string ImageUrl { get; set; }
         public KitType KitType { get; set; }
+        public bool HasXSD { get; set; }
     }
 }

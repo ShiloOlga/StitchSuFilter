@@ -14,5 +14,6 @@ namespace Web.Models.V2
         public string ImageUrl { get; set; }
         public int ColorsCount { get; set; }
         public string Link { get; set; }
+        public bool HasXSD { get; set; }
     }
 }

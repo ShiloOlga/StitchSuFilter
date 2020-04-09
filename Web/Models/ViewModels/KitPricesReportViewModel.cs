@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using Web.Models.CrossStitch;
 
 namespace Web.Models.ViewModels
@@ -22,6 +25,25 @@ namespace Web.Models.ViewModels
             var list = new List<KitPricesReport>(shops.Length);
             list.AddRange(shops.Select(shop => KitPricesReport.Build(items, shop)));
             model.Shops = list;
+            var result = new
+            {
+                Shops = shops,
+                Kits = items.Select(x => new {
+                    x.Info.Title,
+                    x.Manufacturer.Name,
+                    x.Image.PreviewImageUrl,
+                    Shops = x.AvailableShops
+                })
+            };
+            File.WriteAllText(@"/Users/olgashilo/Work/Angular/CrossStitchNotesSPA/cross-stitch-notes/db/report.json", JsonConvert.SerializeObject(result,
+                new JsonSerializerSettings
+                {
+                    ContractResolver = new DefaultContractResolver
+                    {
+                        NamingStrategy = new CamelCaseNamingStrategy()
+                    },
+                    Formatting = Formatting.Indented
+                }));
             return model;
         }
     }

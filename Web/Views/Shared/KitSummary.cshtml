@@ -1,8 +1,15 @@
 ﻿@model KitModel
 <div class="kit-bg">
     <div class="kit-wrap">
-        <div class="kit-image">
+        <div class="kit-image" style="position:relative">
             <a><img src="@Model.ImageUrl" class="center"></a>
+            @if (Model.HasXSD)
+            {
+
+                <div style="position:absolute; top:0; right: 0;">
+                    <img src="/images/xsd.png" />
+                </div>
+            }
         </div>
         <div class="kit-info">
             <h3 class="kit-title"><a asp-controller="Home" asp-action="Author" asp-route-name="@Model.Manufacturer">@Model.Manufacturer</a></h3>

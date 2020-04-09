@@ -79,7 +79,8 @@ namespace Web.Data.Repositories
                         Manufacturer = kit.Author,
                         Item = kit.Item,
                         Size = kit.Size,
-                        ImageUrl = kit.ImageUrl
+                        ImageUrl = kit.ImageUrl,
+                        HasXSD = kit.HasXSD
                     })
                     .OrderBy(x => _random.Next())
                     .ToArray();
@@ -98,7 +99,8 @@ namespace Web.Data.Repositories
                         Manufacturer = kit.Manufacturer,
                         Item = kit.Item,
                         Size = kit.Size,
-                        ImageUrl = kit.ImageUrl
+                        ImageUrl = kit.ImageUrl,
+                        HasXSD = kit.HasXSD
                     })
                     .OrderBy(x => _random.Next())
                     .ToArray();

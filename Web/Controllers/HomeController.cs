@@ -26,6 +26,7 @@ namespace Web.Controllers
             var viewModel = new KitSummaryViewModel
             {
                 KitItems = patterns
+                    .OrderByDescending(x => x.HasXSD)
                     .Skip((page - 1) * ItemsPerPage)
                     .Take(ItemsPerPage)
                     .OrderBy(x => _random.Next()),
@@ -45,6 +46,7 @@ namespace Web.Controllers
             var viewModel = new KitSummaryViewModel
             {
                 KitItems = kits
+                    .OrderByDescending(x => x.HasXSD)
                     .Skip((page - 1) * ItemsPerPage)
                     .Take(ItemsPerPage)
                     .OrderBy(x => _random.Next()),
@@ -76,7 +78,7 @@ namespace Web.Controllers
                     Manufacturer = kit.Manufacturer,
                     KitType = kit.KitType,
                     Size = kit.Size,
-                    Item = kit.Item,
+                    Item = kit.Item
                 };
                 await _kitsRepository.Add(dto);
                 return RedirectToAction(nameof(Index));
