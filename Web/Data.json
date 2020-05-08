@@ -39,6 +39,78 @@
     },
     {
       "Id": null,
+      "Title": "Тайская кошка",
+      "Manufacturer": "Riolis",
+      "Item": "1066",
+      "Size": {
+        "Width": 38.0,
+        "Height": 26.0
+      },
+      "ImageUrl": "https://www.riolis.ru/zoom/photos/1803.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Русская голубая",
+      "Manufacturer": "Riolis",
+      "Item": "764",
+      "Size": {
+        "Width": 21.0,
+        "Height": 30.0
+      },
+      "ImageUrl": "https://www.riolis.ru/zoom/photos/975.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Дача. Лето",
+      "Manufacturer": "Riolis",
+      "Item": "1847",
+      "Size": {
+        "Width": 20.0,
+        "Height": 30.0
+      },
+      "ImageUrl": "https://www.riolis.ru/zoom/photos/3967.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Венок с иван-чаем",
+      "Manufacturer": "Riolis",
+      "Item": "1456",
+      "Size": {
+        "Width": 30.0,
+        "Height": 30.0
+      },
+      "ImageUrl": "https://www.riolis.ru/zoom/photos/2996.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Бархатцы",
+      "Manufacturer": "Riolis",
+      "Item": "1556",
+      "Size": {
+        "Width": 20.0,
+        "Height": 20.0
+      },
+      "ImageUrl": "https://www.riolis.ru/zoom/photos/3326.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Акварельные георгины",
+      "Manufacturer": "Riolis",
+      "Item": "1820",
+      "Size": {
+        "Width": 30.0,
+        "Height": 30.0
+      },
+      "ImageUrl": "https://www.riolis.ru/zoom/photos/3930.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
       "Title": "Снегири",
       "Manufacturer": "Золотое Руно",
       "Item": "РС-018",
@@ -83,6 +155,30 @@
         "Height": 44.0
       },
       "ImageUrl": "https://panna.ru/images/c/b/d19652818022b.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Чердачная гирлянда",
+      "Manufacturer": "Panna",
+      "Item": "PR-7060",
+      "Size": {
+        "Width": 33.0,
+        "Height": 19.0
+      },
+      "ImageUrl": "https://panna.ru/images/6/e/d57024423062b.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Олени у реки",
+      "Manufacturer": "Panna",
+      "Item": "J-1295",
+      "Size": {
+        "Width": 35.0,
+        "Height": 25.0
+      },
+      "ImageUrl": "https://panna.ru/images/f/7/d10925747242l.jpg",
       "KitType": 0
     },
     {
@@ -239,6 +335,18 @@
         "Height": 44.0
       },
       "ImageUrl": "https://www.stitch.su/images/big5/37983.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Миниатюра Подсолнухи",
+      "Manufacturer": "Овен",
+      "Item": "1285",
+      "Size": {
+        "Width": 15.0,
+        "Height": 15.0
+      },
+      "ImageUrl": "https://www.stitch.su/images/big6/48302.jpg",
       "KitType": 0
     },
     {
@@ -626,6 +734,18 @@
         "Height": 31.5
       },
       "ImageUrl": "https://www.mirkrestikom.ru/uploads/info/item_full/2808221-bu4006-leopard-luca-s.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Paris",
+      "Manufacturer": "Luca-S",
+      "Item": "PB204",
+      "Size": {
+        "Width": 61.5,
+        "Height": 30.5
+      },
+      "ImageUrl": "https://www.mirkrestikom.ru/uploads/info/item_full/2809509-pb204-luca-s.jpg",
       "KitType": 0
     },
     {

@@ -60,6 +60,26 @@ namespace Web.Controllers
             return View("Index", viewModel);
         }
 
+        public async Task<IActionResult> KitsPatterns(int page = 1)
+        {
+            var kits = (await _kitsRepository.AllKitPatterns()).ToList();
+            var viewModel = new KitSummaryViewModel
+            {
+                KitItems = kits
+                    .OrderByDescending(x => x.HasXSD)
+                    .Skip((page - 1) * ItemsPerPage)
+                    .Take(ItemsPerPage)
+                    .OrderBy(x => _random.Next()),
+                PagingInfo = new PagingModel
+                {
+                    CurrentPage = page,
+                    PageSize = ItemsPerPage,
+                    TotalCount = kits.Count
+                }
+            };
+            return View("Index", viewModel);
+        }
+
         public IActionResult Create()
         {
             return View(nameof(Edit), new KitViewModel());
