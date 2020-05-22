@@ -315,6 +315,18 @@
     },
     {
       "Id": null,
+      "Title": "Зимний пейзаж",
+      "Manufacturer": "Овен",
+      "Item": "1300",
+      "Size": {
+        "Width": 27.0,
+        "Height": 15.5
+      },
+      "ImageUrl": "https://www.stitch.su/images/big6/48702.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
       "Title": "Мухоловки в снегу",
       "Manufacturer": "Овен",
       "Item": "1244",
@@ -999,6 +1011,54 @@
         "Height": 30.0
       },
       "ImageUrl": "http://www.riolis.ru/zoom/photos/3450.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Статуэтки. Лягушка",
+      "Manufacturer": "Сделай своими руками",
+      "Item": "С-38",
+      "Size": {
+        "Width": 12.0,
+        "Height": 12.0
+      },
+      "ImageUrl": "https://www.stitch.su/images/big5/38495.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Букет с гортензией",
+      "Manufacturer": "Сделай своими руками",
+      "Item": "Б-16",
+      "Size": {
+        "Width": 74.0,
+        "Height": 54.0
+      },
+      "ImageUrl": "https://www.stitch.su/images/big5/40200.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Хранители кофе",
+      "Manufacturer": "Сделай своими руками",
+      "Item": "Х-05",
+      "Size": {
+        "Width": 22.0,
+        "Height": 17.5
+      },
+      "ImageUrl": "https://www.stitch.su/images/big6/48698.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Aurora",
+      "Manufacturer": "Dimensions",
+      "Item": "35291",
+      "Size": {
+        "Width": 38.0,
+        "Height": 27.0
+      },
+      "ImageUrl": "https://www.stitch.su/images/big3/22464.jpg",
       "KitType": 0
     }
   ],
@@ -11363,6 +11423,20 @@
       "ColorName": "Medium Dark Beaver Gray",
       "RgbColor": "#878471",
       "Length": 8
+    }
+  ],
+  "KitPatterns": [
+    {
+      "Id": null,
+      "Title": "Русская усадьба. Чай под яблоней",
+      "Manufacturer": "Riolis",
+      "Item": "1140",
+      "Size": {
+        "Width": 30.0,
+        "Height": 40.0
+      },
+      "ImageUrl": "http://www.riolis.ru/zoom/photos/2177.jpg",
+      "KitType": 0
     }
   ]
 }

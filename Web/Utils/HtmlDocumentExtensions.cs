@@ -26,13 +26,14 @@ namespace Web.Utils
         {
             var totalPages = 1;
             var paginator = document.QuerySelector("div.paginator");
-            var node = paginator.QuerySelectorAll("a")
-                .Where(el => !string.IsNullOrEmpty(el.TextContent))
-                .LastOrDefault();
-                if (node != null && int.TryParse(node.TextContent, out var value))
+            var aNodes = paginator.QuerySelectorAll("a").Where(el => !string.IsNullOrEmpty(el.TextContent));
+            foreach (var node in aNodes)
+            {
+                if (int.TryParse(node.TextContent, out var value))
                 {
-                    totalPages = value;
+                    totalPages = Math.Max(totalPages, value);
                 }
+            }
             return totalPages;
         }
     }

@@ -1,10 +1,7 @@
-﻿using System.Threading.Tasks;
-using StitchSuApi.Domain.Models;
-
+﻿using System;
 namespace StitchSuApi.Domain.Repositories
 {
     public interface IKitPricesRepository
     {
-        Task<KitPricesReport> GetKitPricesAsync();
     }
 }

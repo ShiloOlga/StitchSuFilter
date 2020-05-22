@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{28BED61F-82CC-44E9-8377-B426A10ABB64}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StitchSuApi", "StitchSuApi\StitchSuApi.csproj", "{9F5341E8-4FF6-4005-A37A-C2F09C8523BB}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{28BED61F-82CC-44E9-8377-B426A10ABB64}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28BED61F-82CC-44E9-8377-B426A10ABB64}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28BED61F-82CC-44E9-8377-B426A10ABB64}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9F5341E8-4FF6-4005-A37A-C2F09C8523BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9F5341E8-4FF6-4005-A37A-C2F09C8523BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9F5341E8-4FF6-4005-A37A-C2F09C8523BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9F5341E8-4FF6-4005-A37A-C2F09C8523BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

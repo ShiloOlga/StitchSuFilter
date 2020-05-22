@@ -18,7 +18,7 @@ namespace Web.Utils.CrossStitch
                 var uri = new Uri($"https://www.stitch.su/users/wishlist/Lamya/page{currentPageNum}");
                 using (var content = await DownloadContent(uri))
                 {
-                    totalPages ??= content.CalculatePagesCount();
+                    totalPages = totalPages ?? content.CalculatePagesCount();
                     patternModels.AddRange(content.SelectPatterns(uri));
                     kitModels.AddRange(content.SelectKits(uri));
                 }

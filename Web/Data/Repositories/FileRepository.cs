@@ -18,7 +18,6 @@ namespace Web.Data.Repositories
         private class Temp
         {
             public ICollection<Models.V2.KitModel> Kits { get; set; }
-            public ICollection<Models.V2.KitModel> KitPatterns { get; }
             public ICollection<string> KitManufacturers { get; set; }
             public ICollection<string> PatternAuthors { get; set; }
             public ICollection<Models.V2.PatternModel> Patterns { get; set; }
@@ -30,7 +29,6 @@ namespace Web.Data.Repositories
         }
 
         public ICollection<Models.V2.KitModel> Kits { get; }
-        public ICollection<Models.V2.KitModel> KitPatterns { get; }
         public ICollection<string> KitManufacturers { get; }
         public ICollection<string> PatternAuthors { get; }
         public ICollection<Models.V2.PatternModel> Patterns { get; }
@@ -43,7 +41,6 @@ namespace Web.Data.Repositories
         public bool IsEmpty => false;
         private IEnumerable<KitModel> _patterns;
         private IEnumerable<KitModel> _kits;
-        private IEnumerable<KitModel> _kitPatterns;
         private readonly Random _random = new Random();
 
         public FileRepository()
@@ -51,7 +48,6 @@ namespace Web.Data.Repositories
             var text = File.ReadAllText("Data.json");
             var data = JsonConvert.DeserializeObject<Temp>(text);
             Kits = data.Kits;
-            KitPatterns = data.KitPatterns;
             KitManufacturers = data.KitManufacturers;
             PatternAuthors = data.PatternAuthors;
             Patterns = data.Patterns;
@@ -111,24 +107,6 @@ namespace Web.Data.Repositories
             }
 
             return Task.FromResult(_kits);
-        }
-
-        public Task<IEnumerable<KitModel>> AllKitPatterns()
-        {
-                _kitPatterns ??= Kits
-                    .Select(kit => new KitModel
-                    {
-                        Title = kit.Title,
-                        Manufacturer = kit.Manufacturer,
-                        Item = kit.Item,
-                        Size = kit.Size,
-                        ImageUrl = kit.ImageUrl,
-                        HasXSD = kit.HasXSD
-                    })
-                    .OrderBy(x => _random.Next())
-                    .ToArray();
-
-            return Task.FromResult(_kitPatterns);
         }
 
         public Task Clear()

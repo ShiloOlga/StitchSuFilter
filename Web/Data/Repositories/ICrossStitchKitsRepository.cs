@@ -8,7 +8,6 @@ namespace Web.Data.Repositories
     {
         Task<IEnumerable<KitModel>> AllPatterns();
         Task<IEnumerable<KitModel>> AllKits();
-        Task<IEnumerable<KitModel>> AllKitPatterns();
         Task Clear();
         Task<PatternModel> GetByItem(string item);
         Task Add(KitModel kit);
