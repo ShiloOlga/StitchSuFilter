@@ -1060,6 +1060,126 @@
       },
       "ImageUrl": "https://www.stitch.su/images/big3/22464.jpg",
       "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Барбус",
+      "Manufacturer": "Дивная вишня",
+      "Item": "КА-009",
+      "Size": {
+        "Width": 11.0,
+        "Height": 14.0
+      },
+      "ImageUrl": "https://www.stitch.su/images/big6/47769.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Сойка",
+      "Manufacturer": "Дивная вишня",
+      "Item": "ВВ-140",
+      "Size": {
+        "Width": 4.0,
+        "Height": 7.0
+      },
+      "ImageUrl": "https://www.stitch.su/images/big6/47233.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Падал первый снег",
+      "Manufacturer": "Овен",
+      "Item": "1267",
+      "Size": {
+        "Width": 27.0,
+        "Height": 39.0
+      },
+      "ImageUrl": "https://www.stitch.su/images/big6/47699.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Зимородок",
+      "Manufacturer": "RTO",
+      "Item": "H224",
+      "Size": {
+        "Width": 10.0,
+        "Height": 10.0
+      },
+      "ImageUrl": "https://www.stitch.su/images/big3/25418.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Колибри",
+      "Manufacturer": "RTO",
+      "Item": "H221",
+      "Size": {
+        "Width": 10.0,
+        "Height": 10.0
+      },
+      "ImageUrl": "https://www.stitch.su/images/big3/25415.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Георгины",
+      "Manufacturer": "Риолис",
+      "Item": "1384",
+      "Size": {
+        "Width": 45.0,
+        "Height": 45.0
+      },
+      "ImageUrl": "https://www.stitch.su/images/big3/25398.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Сербский пейзаж",
+      "Manufacturer": "Риолис",
+      "Item": "1569",
+      "Size": {
+        "Width": 40.0,
+        "Height": 40.0
+      },
+      "ImageUrl": "https://www.stitch.su/images/big4/34320.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Перышко",
+      "Manufacturer": "Марья Искусница",
+      "Item": "14.003.02",
+      "Size": {
+        "Width": 18.0,
+        "Height": 40.0
+      },
+      "ImageUrl": "https://www.stitch.su/images/big5/38677.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Русская баня",
+      "Manufacturer": "Марья Искусница",
+      "Item": "11.002.10",
+      "Size": {
+        "Width": 60.0,
+        "Height": 25.0
+      },
+      "ImageUrl": "https://www.stitch.su/images/big5/42443.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Венок изобилия",
+      "Manufacturer": "Panna",
+      "Item": "СО-1578",
+      "Size": {
+        "Width": 32.0,
+        "Height": 32.0
+      },
+      "ImageUrl": "https://www.stitch.su/images/big3/29092.jpg",
+      "KitType": 0
     }
   ],
   "KitManufacturers": [
@@ -1069,6 +1189,7 @@
     "Riolis",
     "RTO",
     "Алиса",
+    "Дивная вишня",
     "Золотое Руно",
     "М.П. Студия",
     "Марья Искусница",
