@@ -2,10 +2,12 @@
 using Microsoft.AspNetCore.Mvc;
 using StitchSuApi.Domain.Services;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
 
 namespace StitchSuApi.Controllers
 {
     [Route("api/[controller]")]
+    [EnableCors("AllowOrigin")]
     public class KitPricesReportController : Controller
     {
         private readonly IKitPricesService _kitPricesService;
