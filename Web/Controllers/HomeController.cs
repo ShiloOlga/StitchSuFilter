@@ -11,7 +11,7 @@ namespace Web.Controllers
 {
     public class HomeController : Controller
     {
-        public const int ItemsPerPage = 25;
+        public const int ItemsPerPage = 200;
         private readonly ICrossStitchKitsRepository _kitsRepository;
         private readonly Random _random = new Random();
 
@@ -43,6 +43,26 @@ namespace Web.Controllers
         public async Task<IActionResult> Kits(int page = 1)
         {
             var kits = (await _kitsRepository.AllKits()).ToList();
+            var viewModel = new KitSummaryViewModel
+            {
+                KitItems = kits
+                    .OrderByDescending(x => x.HasXSD)
+                    .Skip((page - 1) * ItemsPerPage)
+                    .Take(ItemsPerPage)
+                    .OrderBy(x => _random.Next()),
+                PagingInfo = new PagingModel
+                {
+                    CurrentPage = page,
+                    PageSize = ItemsPerPage,
+                    TotalCount = kits.Count
+                }
+            };
+            return View("Index", viewModel);
+        }
+
+        public async Task<IActionResult> KitsPatterns(int page = 1)
+        {
+            var kits = (await _kitsRepository.AllKitPatterns()).ToList();
             var viewModel = new KitSummaryViewModel
             {
                 KitItems = kits

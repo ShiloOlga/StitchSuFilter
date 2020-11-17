@@ -91,6 +91,9 @@ namespace Web.Data.Repositories
             return Task.CompletedTask;
         }
 
-
+        public Task<IEnumerable<KitModel>> AllKitPatterns()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
