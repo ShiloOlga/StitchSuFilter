@@ -111,6 +111,66 @@
     },
     {
       "Id": null,
+      "Title": "Турецкая гвоздика",
+      "Manufacturer": "Riolis",
+      "Item": "1463",
+      "Size": {
+        "Width": 24.0,
+        "Height": 30.0
+      },
+      "ImageUrl": "https://www.riolis.ru/zoom/photos/2992.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Такса",
+      "Manufacturer": "Riolis",
+      "Item": "906",
+      "Size": {
+        "Width": 25.0,
+        "Height": 25.0
+      },
+      "ImageUrl": "https://www.riolis.ru/zoom/photos/1235.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Календарь",
+      "Manufacturer": "Riolis",
+      "Item": "728",
+      "Size": {
+        "Width": 35.0,
+        "Height": 45.0
+      },
+      "ImageUrl": "https://www.riolis.ru/zoom/photos/887.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Астры",
+      "Manufacturer": "Riolis",
+      "Item": "1389",
+      "Size": {
+        "Width": 30.0,
+        "Height": 40.0
+      },
+      "ImageUrl": "https://www.riolis.ru/zoom/photos/2800.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Летний букет",
+      "Manufacturer": "Riolis",
+      "Item": "1010",
+      "Size": {
+        "Width": 48.0,
+        "Height": 48.0
+      },
+      "ImageUrl": "https://www.riolis.ru/zoom/photos/1489.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
       "Title": "Снегири",
       "Manufacturer": "Золотое Руно",
       "Item": "РС-018",
@@ -143,6 +203,18 @@
         "Height": 30.0
       },
       "ImageUrl": "https://www.alisa-collection.ru/_data/objects/0001/3186/icon.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Моменты творчества: Вдохновение",
+      "Manufacturer": "Алиса",
+      "Item": "6-03",
+      "Size": {
+        "Width": 26.0,
+        "Height": 25.0
+      },
+      "ImageUrl": "https://www.alisa-collection.ru/_data/objects/0000/0285/icon.jpg",
       "KitType": 0
     },
     {
@@ -363,6 +435,30 @@
     },
     {
       "Id": null,
+      "Title": "Озеро Морейн",
+      "Manufacturer": "Овен",
+      "Item": "1256",
+      "Size": {
+        "Width": 20.0,
+        "Height": 20.0
+      },
+      "ImageUrl": "https://www.stitch.su/images/big6/47174.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Туманное утро",
+      "Manufacturer": "Овен",
+      "Item": "1329",
+      "Size": {
+        "Width": 20.0,
+        "Height": 25.0
+      },
+      "ImageUrl": "https://www.stitch.su/images/big6/49423.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
       "Title": "Tiger chilling out",
       "Manufacturer": "Dimensions",
       "Item": "35222",
@@ -396,6 +492,18 @@
         "Height": 41.0
       },
       "ImageUrl": "https://www.dimshop.ru/images/big/35063.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Woodland Glow",
+      "Manufacturer": "Dimensions",
+      "Item": "08922",
+      "Size": {
+        "Width": 35.5,
+        "Height": 27.9
+      },
+      "ImageUrl": "https://www.stitch.su/images/big3/29139.jpg",
       "KitType": 0
     },
     {
@@ -931,6 +1039,30 @@
     },
     {
       "Id": null,
+      "Title": "Лучики солнца",
+      "Manufacturer": "RTO",
+      "Item": "C181",
+      "Size": {
+        "Width": 12.0,
+        "Height": 17.0
+      },
+      "ImageUrl": "https://www.stitch.su/images/big3/28531.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Воришка",
+      "Manufacturer": "RTO",
+      "Item": "M614",
+      "Size": {
+        "Width": 40.0,
+        "Height": 20.5
+      },
+      "ImageUrl": "https://www.stitch.su/images/big4/36617.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
       "Title": "Весы",
       "Manufacturer": "Золотое Руно",
       "Item": "ЦГ-007",
@@ -1171,6 +1303,30 @@
     },
     {
       "Id": null,
+      "Title": "Кошки",
+      "Manufacturer": "Марья Искусница",
+      "Item": "03.017.08",
+      "Size": {
+        "Width": 30.0,
+        "Height": 30.0
+      },
+      "ImageUrl": "https://www.stitch.su/images/big6/49817.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Настурция",
+      "Manufacturer": "Марья Искусница",
+      "Item": "06.002.58",
+      "Size": {
+        "Width": 40.0,
+        "Height": 25.0
+      },
+      "ImageUrl": "https://www.stitch.su/images/big5/38091.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
       "Title": "Венок изобилия",
       "Manufacturer": "Panna",
       "Item": "СО-1578",
@@ -1180,10 +1336,48 @@
       },
       "ImageUrl": "https://www.stitch.su/images/big3/29092.jpg",
       "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Young woman with peacock feathers",
+      "Manufacturer": "Lanarte",
+      "Item": "PN-0148264",
+      "Size": {
+        "Width": 28.0,
+        "Height": 28.0
+      },
+      "ImageUrl": "https://www.stitch.su/images/big3/26256.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Синичка",
+      "Manufacturer": "Heritage",
+      "Item": "LFCD1001E",
+      "Size": {
+        "Width": 5.5,
+        "Height": 7.0
+      },
+      "ImageUrl": "https://www.stitch.su/images/big3/16885.jpg",
+      "KitType": 0
+    },
+    {
+      "Id": null,
+      "Title": "Парк с оленями",
+      "Manufacturer": "Heritage",
+      "Item": "JCDK1212E",
+      "Size": {
+        "Width": 32.0,
+        "Height": 22.0
+      },
+      "ImageUrl": "https://www.stitch.su/images/big3/29224.jpg",
+      "KitType": 0
     }
   ],
   "KitManufacturers": [
     "Dimensions",
+    "Heritage",
+    "Lanarte",
     "Luca-S",
     "OLanTa",
     "Riolis",
@@ -1234,9 +1428,67 @@
     "Князева Ольга",
     "Фролова Дарья",
     "Светлова Валентина (Glert)",
-    "Нагорная Надежда"
+    "Нагорная Надежда",
+    "Савченко Алёна (AlenaStitch)",
+    "Кузнецова Виктория",
+    "Morra Mårran"
   ],
   "Patterns": [
+    {
+      "Title": "Амазонская ранитомея",
+      "Author": "Кузнецова Виктория",
+      "Item": "28691",
+      "Size": {
+        "Width": "77.0",
+        "Height": "79.0"
+      },
+      "Fabric": [],
+      "ImageUrl": "https://www.stitch.su/images/patterns/big/28691.jpg",
+      "ColorsCount": 0,
+      "Link": "",
+      "HasXSD": "true"
+    },
+    {
+      "Title": "Трио. Маки",
+      "Author": "Morra Mårran",
+      "Item": "31090",
+      "Size": {
+        "Width": "101.0",
+        "Height": "129.0"
+      },
+      "Fabric": [],
+      "ImageUrl": "https://www.stitch.su/images/patterns/big/31090.jpg",
+      "ColorsCount": 0,
+      "Link": "",
+      "HasXSD": "true"
+    },
+    {
+      "Title": "Санкт-Петербург",
+      "Author": "Савченко Алёна (AlenaStitch)",
+      "Item": "25914",
+      "Size": {
+        "Width": "109.0",
+        "Height": "109.0"
+      },
+      "Fabric": [],
+      "ImageUrl": "https://www.stitch.su/images/patterns/big/25914.jpg",
+      "ColorsCount": 0,
+      "Link": ""
+    },
+    {
+      "Title": "Нарциссы",
+      "Author": "Окнеас Алиса",
+      "Item": "26970",
+      "Size": {
+        "Width": "95.0",
+        "Height": "95.0"
+      },
+      "Fabric": [],
+      "ImageUrl": "https://www.stitch.su/images/patterns/big/26970.jpg",
+      "ColorsCount": 0,
+      "Link": "",
+      "HasXSD": "true"
+    },
     {
       "Title": "Пасхальный кролик",
       "Author": "Нагорная Надежда",
@@ -1316,7 +1568,8 @@
       ],
       "ImageUrl": "https://www.stitch.su/images/patterns/big/28037.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Мать-и-мачеха",
@@ -1378,7 +1631,8 @@
       ],
       "ImageUrl": "https://www.stitch.su/images/patterns/big/1232.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Котолампочки",
@@ -1495,7 +1749,8 @@
       ],
       "ImageUrl": "https://www.stitch.su/images/patterns/big/27565.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Исландия",
@@ -1745,7 +2000,8 @@
       },
       "ImageUrl": "https://www.stitch.su/images/patterns/big/20778.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Дыхание волшебства",
@@ -1757,7 +2013,8 @@
       },
       "ImageUrl": "https://www.stitch.su/images/patterns/big/19848.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Зима",
@@ -1769,7 +2026,8 @@
       },
       "ImageUrl": "https://www.stitch.su/images/patterns/big/1019.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Коттедж",
@@ -1781,7 +2039,8 @@
       },
       "ImageUrl": "https://www.stitch.su/images/patterns/big/6942.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Осень",
@@ -1793,7 +2052,8 @@
       },
       "ImageUrl": "https://www.stitch.su/images/patterns/big/1018.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Снегурка и Мизгирь",
@@ -1805,7 +2065,8 @@
       },
       "ImageUrl": "https://www.stitch.su/images/patterns/big/1050.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Фонарь",
@@ -1817,7 +2078,8 @@
       },
       "ImageUrl": "https://www.stitch.su/images/patterns/big/20858.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Почти пойманные сны",
@@ -2328,7 +2590,8 @@
       },
       "ImageUrl": "https://www.stitch.su/images/patterns/big/22771.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Цветущий сад",
@@ -2340,7 +2603,8 @@
       },
       "ImageUrl": "https://www.stitch.su/images/patterns/big/23751.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Феи дождливых дней",
@@ -2735,7 +2999,8 @@
       ],
       "ImageUrl": "https://www.stitch.su/images/patterns/big/13971.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Лисичка",
@@ -2754,7 +3019,8 @@
       ],
       "ImageUrl": "https://www.stitch.su/images/patterns/big/1876.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Милый дом. Зима",
@@ -2783,7 +3049,8 @@
       ],
       "ImageUrl": "https://www.stitch.su/images/patterns/big/24258.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Мурлыка",
@@ -2812,7 +3079,8 @@
       ],
       "ImageUrl": "https://www.stitch.su/images/patterns/big/16677.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Хохлома",
@@ -2831,7 +3099,8 @@
       ],
       "ImageUrl": "https://www.stitch.su/images/patterns/big/9485.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Черешня в хрустале",
@@ -2860,7 +3129,8 @@
       ],
       "ImageUrl": "https://www.stitch.su/images/patterns/big/22372.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Ангел сновидений",
@@ -3047,7 +3317,8 @@
       },
       "ImageUrl": "https://www.stitch.su/images/patterns/big/22555.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     },
     {
       "Title": "Пора в отпуск",
@@ -3194,7 +3465,8 @@
       ],
       "ImageUrl": "https://www.stitch.su/images/patterns/big/24217.jpg",
       "ColorsCount": 0,
-      "Link": ""
+      "Link": "",
+      "HasXSD": "true"
     }
   ],
   "FabricTypes": [
